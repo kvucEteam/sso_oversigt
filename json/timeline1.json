@@ -1,0 +1,27 @@
+{
+	"header": "Timeline",
+	"axis": {
+		"x": 17,
+		"y": 5
+	},
+	"data": [
+		[
+			{"left": "70%", "width": "15%", "backgroundColor": "#e56ec9", "color": "#000", "text": "test"},
+			{"left": "80%", "width": "20%", "backgroundColor": "#73f9a9", "color": "#000", "text": "test"}
+		],
+		[
+			{"left": "60%", "width": "15%", "backgroundColor": "#9090d1", "color": "#000", "text": "test"}
+		],
+		[
+			{"left": "40%", "width": "30%", "backgroundColor": "#e26060", "color": "#000", "text": "test"}
+		],
+		[
+			{"left": "20%", "width": "25%", "backgroundColor": "#64e2dc", "color": "#000", "text": "test"}
+		],
+		[
+			{"left": "0%", "width": "15%", "backgroundColor": "#f9f206", "color": "#000", "text": "test"},
+			{"left": "10%", "width": "20%", "backgroundColor": "#9090d1", "color": "#000", "text": "test"}
+		]
+	]
+
+}

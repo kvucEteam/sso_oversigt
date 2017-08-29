@@ -1,0 +1,102 @@
+#mainImg {
+	width: 100%;
+}
+
+#sliderImg {
+	width: 100%;
+}
+
+#outerContainer{
+	border: 1px solid #F00;
+	width: 50%; 
+	margin-left: auto;
+	margin-right: auto;
+	margin-top: 10%;
+	position: relative;
+}
+
+#sliderContainer {
+	width: 100%;
+	/*position: absolute;*/
+	position: fixed;
+	top: 7%;
+	border: 1px solid #F00;
+	z-index: 1;
+}
+
+#slider{
+	display: inline-block;
+	width: 20%;
+	height: 100%;
+	background-color: #000;
+	opacity: 0.6;
+	position: absolute;
+	top: 0px;
+}
+
+
+#box1 {
+	position: absolute; /* <----- Position "absolute" er nu relativ til parent "#outerContainer" */
+	top: 25%;
+	left: 25%;
+	width: 50%;
+	height: 50%;
+}
+
+
+#box12 {
+	position: absolute; /* <----- Position "absolute" er nu relativ til parent "#outerContainer" */
+	top: 25%;
+	left: 25%;
+	width: 50%;
+	height: 50%;
+}
+
+
+#slideToggleMenu1 {
+	width: 20%;
+}
+
+
+.slideToggleMenu {
+	border: 1px solid #CCC;
+	position: absolute;
+	top: 0px;
+}
+
+
+.box {
+	border: 1px solid #00F;
+}
+
+.red {
+	color: #F00;
+}
+
+.green {
+	color: #0F0;
+}
+
+.blue {
+	color: #00F;
+}
+
+.black {
+	color: #000;
+}
+
+.cyan {
+	color: #0FF;
+}
+
+.fuchsia {
+	color: #F0F;
+}
+
+.yellow {
+	color: #FF0;
+}
+
+
+
+/*******************************************/

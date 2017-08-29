@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Timeline</title>
+    <!-- http://www.robotstxt.org/meta.html -->
+    <meta name="robots" content="noindex, nofollow" />
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="../library/css/styles.css" type="text/css" />
+    <link rel="stylesheet" href="timeline_scroll2.css" type="text/css" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+</head>
+
+<body>
+    <div class="container-fluid">
+
+        <h1>Timeline</h1>
+
+
+        <div id="outerContainer">
+
+            <div id="sliderContainer">
+                <img id="sliderImg" class="XXXX-img-responsive" src="img/gantt-chart_horisontal.png">
+                <div id="slider" class="slider">&nbsp;</div> 
+            </div>
+
+            <img id="mainImg" class="XXXXX-img-responsive" src="img/gantt-chart_vertical.png">
+            
+
+            <div id="box1" class="box aqua"> 
+                <div id="box12" class="box">box12</div>
+            </div>
+
+            <div id="slideToggleMenu1" class="slideToggleMenu">
+                <div class="slideToggle_header"> Test header </div>
+                <div class="slideToggle_content"> 
+                    <div>Tekst 1</div>
+                    <div>Tekst 2</div>
+                    <div>Tekst 3</div>
+                    <div>Tekst 4</div>
+                    <div>Tekst 5</div>
+                </div>
+            </div>
+<!-- 
+            <div id="box2" class="box">&nbsp;</div>
+            <div id="box3" class="box">&nbsp;</div>
+            <div id="box4" class="box">&nbsp;</div>
+  -->           
+        </div>
+
+        
+
+<!--         
+        <div id="interface">
+
+            <div id="sliderContainer">
+                <img id="sliderImg" src="img/gantt-chart_horisontal.png">
+                <div id="slider" class="slider">&nbsp;</div> 
+            </div>
+            
+
+            <div id="ganttChart">
+
+                <img id="mainImg" src="img/gantt-chart_vertical.png">
+            </div>
+
+        </div>
+ -->
+    </div>
+    <script src="../library/vendor_scripts.js"></script>
+    <script src="../library/custom_scripts.js"></script>
+    <script src="timeline_scroll2.js"></script>
+    <script type="text/javascript"> 
+        getAjaxData("GET", "json/timeline_scroll2.json", false, "json"); 
+    </script>
+    <script type="text/javascript">
+        $(document).ready(function() {
+            one_line_footer();
+        });
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,44 @@
+
+
+.ganttChart{
+
+	display: inline-block;
+}
+
+.container-fluid{
+	position: relative;
+}
+
+#interface{
+	width: 570px;
+	margin-left: auto;
+	margin-right: auto;
+	margin-top: 100px;  /* <------ Magen bliver p.t. ikke medregnet i heigt i JQuery - derfor nul */
+	position: relative;
+	top: 0px;		/* <------ Kompencer i heigt i JQuery */
+}
+
+#sliderContainer{
+	position: fixed;
+	top: 35px;    /* <------ Kompencer i heigt i JQuery */ 
+	width: 570px;
+}
+
+#sliderImg{
+	width: 570px;
+}
+
+#slider{
+	display: inline-block;
+	width: 100px;
+	height: 172px;
+	background-color: #000;
+	opacity: 0.6;
+	/*position: fixed;*/
+	position: absolute;
+	top: 0px;
+}
+
+#mainImg{
+	width: 570px;
+}

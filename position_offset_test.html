@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Timeline</title>
+    <!-- http://www.robotstxt.org/meta.html -->
+    <meta name="robots" content="noindex, nofollow" />
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="../library/css/styles.css" type="text/css" />
+    <link rel="stylesheet" href="timeline_scroll.css" type="text/css" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+</head>
+
+<body>
+    <div class="container-fluid">
+
+        <h1>Timeline</h1>
+        
+        <div id="interface">
+
+            <div id="sliderContainer">
+                <img id="sliderImg" src="img/gantt-chart_horisontal.png">
+                <div id="slider" class="slider">&nbsp;</div> 
+            </div>
+            
+
+            <div id="ganttChart">
+
+                <img id="mainImg" class="img-responsive" src="img/gantt-chart_vertical.png">
+            </div>
+
+        </div>
+
+    </div>
+    <script src="../library/vendor_scripts.js"></script>
+    <script src="../library/custom_scripts.js"></script>
+    <script src="timeline_scroll.js"></script>
+    <script type="text/javascript"> 
+        getAjaxData("GET", "json/timeline1.json", false, "json"); 
+    </script>
+    <script type="text/javascript">
+        $(document).ready(function() {
+            one_line_footer();
+        });
+    </script>
+</body>
+
+</html>
