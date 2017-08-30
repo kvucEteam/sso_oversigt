@@ -82,8 +82,38 @@ function slideToggleMenu() {
 
 	$( document ).on('click', '.slideToggle_header', function(){
 		console.log('slideToggleMenu - click - CALLED');
+		var parentObj = $(this).parent();
+		$('> .slideToggle_content', parentObj).slideToggle();
+
+		slideToggleMenu_align_slideToggle_content();
 		
-		$('.slideToggle_content').slideToggle();
+	});
+}
+
+
+function slideToggleMenu_align_slideToggle_content() {
+	console.log('slideToggleMenu_align_slideToggle_content - CALLED');
+	
+	var parentId, elementWidth, elementPosition;
+
+	var parentWidth = $('#outerContainer').width();
+
+	$('.slideToggle_content').each(function( index, element ) {
+		parentId = $(element).parent().parent().attr('id');
+
+		if (parentId == 'outerContainer') {  // Only if the slideToggle-menu is a "direct" child of "#outerContainer", then ajust the left-position of ".slideToggle_content":
+			console.log('slideToggleMenu_align_slideToggle_content - A0');
+
+			elementWidth = $(element).width();
+			elementPosition = $(element).parent().position();
+			console.log('slideToggleMenu_align_slideToggle_content - parentWidth: ' + parentWidth + ', elementWidth: ' + elementWidth + ', elementPosition: ' + JSON.stringify(elementPosition));
+
+			if (parentWidth - elementPosition.left < elementWidth) {
+				console.log('slideToggleMenu_align_slideToggle_content - A1');
+
+				$(element).css({left: - (elementWidth - (parentWidth - elementPosition.left))})
+			}
+		}
 	});
 }
 
@@ -122,6 +152,7 @@ $( document ).on('mouseup', 'body', function(){  // <---  IMPORTANT: "body" is n
 
 $(window).resize(function() {
 	scaleAndPosition_sliderContainer();
+	slideToggleMenu_align_slideToggle_content();
 });
 
 

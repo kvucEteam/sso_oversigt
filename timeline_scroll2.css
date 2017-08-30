@@ -8,7 +8,8 @@
 
 #outerContainer{
 	border: 1px solid #F00;
-	width: 50%; 
+	/*width: 50%;*/
+	width: 100%; 
 	margin-left: auto;
 	margin-right: auto;
 	margin-top: 10%;
@@ -53,15 +54,88 @@
 }
 
 
-#slideToggleMenu1 {
-	width: 20%;
+.slideToggle_content {
+	/*position: absolute;*/
+	/*width: 300%;*/
+	border: 1px solid #666;
 }
 
 
 .slideToggleMenu {
-	border: 1px solid #CCC;
+	border: 1px solid #666;
+}
+
+
+#slideToggleMenu1 {
+	width: 20%;
 	position: absolute;
-	top: 0px;
+	top: 10%;
+	/*left: 10%;*/
+	left: 20%;
+	background-color: #73f9a9;
+}
+#slideToggleMenu1 .slideToggle_content{
+	background-color: #73f9a9;
+	position: absolute;
+	width: 300%;
+}
+
+#slideToggleMenu2 {
+	width: 20%;
+	position: absolute;
+	top: 30%;
+	/*left: 10%;*/
+	left: 50%;
+	background-color: #9090d1;
+}
+#slideToggleMenu2 .slideToggle_content{
+	background-color: #9090d1;
+	position: absolute;
+	width: 300%;
+}
+
+#slideToggleMenu2b {
+	width: 100%;
+	position: relative;
+	/*left: 10%;*/
+	background-color: #d2d4ec;
+}
+#slideToggleMenu2b .slideToggle_header{
+	border-top: 1px solid #666;
+	border-bottom: 1px solid #666;
+}
+#slideToggleMenu2b .slideToggle_content{
+	background-color: #d2d4ec;
+	position: relative;
+	width: 100%;
+	border: none;
+}
+
+
+#slideToggleMenu3 {
+	width: 20%;
+	position: absolute;
+	top: 50%;
+	/*left: 10%;*/
+	left: 70%;
+	background-color: #e26060;
+}
+#slideToggleMenu3 .slideToggle_content{
+	background-color: #e26060;
+	position: absolute;
+	width: 300%;
+}
+
+
+.slideToggle_header {
+	padding: 5px 10px 5px 10px;
+}
+
+
+
+
+.indent {
+	padding-left: 20px;
 }
 
 
@@ -95,6 +169,10 @@
 
 .yellow {
 	color: #FF0;
+}
+
+.ccc {
+	color: #CCC;
 }
 
 
