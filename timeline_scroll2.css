@@ -62,7 +62,8 @@
 
 
 .slideToggleMenu {
-	border: 1px solid #666;
+	border: 1px solid #666; 
+	font-size: 24px;
 }
 
 
@@ -74,11 +75,15 @@
 	left: 20%;
 	background-color: #73f9a9;
 }
-#slideToggleMenu1 .slideToggle_content{
-	background-color: #73f9a9;
+#slideToggleMenu1 > .slideToggle_content{
+	background-color: #b5f8d5;
 	position: absolute;
 	width: 300%;
 }
+#slideToggleMenu1 .slideToggleMenu_inner .slideToggle_content{
+	background-color: #e2fdee;
+}
+
 
 #slideToggleMenu2 {
 	width: 20%;
@@ -88,11 +93,15 @@
 	left: 50%;
 	background-color: #9090d1;
 }
-#slideToggleMenu2 .slideToggle_content{
-	background-color: #9090d1;
+#slideToggleMenu2 > .slideToggle_content{
+	background-color: #d2d4ec;
 	position: absolute;
 	width: 300%;
 }
+#slideToggleMenu2 .slideToggleMenu_inner .slideToggle_content{
+	background-color: #eeeef8;
+}
+
 
 #slideToggleMenu2b {
 	width: 100%;
@@ -100,16 +109,17 @@
 	/*left: 10%;*/
 	background-color: #d2d4ec;
 }
-#slideToggleMenu2b .slideToggle_header{
+#slideToggleMenu2b > .slideToggle_header{
 	border-top: 1px solid #666;
 	border-bottom: 1px solid #666;
 }
-#slideToggleMenu2b .slideToggle_content{
+#slideToggleMenu2b > .slideToggle_content{
 	background-color: #d2d4ec;
 	position: relative;
 	width: 100%;
 	border: none;
 }
+
 
 
 #slideToggleMenu3 {
@@ -120,10 +130,13 @@
 	left: 70%;
 	background-color: #e26060;
 }
-#slideToggleMenu3 .slideToggle_content{
-	background-color: #e26060;
+#slideToggleMenu3 > .slideToggle_content{
+	background-color: #f6c0c0;
 	position: absolute;
 	width: 300%;
+}
+#slideToggleMenu3 .slideToggleMenu_inner .slideToggle_content{
+	background-color: #fde7e7;
 }
 
 
@@ -132,6 +145,23 @@
 }
 
 
+.slideToggleMenu_outer{
+	position: absolute;
+}
+
+.slideToggleMenu_inner .slideToggle_content{
+	width: 100%;
+	position: relative;
+}
+
+.slideGlyph {
+	float: right;
+	margin-top: 5px;
+	margin-right: 5px;
+    /*border: 1px solid #111; 
+    border-radius: 8px;
+	clear: both;*/
+}
 
 
 .indent {
@@ -178,3 +208,27 @@
 
 
 /*******************************************/
+
+
+@media (min-width: 768px) and (max-width:1160px) {
+
+    .slideToggleMenu {
+		font-size: 20px;
+	}
+
+	.slideGlyph {
+		/*font-size: 17px;*/
+	}
+
+}
+
+@media (max-width: 768px) {
+
+    .slideToggleMenu {
+		font-size: 32px;
+	}
+
+	.slideGlyph {
+		/*font-size: 25px;*/
+	}
+}

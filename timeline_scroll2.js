@@ -54,6 +54,26 @@ $( "#slider" ).draggable({
 });
 
 
+function makeSlideToggleMenus(header, id) {
+	console.log('makeSlideToggleMenus - jsonData: ' + JSON.stringify(jsonData));
+
+	var HTML = '';
+	HTML += '<div id="'+id+'" class="slideToggleMenu_outer slideToggleMenu">';
+	HTML += 	'<div class="slideToggle_header">'+header+'<span class="slideGlyph glyphicon glyphicon-chevron-down"></span></div>';
+	HTML += 	'<div class="slideToggle_content">';
+		for (var n in jsonData.faq) {
+			HTML += '<div class="slideToggleMenu_inner slideToggleMenu">';
+			HTML += 	'<div class="slideToggle_header">'+jsonData.faq[n][0]+'<span class="slideGlyph glyphicon glyphicon-chevron-down"></span></div>';
+			HTML += 	'<div class="slideToggle_content">'+jsonData.faq[n][1]+'</div>';
+			HTML += '</div>';
+		}
+	HTML += 	'</div>';
+	HTML += '</div>';
+
+	return HTML;
+}
+
+
 function scaleAndPosition_sliderContainer() {
 
 	window.scrollHeight = $('body').height();
@@ -78,12 +98,26 @@ function scaleAndPosition_sliderContainer() {
 
 
 function slideToggleMenu() {
-	$('.slideToggle_content').hide();
+	$('.slideToggle_content').hide(); 
 
 	$( document ).on('click', '.slideToggle_header', function(){
 		console.log('slideToggleMenu - click - CALLED');
+		var jqThis = this;
 		var parentObj = $(this).parent();
-		$('> .slideToggle_content', parentObj).slideToggle();
+		$('> .slideToggle_content', parentObj).slideToggle("slow", function() {
+			if ($('> .slideGlyph', jqThis).hasClass('glyphicon-chevron-down')) {
+				$('> .slideGlyph', jqThis).removeClass('glyphicon-chevron-down').addClass('glyphicon-chevron-up');
+			} else {
+				$('> .slideGlyph', jqThis).removeClass('glyphicon-chevron-up').addClass('glyphicon-chevron-down');
+			}
+		});
+
+		
+		$('.slideToggleMenu_outer').each(function( index, element ) {
+			$(element).css({'z-index': 0});
+		});
+		$(parentObj).closest('.slideToggleMenu_outer').css({'z-index': 1});
+
 
 		slideToggleMenu_align_slideToggle_content();
 		
@@ -117,6 +151,87 @@ function slideToggleMenu_align_slideToggle_content() {
 	});
 }
 
+// FROM: https://stackoverflow.com/questions/16778814/read-css-property-from-stylesheet
+function propertyFromStylesheet(selector, attribute) {
+    var value;
+
+    [].some.call(document.styleSheets, function (sheet) {
+        return [].some.call(sheet.rules, function (rule) {
+            if (selector === rule.selectorText) {
+                return [].some.call(rule.style, function (style) {
+                    if (attribute === style) {
+                        value = rule.style.getPropertyValue(attribute);
+                        return true;
+                    }
+
+                    return false;
+                });
+            }
+
+            return false;
+        });
+    });
+
+    return value;
+}
+console.log('propertyFromStylesheet: ' + propertyFromStylesheet(".slideToggleMenu", "font-size"));
+
+
+// Scales the fonts in all ".slideToggleMenu"
+function slideToggleMenu_scaleFonts() {
+	// var selectorArr = ['.slideToggleMenu'];  
+	var selectorArr = ['#slideToggleMenu1', '#slideToggleMenu2', '#slideToggleMenu2b', '#slideToggleMenu3', '.slideToggleMenu_outer', '.slideToggleMenu_inner'];  
+
+	var maxWidth = parseInt($('.container-fluid').css('max-width').replace('px', ''));
+	var width = parseInt($('.container-fluid').css('width').replace('px', ''));
+
+	var ratio = width/maxWidth;
+	var percent = 100*ratio; 
+
+	// if (typeof(fs)==='undefined') {
+	// 	window.fs = parseInt($('.slideToggleMenu').css('font-size').replace('px', ''));
+	// }
+	var fs = parseInt(slideToggleMenu_fontSize.replace('px', '')); 
+
+	console.log('slideToggleMenu_scaleFonts - maxWidth: ' + maxWidth + ', width: ' + width + ', ratio: ' + ratio + ', percent: ' + percent + ', fs: ' + fs+ ', ratio*fs: ' + ratio*fs);
+
+	for (var n in selectorArr) {
+		// $('#outerContainer > ' + selectorArr[n]).css({'font-size': percent+'%'});
+		$('#outerContainer ' + selectorArr[n]).css({'font-size': String(Math.round(ratio*fs))+'px'});   // slideToggleMenu_fontSize
+	}
+}
+
+
+function styleSheetProperty() {
+	for (var i=0; i < document.styleSheets.length; i++){
+	 	var styleSheet = document.styleSheets[i];
+	 	console.log('styleSheetProperty - styleSheet: ' + styleSheet);
+	 	for (var k = 0; k < styleSheet.length; k++) {
+	 		var cssRule = document.styleSheets[i].cssRules[k];
+	 		console.log('styleSheetProperty - cssRule: ' + cssRule);
+	 	};
+	}
+
+	var first_rule = document.styleSheets[1].cssRules[2];
+	console.log('styleSheetProperty - first_rule: ' + cssRule);
+
+	// "Tomas Grønborg Sørensen"
+	// https://developer.mozilla.org/en-US/docs/Web/API/StyleSheetList
+	var allCSS = [].slice.call(document.styleSheets).reduce(function (prev, styleSheet) {
+        if (styleSheet.cssRules) {
+            return prev +
+                [].slice.call(styleSheet.cssRules)
+                    .reduce(function (prev, cssRule) {
+                        return prev + '(' + cssRule.cssText + ')\n';
+                    }, '');
+        } else {
+            return prev;
+        }
+    }, '');
+	console.log('styleSheetProperty - allCSS: ' + allCSS);
+
+
+}
 
 
 scrollCallback = function() {
@@ -153,15 +268,35 @@ $( document ).on('mouseup', 'body', function(){  // <---  IMPORTANT: "body" is n
 $(window).resize(function() {
 	scaleAndPosition_sliderContainer();
 	slideToggleMenu_align_slideToggle_content();
+
+	slideToggleMenu_scaleFonts();
 });
 
 
 
 $(document).ready(function() {
 
+
+	styleSheetProperty();
+
+	$('#outerContainer').append(makeSlideToggleMenus('FAQ 1', 'slideToggleMenu1'));
+	$('#outerContainer').append(makeSlideToggleMenus('FAQ 2', 'slideToggleMenu2'));
+	$('#outerContainer').append(makeSlideToggleMenus('FAQ 3', 'slideToggleMenu3'));
+
+	window.slideToggleMenu_fontSize = propertyFromStylesheet(".slideToggleMenu", "font-size");
+	slideToggleMenu_scaleFonts();
+
+	var sObj = window.getComputedStyle($('.container-fluid')[0], null);   
+	console.log('resize - sObj: ' + JSON.stringify(sObj['max-width']));
+
+	console.log('resize - sObj 2 : ' + $('.container-fluid').css('max-width'));
+
+
+	//######################################################################################################################################
+
 	scaleAndPosition_sliderContainer();
 
-	 slideToggleMenu();
+	slideToggleMenu();
 
 	$( "#slider" ).css({left: 0}); // <------ This is a bugfix on the live server, that causes the "#slider" to be initialized outside "#sliderContainer". This moves the "#slider" to the start position.
 });
