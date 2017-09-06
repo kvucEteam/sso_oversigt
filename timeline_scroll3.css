@@ -1,0 +1,342 @@
+#mainImg {
+	width: 100%;
+}
+
+#sliderImg {
+	width: 100%;
+}
+
+#bracketImg {
+	height: 100%;
+}
+
+#outerContainer{
+	border: 1px solid #F00;
+	/*width: 50%;*/
+	width: 100%; 
+	margin-left: auto;
+	margin-right: auto;
+	margin-top: 29%;
+	position: relative;
+}
+
+#sliderContainer {
+	width: 100%;
+	/*position: absolute;*/
+	position: fixed;
+	top: -6%;
+	border: 1px solid #F00;
+	z-index: 2;
+}
+
+#slider{
+	display: inline-block;
+	width: 35%;
+	height: 100%;
+/*
+	background-color: #000;
+	opacity: 0.6;
+*/	
+	position: absolute;
+	top: 0px;
+}
+
+
+#box1 {
+	position: absolute; /* <----- Position "absolute" er nu relativ til parent "#outerContainer" */
+	top: 25%;
+	left: 25%;
+	width: 50%;
+	height: 50%;
+}
+
+
+#box12 {
+	position: absolute; /* <----- Position "absolute" er nu relativ til parent "#outerContainer" */
+	top: 25%;
+	left: 25%;
+	width: 50%;
+	height: 50%;
+}
+
+
+.slideToggle_content {
+	/*position: absolute;*/
+	/*width: 300%;*/
+	border: 1px solid #666;
+}
+
+
+.slideToggleMenu {
+	border: 1px solid #666; 
+	font-size: 24px;
+}
+
+
+#slideToggleMenu1 {
+	width: 20%;
+	position: absolute;
+	top: 10%;
+	left: 20%;
+	background-color: #73f9a9;
+}
+#slideToggleMenu1 > .slideToggle_content{
+	background-color: #b5f8d5;
+	position: absolute;
+	width: 300%;
+}
+#slideToggleMenu1 .slideToggleMenu_inner .slideToggle_content{
+	background-color: #e2fdee;
+}
+
+
+#slideToggleMenu2 {
+	width: 20%;
+	position: absolute;
+	top: 30%;
+	left: 50%;
+	background-color: #9090d1;
+}
+#slideToggleMenu2 > .slideToggle_content{
+	background-color: #d2d4ec;
+	position: absolute;
+	width: 300%;
+}
+#slideToggleMenu2 .slideToggleMenu_inner .slideToggle_content{
+	background-color: #eeeef8;
+}
+
+
+#slideToggleMenu2b {
+	width: 100%;
+	position: relative;
+	/*left: 10%;*/
+	background-color: #d2d4ec;
+}
+#slideToggleMenu2b > .slideToggle_header{
+	border-top: 1px solid #666;
+	border-bottom: 1px solid #666;
+}
+#slideToggleMenu2b > .slideToggle_content{
+	background-color: #d2d4ec;
+	position: relative;
+	width: 100%;
+	border: none;
+}
+
+
+
+#slideToggleMenu3 {
+	width: 20%;
+	position: absolute;
+	top: 50%;
+	left: 70%;
+	background-color: #e26060;
+}
+#slideToggleMenu3 > .slideToggle_content{
+	background-color: #f6c0c0;
+	position: absolute;
+	width: 300%;
+}
+#slideToggleMenu3 .slideToggleMenu_inner .slideToggle_content{
+	background-color: #fde7e7;
+}
+
+
+.videoPlayBtn {
+	margin: 0px;
+	/*padding: 1% 1%;*/
+	padding-left: 1%;
+	padding-right: 5%;
+	padding-top: 1%;
+	padding-bottom: 1%;
+}
+
+.videoPlayBtn .glyphicon-play {
+	margin-left: 10%;
+	margin-right: 10%;
+}
+
+
+#videoPlayBtn1 {
+	position: absolute;
+	top: 10%;
+	left: 50%;
+}
+
+
+.slideToggle_header {
+	padding: 5px 10px 5px 10px;
+	margin: 0px;
+}
+
+
+.slideToggleMenu_outer{
+	position: absolute;
+}
+
+.slideToggleMenu_inner .slideToggle_content{
+	width: 100%;
+	position: relative;
+}
+
+.slideGlyph {
+	float: right;
+	margin-top: 3%;
+	margin-right: 5%;
+    /*border: 1px solid #111; 
+    border-radius: 8px;
+	clear: both;*/
+}
+
+.slideToggle_content .slideGlyph {
+	margin-top: 1%;
+	/*margin-right: 5px;*/
+}
+
+
+.glyphicons-show-thumbnails-with-lines{
+    margin-top: 0%;
+    margin-right: 7%;
+    margin-left: 1%;
+}
+
+
+.indent {
+	padding-left: 20px;
+}
+
+
+.box {
+	border: 1px solid #00F;
+}
+
+.red {
+	color: #F00;
+}
+
+.green {
+	color: #0F0;
+}
+
+.blue {
+	color: #00F;
+}
+
+.black {
+	color: #000;
+}
+
+.cyan {
+	color: #0FF;
+}
+
+.fuchsia {
+	color: #F0F;
+}
+
+.yellow {
+	color: #FF0;
+}
+
+.ccc {
+	color: #CCC;
+}
+
+.mobile{
+	padding: 0px;  /* This applies for mobile devices - the class will be added by JS to ".container-fluid" */
+}
+
+
+.MsgBox_bgr_video{
+/*	
+	background-color: #000;
+	opacity: 0.5;
+*/
+	background-color: rgba(0,0,0,.5);
+}
+
+#UserMsgBox_video {
+    background-color: #FFF;
+
+    width: 100%;
+    /*max-width:1160px;*/  /* TLY wants the video to be at is maximum posible width */
+
+    position: absolute;
+    top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);  /* https://css-tricks.com/centering-css-complete-guide/ */
+
+}
+
+#UserMsgBox_video .CloseClass{
+/*#UserMsgBox_video .CloseClass_circle{*/
+	margin: 0px;
+	font-size: 2vw;
+	padding: 5px;
+	position: absolute;
+	top: 10px;
+	right: 10px;
+	float: right;
+	clear: both;
+	cursor: pointer;
+
+	/*color: rgba(255, 255, 255, .5);
+	border: 5px solid rgba(0, 0, 0, .5);*/  /* See: https://stackoverflow.com/questions/4062001/css3-border-opacity */
+
+	/*color: rgba(0, 0, 0, .5);
+	border: 5px solid rgba(255, 255, 255, .5);*/  /* See: https://stackoverflow.com/questions/4062001/css3-border-opacity */
+
+    /*-webkit-background-clip: padding-box;*/ /* for Safari */
+    /*background-clip: padding-box;*/ /* for IE9+, Firefox 4+, Opera, Chrome */
+
+    /*border-radius: 50%;*/
+
+}
+
+/*
+#UserMsgBox_video .CloseClass_inner{
+	position: absolute;
+	top: 20%;
+	left: 21%;
+	color: rgba(0,0,0,.5);
+	font-size: 80%;
+}
+*/
+
+/*******************************************/
+
+
+@media (min-width: 768px) and (max-width:1160px) {
+
+    .slideToggleMenu {
+		font-size: 20px;
+	}
+
+	.slideGlyph {
+		/*font-size: 17px;*/
+	}
+
+}
+
+@media (max-width: 768px) {
+
+    .slideToggleMenu {
+		font-size: 32px;
+	}
+
+	.slideGlyph {
+		/*font-size: 25px;*/
+	}
+
+	.container-fluid {
+	    padding: 0 0px;  /* This has been replaced with a JS detection for mobile devices - the class ".mobile" will be added to ".container-fluid" if a mobile device is detected */
+	}
+
+	#UserMsgBox_video .CloseClass{
+	/*#UserMsgBox_video .CloseClass_circle{*/
+		font-size: 4vw;
+		padding: 3px;
+	}
+
+}

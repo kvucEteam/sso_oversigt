@@ -181,7 +181,7 @@ $(window).resize(function() {
 
 $(document).ready(function() {
 
-	console.log('timeline - jsonData: ' + JSON.stringify(jsonData));
+	// console.log('timeline - jsonData: ' + JSON.stringify(jsonData));
 
 	main();
 

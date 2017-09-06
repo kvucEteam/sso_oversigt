@@ -1,7 +1,7 @@
 
 //=========================================
 // 		Links to resources:
-//========================================= 
+//=========================================
 //
 // Draggable containment:
 // https://jqueryui.com/draggable/#constrain-movement
