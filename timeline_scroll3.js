@@ -65,7 +65,7 @@ function makeSlideToggleMenus(header, id) {
 	HTML += 	'<div class="slideToggle_content">';
 		for (var n in jsonData.faq) {
 			HTML += '<div class="slideToggleMenu_inner slideToggleMenu">';
-			HTML += 	'<div class="slideToggle_header">'+jsonData.faq[n][0]+'<span class="slideGlyph glyphicon glyphicon-chevron-down"></span></div>';
+			HTML += 	'<h4 class="slideToggle_header">'+jsonData.faq[n][0]+'<span class="slideGlyph glyphicon glyphicon-chevron-down"></span></h4>';
 			HTML += 	'<div class="slideToggle_content">'+jsonData.faq[n][1]+'</div>';
 			HTML += '</div>';
 		}
@@ -179,7 +179,7 @@ function slideToggleMenu_align_slideToggle_content() {
 			if (parentWidth - elementPosition.left < elementWidth) {
 				console.log('slideToggleMenu_align_slideToggle_content - A1');
 
-				$(element).css({left: - (elementWidth - (parentWidth - elementPosition.left))})
+				$(element).css({left: - (elementWidth - (parentWidth - elementPosition.left))});
 			}
 		}
 	});
@@ -236,7 +236,8 @@ function slideToggleMenu_setFontSize() {
 // Scales the fonts in all ".slideToggleMenu"
 function slideToggleMenu_scaleFonts() {
 	// var selectorArr = ['.slideToggleMenu'];  
-	var selectorArr = ['#slideToggleMenu1', '#slideToggleMenu2', '#slideToggleMenu2b', '#slideToggleMenu3', '.slideToggleMenu_outer', '.slideToggleMenu_inner', '#videoPlayBtn1'];  
+	// var selectorArr = ['#slideToggleMenu1', '#slideToggleMenu2', '#slideToggleMenu2b', '#slideToggleMenu3', '.slideToggleMenu_outer', '.slideToggleMenu_inner', '#videoPlayBtn1'];  
+	var selectorArr = ['.slideToggleMenu_outer', '.slideToggleMenu_inner', '#videoPlayBtn1'];  
 
 	var maxWidth = parseInt($('.container-fluid').css('max-width').replace('px', ''));
 	var width = parseInt($('.container-fluid').css('width').replace('px', ''));
@@ -325,7 +326,7 @@ $(window).resize(function() {
 	scaleAndPosition_sliderContainer();
 	slideToggleMenu_align_slideToggle_content();
 
-	slideToggleMenu_scaleFonts();
+	// slideToggleMenu_scaleFonts();
 });
 
 
@@ -357,13 +358,13 @@ $(document).ready(function() {
 
 	styleSheetProperty();
 
-	$('#outerContainer').append(makeSlideToggleMenus('FAQ 1', 'slideToggleMenu1'));
+	$('#outerContainer').append(makeSlideToggleMenus('FAQ: Introduktion til SSO', 'slideToggleMenu1'));
 	$('#outerContainer').append(makeVideoPlayBtn('Test video', 'videoPlayBtn1', 'https://www.youtube.com/embed/-Go7min716I'));
 	$('#outerContainer').append(makeSlideToggleMenus('FAQ 2', 'slideToggleMenu2'));
 	$('#outerContainer').append(makeSlideToggleMenus('FAQ 3', 'slideToggleMenu3'));
 
 	window.slideToggleMenu_fontSize = propertyFromStylesheet(".slideToggleMenu", "font-size");
-	slideToggleMenu_scaleFonts();
+	// slideToggleMenu_scaleFonts();
 
 	var sObj = window.getComputedStyle($('.container-fluid')[0], null);   
 	console.log('resize - sObj: ' + JSON.stringify(sObj['max-width']));
