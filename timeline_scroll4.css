@@ -264,7 +264,7 @@
 }
 
 .blue {
-	color: #00F;
+	/*border: 1px solid #00F;*/
 }
 
 .black {
@@ -348,7 +348,99 @@
 }
 */
 
-/*******************************************/
+
+/**************************  version 4 style  ****************************/
+
+#sliderContainer {
+	z-index: 101;
+}
+
+#slider {
+	width: initial;
+	cursor: pointer;
+}
+
+#groupContainer1 {
+	position: absolute;
+	top: 3%;
+	width: 100%;
+}
+
+#groupContainer2 {
+	position: absolute;
+	top: 8%;
+	width: 100%;
+}
+
+#groupContainer3 {
+	position: absolute;
+	top: 13%;
+	width: 100%;
+}
+
+#groupContainer4 {
+	position: absolute;
+	top: 18%;
+	width: 100%;
+}
+
+#groupContainer5 {
+	position: absolute;
+	top: 18%;
+	width: 100%;
+}
+
+#groupContainer6 {
+	position: absolute;
+	top: 23%;
+	width: 100%;
+}
+
+#sso_emner {
+	position: absolute;
+	top: 13%;
+	box-shadow: 6px 6px 3px #888888;
+	border-radius: 4px;
+}
+
+.groupColumn {
+	position: relative;
+	height: 100%;
+}
+
+.groupColumn h2 {
+	margin-top: 10px;
+	margin-bottom: 10px;
+}
+
+.slideToggleMenu_outer {
+	/*position: absolute;
+	top: 50%;
+	transform: translateY(-50%);*/
+
+	position: relative;
+	display: inline-block;
+	margin-top: 20%;
+}
+
+.slideToggleMenu_outer h4 {
+	cursor: pointer;
+}
+
+.MsgBox_bgr_video {
+	z-index: 102;
+}
+
+
+@media (max-width: 559px) { 
+
+    .slideToggleMenu_outer {
+    	margin-top: 5%;
+    }
+
+}
+
+/************************************************************************/
 
 
 @media (min-width: 768px) and (max-width:1160px) {

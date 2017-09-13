@@ -1,0 +1,38 @@
+[
+	{
+		"header": "Formalia",
+		"instruction":	"instruction text",
+		"explanation":	"explanation text",
+		"checklist": [
+			"Formalia vedrørende...",
+			"Formalia vedrørende...",
+			"Formalia vedrørende...", 
+			"Formalia vedrørende...",
+			"Formalia vedrørende..."
+		]
+	},
+	{
+		"header": "Formalia",
+		"instruction":	"instruction text",
+		"explanation":	"explanation text",
+		"checklist": [
+			"Formalia vedrørende...",
+			"Formalia vedrørende...",
+			"Formalia vedrørende...",
+			"Formalia vedrørende...",
+			"Formalia vedrørende..."
+		]
+	},
+	{
+		"header": "Formalia",
+		"instruction":	"instruction text",
+		"explanation":	"explanation text",
+		"checklist": [
+			"Formalia vedrørende...",
+			"Formalia vedrørende...",
+			"Formalia vedrørende...",
+			"Formalia vedrørende...",
+			"Formalia vedrørende..."
+		]
+	}
+]

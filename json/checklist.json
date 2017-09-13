@@ -1,0 +1,38 @@
+[
+	{
+		"header": "Checkliste",
+		"instruction":	"instruction text",
+		"explanation":	"explanation text",
+		"checklist": [
+			"Du skal huske at...Du skal huske at...Du skal huske at...", 
+			"Du skal huske at...",
+			"Du skal huske at...",
+			"Du skal huske at...",
+			"Du skal huske at..."
+		]
+	},
+	{
+		"header": "Checkliste",
+		"instruction":	"instruction text",
+		"explanation":	"explanation text",
+		"checklist": [
+			"Du skal huske at...",
+			"Du skal huske at...",
+			"Du skal huske at...",
+			"Du skal huske at...",
+			"Du skal huske at..."
+		]
+	},
+	{
+		"header": "Checkliste",
+		"instruction":	"instruction text",
+		"explanation":	"explanation text",
+		"checklist": [
+			"Du skal huske at...",
+			"Du skal huske at...",
+			"Du skal huske at...",
+			"Du skal huske at...",
+			"Du skal huske at..."
+		]
+	}
+]
