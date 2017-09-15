@@ -79,7 +79,7 @@
 	border-top: 1px solid #999;
 	background-color: #f8f8f6;
 
-	background-color: #999;  /* Lys undermenu-content - 17/9-2017  */
+	background-color: #e7e6e2;  /* Lys undermenu-content - 17/9-2017  */
 
 	/*padding-bottom: 20px;*/
 }
@@ -200,7 +200,8 @@
 
 .slideToggle_headerText {
 	display: inline-block;
-    margin: 0px 10px;
+    margin: 0px 20px;
+    max-width: 85%;
 /*
 	width: 150%;
 	display: inline-block;
@@ -234,7 +235,7 @@
 	padding-left: 4%;
 	padding-right: 4%;
 
-	background-color: #CCC;  /* Lys undermenu-content */
+	background-color: #f8f8f6;  /* Lys undermenu-content */
 
 }
 
@@ -251,6 +252,7 @@
 	float: right;
 	margin-top: 0%;
 	margin-right: 0%;
+	top: 3px;
     /*border: 1px solid #111; 
     border-radius: 8px;
 	clear: both;*/
@@ -481,6 +483,9 @@
 
 .slideToggleMenu_outer h4 {
 	cursor: pointer;
+	padding-top: 10px;
+	padding-bottom: 10px;
+	margin-right: 5px;
 }
 
 .MsgBox_bgr_video {
@@ -546,6 +551,10 @@
 
 .slideToggle_paddingElement {
 	height: 20px;
+}
+
+.glyphicons-show-thumbnails-with-lines, .glyphicon-ok {
+	margin-left: 10px;
 }
 
 /************************************************************************/

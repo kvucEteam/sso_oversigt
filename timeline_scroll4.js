@@ -686,19 +686,21 @@ $( document ).on('click', ".objLink", function(event){
 
 });
 
-$( document ).on('mouseover', '.objLink', function(){
+$( document ).on('mouseenter', '.objLink', function(){
 	console.log('mouseover - CALLED');
 
 	$('.cviOverlay', this).fadeIn( "fast", function() {
-		fadeDone = true;
+		// fadeDone = true;
 	});
+
+	$('.btn_ghost', this).addClass('');
 });
 
-$( document ).on('mouseout', '.objLink', function(){
+$( document ).on('mouseleave', '.objLink', function(){
 	console.log('mouseout - CALLED');
 	
 	$('.cviOverlay', this).fadeOut( "fast", function() {
-		fadeDone = true;
+		// fadeDone = true;
 	});
 });
 // objLink
@@ -712,7 +714,7 @@ $(window).resize(function() {
 
 	// cc.setBaseFontSize( selectorObj );
 	// cc.scaleBaseFonts( ['.slideToggle_header', '.slideToggle_content', '#videoPlayBtn1'] );
-	linearFontScale();
+	// linearFontScale();
 });
 
 
@@ -828,7 +830,7 @@ $(document).ready(function() {
 
 	// cc.setBaseFontSize( selectorObj );
 	// cc.scaleBaseFonts( ['.slideToggle_header', '.slideToggle_content', '#videoPlayBtn1'] );
-	linearFontScale();  // <---------- // NEWEST function: 11/9-2017
+	// linearFontScale();  // <---------- // NEWEST function: 11/9-2017
 
 
 	scaleAndPosition_sliderContainer();
