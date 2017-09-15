@@ -693,7 +693,7 @@ $( document ).on('mouseenter', '.objLink', function(){
 		// fadeDone = true;
 	});
 
-	$('.btn_ghost', this).addClass('');
+	$('.btn_ghost', this).switchClass( "btn_ghost_noStyle", "vuc-primary", 300, "easeInOutQuad" );
 });
 
 $( document ).on('mouseleave', '.objLink', function(){
@@ -702,6 +702,8 @@ $( document ).on('mouseleave', '.objLink', function(){
 	$('.cviOverlay', this).fadeOut( "fast", function() {
 		// fadeDone = true;
 	});
+
+	$('.btn_ghost', this).switchClass( "vuc-primary", "btn_ghost_noStyle", 300, "easeInOutQuad" );
 });
 // objLink
 
@@ -775,7 +777,7 @@ $(document).ready(function() {
 	var sso_emner = '';
 	sso_emner += '<span id="sso_emner" class="objLink" data-url="../sso_emner/emner.html">';
 		sso_emner += '<div class="imgContainer"><div class="cviOverlay">&nbsp;</div><img class="img-responsive" src="img/sso_emne.png"></div>';
-		sso_emner += '<div class="objText"><h3>Få hjælp til at vælge dit emne</h3> <div class="btn_ghost btn btn-default">Til emnerne</div> </div>';
+		sso_emner += '<div class="objText"><h3>Få hjælp til at vælge dit emne</h3> <div class="btn_ghost btn_ghost_noStyle btn btn-default">Til emnerne</div> </div>';
 	sso_emner += '</span>';
 	// $('#outerContainer').append('<a id="sso_emner" href="../sso_emner/emner.html"><img class="img-responsive" src="img/sso_emne.png"></a>');
 	$('#outerContainer').append(sso_emner);
@@ -799,7 +801,7 @@ $(document).ready(function() {
 	var sso_skriveuge = '';
 	sso_skriveuge += '<span id="sso_skriveuge" class="objLink" data-url="../sso_skriveuge/skriveuge.html">';
 		sso_skriveuge += '<div class="imgContainer"><div class="cviOverlay">&nbsp;</div><img class="img-responsive" src="img/sso_skriveuge.png"></div>';
-		sso_skriveuge += '<div class="objText"><h3>Få overblik over skriveugen</h3> <div class="btn_ghost btn btn-default">Til skriveugen</div> </div>';
+		sso_skriveuge += '<div class="objText"><h3>Få overblik over skriveugen</h3> <div class="btn_ghost btn_ghost_noStyle btn btn-default">Til skriveugen</div> </div>';
 	sso_skriveuge += '</span>';
 	$('#outerContainer').append(sso_skriveuge);
 
