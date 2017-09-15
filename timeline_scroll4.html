@@ -18,16 +18,16 @@
         <div id="outerContainer">
 
             <div id="sliderContainer">
-                <img id="sliderImg" class="img-responsive" src="img/gantt-chart_horisontal.png">
+                <img id="sliderImg" class="img-responsive" src="img/gantt-chart_horisontal.png" alt="">
                 <div id="slider" class="slider">
                     <!-- &nbsp; -->
 
-                    <img id="bracketImg" class="mg-responsive" src="img/topslidermarker.svg">
+                    <img id="bracketImg" class="XXXX_img-responsive" src="img/topslidermarker.svg" alt="">
                     
                 </div>  
             </div>
 
-            <img id="mainImg" class="img-responsive" src="img/gantt-chart_vertical.png"> 
+            <img id="mainImg" class="img-responsive" src="img/gantt-chart_vertical.png" alt=""> 
             
         </div>
 
@@ -41,6 +41,12 @@
     <script type="text/javascript"> 
         getAjaxData("GET", "../sso_faq/json/faq_1.json", false, "json"); 
         window.faqObj1 = JSON.parse(JSON.stringify(jsonData));
+
+        getAjaxData("GET", "../sso_faq/json/faq_2.json", false, "json"); 
+        window.faqObj2 = JSON.parse(JSON.stringify(jsonData));
+
+        getAjaxData("GET", "../sso_faq/json/faq_3.json", false, "json"); 
+        window.faqObj3 = JSON.parse(JSON.stringify(jsonData));
 
         getAjaxData("GET", "json/checklist.json", false, "json"); 
         window.checklist = JSON.parse(JSON.stringify(jsonData));

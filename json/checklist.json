@@ -4,18 +4,6 @@
 		"instruction":	"instruction text",
 		"explanation":	"explanation text",
 		"checklist": [
-			"Du skal huske at...Du skal huske at...Du skal huske at...", 
-			"Du skal huske at...",
-			"Du skal huske at...",
-			"Du skal huske at...",
-			"Du skal huske at..."
-		]
-	},
-	{
-		"header": "Checkliste",
-		"instruction":	"instruction text",
-		"explanation":	"explanation text",
-		"checklist": [
 			"Du skal huske at...",
 			"Du skal huske at...",
 			"Du skal huske at...",
@@ -33,6 +21,18 @@
 			"Du skal huske at...",
 			"Du skal huske at...",
 			"Du skal huske at..."
+		]
+	},
+	{
+		"header": "Klar til skriveugen",
+		"instruction":	"instruction text",
+		"explanation":	"explanation text",
+		"checklist": [
+			"Du har et NemID eller unilogin til netprøver.dk", 
+			"Du har en vejleder",
+			"Du har fået godkendt dit emne med vejlederen",
+			"Du har fundet litteratur og orienteret dig i litteraturen",
+			"Du har styr på kravene til SSO"
 		]
 	}
 ]

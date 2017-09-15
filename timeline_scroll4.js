@@ -20,6 +20,7 @@ function template() {
 
 }
 
+var fadeDone = true;
 window.scrollHeight = $('body').height(); // This n
 window.sliderContainerWidth = $('#sliderContainer').width();
 
@@ -125,6 +126,7 @@ function makeSlideToggleMenus_faq(header, faqObj) {
 			HTML += '</div>';
 		}
 	HTML += 	'</div>';
+	// HTML += 	'<div class="slideToggle_paddingElement">&nbsp;</div>';
 	HTML += '</div>';
 	console.log('makeSlideToggleMenus_faq - HTML: ' + HTML);
 
@@ -292,9 +294,9 @@ function slideToggleMenu_align_slideToggle_content() {
 
 				$(element).css({left: - (elementWidth - (parentWidth - elementPosition.left))});
 
-				$(element).css({'border-top-left-radius': '4px'});
+				// $(element).css({'border-top-left-radius': '4px'});
 			} else {
-				$(element).css({'border-top-left-radius': '0px'});
+				// $(element).css({'border-top-left-radius': '0px'});
 			}
 		}
 	});
@@ -674,6 +676,33 @@ $( document ).on('click', ".microhint", function(event){
 	});
 });
 
+$( document ).on('click', ".objLink", function(event){
+	console.log('click - CALLED');
+
+	var dataUrl = $(this).attr('data-url');
+	console.log('click - dataUrl: ' + dataUrl);
+
+	window.open(dataUrl, '_blank');
+
+});
+
+$( document ).on('mouseover', '.objLink', function(){
+	console.log('mouseover - CALLED');
+
+	$('.cviOverlay', this).fadeIn( "fast", function() {
+		fadeDone = true;
+	});
+});
+
+$( document ).on('mouseout', '.objLink', function(){
+	console.log('mouseout - CALLED');
+	
+	$('.cviOverlay', this).fadeOut( "fast", function() {
+		fadeDone = true;
+	});
+});
+// objLink
+
 
 $(window).resize(function() {
 	scaleAndPosition_sliderContainer();
@@ -711,44 +740,66 @@ $(document).ready(function() {
 	// $('#outerContainer').append(makeSlideToggleMenus_faq('FAQ 2', 'slideToggleMenu2'));
 	// $('#outerContainer').append(makeSlideToggleMenus_faq('FAQ 3', 'slideToggleMenu3'));
 
+	var faqObj;
 
 
-	faqObj1.header = "FAQ"; 
-	var videoObj1 = {thumbnailSrc: 'img/MetteVibeUtzon.jpg', videoSrc: 'https://www.youtube.com/embed/-Go7min716I'};
-	$('#outerContainer').append(makeGroupContainers('groupContainer1', {header: "Få overblik over SSO", columnContent: [{'video': videoObj1}, {'faq': faqObj1}, {'checklist': checklist[0]}]} ));   // Om SSO Generelt
+	faqObj1.header = "FAQ: Om SSO Generelt"; 
+	var videoObj1 = {thumbnailSrc: 'img/dummy_introyoutube.png', videoSrc: 'https://www.youtube.com/embed/WmYhbS401lY'};
+	// $('#outerContainer').append(makeGroupContainers('groupContainer1', {header: "Få overblik over SSO", columnContent: [{'video': videoObj1}, {'faq': faqObj1}, {'checklist': checklist[0]}]} ));   // Om SSO Generelt
+	$('#outerContainer').append(makeGroupContainers('groupContainer1', {header: "Få overblik over SSO", columnContent: [{'video': videoObj1}, {'faq': faqObj1}]} ));   // Om SSO Generelt
 
 
-	faqObj2 = faqObj1;
-	faqObj2.header = "FAQ"; 
-	var videoObj2 = {thumbnailSrc: 'img/MetteVibeUtzon.jpg', videoSrc: 'https://www.youtube.com/embed/-Go7min716I'};
-	$('#outerContainer').append(makeGroupContainers('groupContainer2', {header: "Vælge fag, emne og vejleder", columnContent: [{'video': videoObj1}, {'faq': faqObj1}, {'checklist': checklist[1]}, {'formalia': formalia[1]}]} )); 
+	faqObj = JSON.parse(JSON.stringify(faqObj1));
+	faqObj.header = "FAQ: Valg af fag og emne"; 
+	var videoObj2 = {thumbnailSrc: 'img/dummy_introyoutube.png', videoSrc: 'https://www.youtube.com/embed/WmYhbS401lY'};
+	// $('#outerContainer').append(makeGroupContainers('groupContainer2', {header: "Vælge fag, emne og vejleder", columnContent: [{'faq': faqObj}, {'checklist': checklist[1]}, {'formalia': formalia[1]}]} )); 
+	$('#outerContainer').append(makeGroupContainers('groupContainer2', {header: "Vælge fag, emne og vejleder", columnContent: [{'faq': faqObj}, {'checklist': checklist[1]}]} )); 
 
 
-	faqObj2 = faqObj1;
-	faqObj2.header = "FAQ"; 
-	var videoObj2 = {thumbnailSrc: 'img/MetteVibeUtzon.jpg', videoSrc: 'https://www.youtube.com/embed/-Go7min716I'};
-	$('#outerContainer').append(makeGroupContainers('groupContainer3', {header: "Indsnævre emne", columnContent: [{'video': videoObj1}, {'faq': faqObj1}, {'checklist': checklist[1]}, {'formalia': formalia[1]}]} )); 
+	faqObj = JSON.parse(JSON.stringify(faqObj1));
+	faqObj.header = "FAQ"; 
+	var videoObj2 = {thumbnailSrc: 'img/dummy_introyoutube.png', videoSrc: 'https://www.youtube.com/embed/-Go7min716I'};
+	// $('#outerContainer').append(makeGroupContainers('groupContainer3', {header: "Indsnævre emne", columnContent: [ {'faq': faqObj}, {'checklist': checklist[1]}, {'formalia': formalia[1]}]} )); 
+	$('#outerContainer').append(makeGroupContainers('groupContainer3', {header: "Indsnævre emne", columnContent: [ {'faq': faqObj}, {'checklist': checklist[1]}]} )); 
 
 
-	faqObj2 = faqObj1;
-	faqObj2.header = "FAQ"; 
-	var videoObj2 = {thumbnailSrc: 'img/MetteVibeUtzon.jpg', videoSrc: 'https://www.youtube.com/embed/-Go7min716I'};
-	$('#outerContainer').append(makeGroupContainers('groupContainer4', {header: "Søge materiale", columnContent: [{'video': videoObj1}, {'faq': faqObj1}, {'checklist': checklist[1]}, {'formalia': formalia[1]}]} )); 
+	faqObj = JSON.parse(JSON.stringify(faqObj2));
+	faqObj.header = "FAQ: Søg efter materialer"; 
+	var videoObj2 = {thumbnailSrc: 'img/dummy_introyoutube.png', videoSrc: 'https://www.youtube.com/embed/-Go7min716I'};
+	// $('#outerContainer').append(makeGroupContainers('groupContainer4', {header: "Søge materiale", columnContent: [{'faq': faqObj}, {'checklist': checklist[1]}, {'formalia': formalia[1]}]} )); 
+	$('#outerContainer').append(makeGroupContainers('groupContainer4', {header: "Søge materiale", columnContent: [{'faq': faqObj}, {'checklist': checklist[1]}]} )); 
 
 
-	faqObj2 = faqObj1;
-	faqObj2.header = "FAQ"; 
-	var videoObj2 = {thumbnailSrc: 'img/MetteVibeUtzon.jpg', videoSrc: 'https://www.youtube.com/embed/-Go7min716I'};
-	$('#outerContainer').append(makeGroupContainers('groupContainer5', {header: "Læse", columnContent: [{'video': videoObj1}, {'faq': faqObj1}, {'checklist': checklist[1]}, {'formalia': formalia[1]}]} )); 
+	var sso_emner = '';
+	sso_emner += '<span id="sso_emner" class="objLink" data-url="../sso_emner/emner.html">';
+		sso_emner += '<div class="imgContainer"><div class="cviOverlay">&nbsp;</div><img class="img-responsive" src="img/sso_emne.png"></div>';
+		sso_emner += '<div class="objText"><h3>Få hjælp til at vælge dit emne</h3> <div class="btn_ghost btn btn-default">Til emnerne</div> </div>';
+	sso_emner += '</span>';
+	// $('#outerContainer').append('<a id="sso_emner" href="../sso_emner/emner.html"><img class="img-responsive" src="img/sso_emne.png"></a>');
+	$('#outerContainer').append(sso_emner);
 
 
-	faqObj2 = faqObj1;
-	faqObj2.header = "FAQ"; 
-	var videoObj2 = {thumbnailSrc: 'img/MetteVibeUtzon.jpg', videoSrc: 'https://www.youtube.com/embed/-Go7min716I'};
-	$('#outerContainer').append(makeGroupContainers('groupContainer6', {header: "Skrive SSO", columnContent: [{'video': videoObj1}, {'faq': faqObj1}, {'checklist': checklist[1]}, {'formalia': formalia[1]}]} )); 
+	faqObj = JSON.parse(JSON.stringify(faqObj1));
+	faqObj.header = "FAQ"; 
+	var videoObj2 = {thumbnailSrc: 'img/dummy_introyoutube.png', videoSrc: 'https://www.youtube.com/embed/WmYhbS401lY'};
+	// $('#outerContainer').append(makeGroupContainers('groupContainer5', {header: "Læse", columnContent: [{'faq': faqObj}, {'checklist': checklist[1]}, {'formalia': formalia[1]}]} )); 
+	$('#outerContainer').append(makeGroupContainers('groupContainer5', {header: "Læse", columnContent: [{'faq': faqObj}, {'checklist': checklist[1]}]} )); 
 
 
-	$('#outerContainer').append('<a id="sso_emner" href="../sso_emner/emner.html"><img class="img-responsive" src="img/OBJEKTLINKS1.png"></a>');
+	faqObj = JSON.parse(JSON.stringify(faqObj3));
+	faqObj.header = "FAQ: Om skriveugen"; 
+	var videoObj2 = {thumbnailSrc: 'img/dummy_introyoutube.png', videoSrc: 'https://www.youtube.com/embed/WmYhbS401lY'};
+	// $('#outerContainer').append(makeGroupContainers('groupContainer6', {header: "Selve skriveugen", columnContent: [{'faq': faqObj}, {'checklist': checklist[2]}, {'formalia': formalia[1]}]} )); 
+	$('#outerContainer').append(makeGroupContainers('groupContainer6', {header: "Selve skriveugen", columnContent: [{'faq': faqObj}, {'checklist': checklist[2]}]} )); 
+
+
+	// $('#outerContainer').append('<a id="sso_skriveuge" href="../sso_skriveuge/skriveuge.html"><img class="img-responsive" src="img/sso_skriveuge.png"></a>');
+	var sso_skriveuge = '';
+	sso_skriveuge += '<span id="sso_skriveuge" class="objLink" data-url="../sso_skriveuge/skriveuge.html">';
+		sso_skriveuge += '<div class="imgContainer"><div class="cviOverlay">&nbsp;</div><img class="img-responsive" src="img/sso_skriveuge.png"></div>';
+		sso_skriveuge += '<div class="objText"><h3>Få overblik over skriveugen</h3> <div class="btn_ghost btn btn-default">Til skriveugen</div> </div>';
+	sso_skriveuge += '</span>';
+	$('#outerContainer').append(sso_skriveuge);
 
 
 	var sObj = window.getComputedStyle($('.container-fluid')[0], null);   
@@ -790,7 +841,7 @@ $(document).ready(function() {
 
 	microhint($('#slider'), 'Du kan navigere i sidens indhold ved at scrolle eller ved at at trække i slideren.' , true, '#000');
 	$('.microhint').css({position: "fixed"});
-	microhint($('#sso_emner'), 'Her er en side, som viser dig lidt om at finde et godt emne. Siden åbner i et nyt vindue' , true, '#000');
+	microhint($('#sso_emner .btn_ghost'), 'Her er en side, som viser dig lidt om at finde et godt emne. Siden åbner i et nyt vindue' , true, '#000');
 });
 
 
