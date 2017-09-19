@@ -80,8 +80,6 @@
 */
 	left: -1px;
 	border-top: 1px solid #999;
-	background-color: #f8f8f6;
-
 	background-color: #EEE;  /* Lys undermenu-content - 17/9-2017  */
 
 	/*padding-bottom: 20px;*/
@@ -222,7 +220,9 @@
 
 
 .slideToggleMenu_inner {
-	margin-top: 10px;      /* Fra ATOs styling */
+	/*margin-top: 10px;  */    /* Fra ATOs styling */
+	padding-top: 5px;
+	padding-bottom: 10px;
 }
 
 .slideToggleMenu_inner .slideToggle_content{
@@ -247,7 +247,8 @@
 }
 
 .slideToggleMenu_inner h4 {
-	margin-bottom: 10px;
+	/*margin-bottom: 10px;*/
+	padding-top: 0px;
 }
 
 
