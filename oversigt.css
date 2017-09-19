@@ -278,6 +278,13 @@
     color: #05a0a8;
 }
 
+.glyphicon-ok-sign{
+	color: #05a0a8;
+	font-size: 1.1em;
+	position: relative;
+    top: 3px;
+}
+
 
 .indent {
 	padding-left: 20px;
