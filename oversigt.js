@@ -11,16 +11,6 @@
 
 
 
-function main(){
-	
-}
-
-
-function template() {
-
-}
-
-var fadeDone = true;
 window.scrollHeight = $('body').height(); // This n 
 window.sliderContainerWidth = $('#sliderContainer').width();
 
@@ -117,7 +107,7 @@ function makeSlideToggleMenus_faq(header, faqObj) {
 	// HTML += '<div id="'+id+'" class="slideToggleMenu_outer slideToggleMenu">';
 	HTML += '<div class="slideToggleMenu_outer slideToggleMenu">';
 	// HTML += 	'<div class="slideToggle_header">'+header+'<span class="slideGlyph glyphicon glyphicon-chevron-down"></span></div>';
-	HTML += 	'<h4 class="slideToggle_header"><span class="glyphicons glyphicons-show-thumbnails-with-lines"></span><div class="slideToggle_headerText">'+header+'</div><span class="slideGlyph glyphicon glyphicon-chevron-down"></span></h4>';
+	HTML += 	'<h4 class="slideToggle_header"><span class="glyphicon glyphicon-question-sign"></span><div class="slideToggle_headerText">'+header+'</div><span class="slideGlyph glyphicon glyphicon-chevron-down"></span></h4>';
 	HTML += 	'<div class="slideToggle_content">';
 		for (var n in faqObj.faq) {
 			HTML += '<div class="slideToggleMenu_inner slideToggleMenu">';
@@ -139,7 +129,7 @@ function makeSlideToggleMenus_checklist(checklistObj) {
 
 	var HTML = '';
 	HTML += '<div class="slideToggleMenu_outer slideToggleMenu">';
-	HTML += 	'<h4 class="slideToggle_header"><span class="glyphicon glyphicon-ok"></span><div class="slideToggle_headerText">'+checklistObj.header+'</div><span class="slideGlyph glyphicon glyphicon-chevron-down"></span></h4>';
+	HTML += 	'<h4 class="slideToggle_header"><span class="glyphicon glyphicon-ok-sign"></span><div class="slideToggle_headerText">'+checklistObj.header+'</div><span class="slideGlyph glyphicon glyphicon-chevron-down"></span></h4>';
 	HTML += 	'<div class="slideToggle_content">';
 		for (var n in checklistObj.checklist) {
 			HTML += '<div class="checklistItem"><span class="glyphicon glyphicon-ok"></span>'+checklistObj.checklist[n]+'</div>';
@@ -202,7 +192,6 @@ $( document ).on('click', '.videoPlayBtn', function(){
 	console.log('videoPlayBtn - CLICK - CALLED');
 	var videoSrc = $(this).attr('data-videoSrc');
 
-	// UserMsgBox_video('https://www.youtube.com/embed/-Go7min716I');
 	UserMsgBox_video( videoSrc );
 });
 
@@ -211,7 +200,6 @@ $( document ).on('click', '.videoPlayThumbnail', function(){
 	console.log('videoPlayThumbnail - CLICK - CALLED');
 	var videoSrc = $(this).attr('data-videoSrc');
 
-	// UserMsgBox_video('https://www.youtube.com/embed/-Go7min716I');
 	UserMsgBox_video( videoSrc );
 });
 
@@ -294,352 +282,14 @@ function slideToggleMenu_align_slideToggle_content() {
 
 				$(element).css({left: - (elementWidth - (parentWidth - elementPosition.left))});
 
-				// $(element).css({'border-top-left-radius': '4px'});
+				// $(element).css({'border-top-left-radius': '4px'});  // TLY does not want this any more...
 			} else {
-				// $(element).css({'border-top-left-radius': '0px'});
+				// $(element).css({'border-top-left-radius': '0px'});  // TLY does not want this any more...
 			}
 		}
 	});
 }
 
-// FROM: https://stackoverflow.com/questions/16778814/read-css-property-from-stylesheet
-function propertyFromStylesheet(selector, attribute) {
-    var value;
-
-    [].some.call(document.styleSheets, function (sheet) {
-        return [].some.call(sheet.rules, function (rule) {
-            if (selector === rule.selectorText) {
-                return [].some.call(rule.style, function (style) {
-                    if (attribute === style) {
-                        value = rule.style.getPropertyValue(attribute);
-                        return true;
-                    }
-
-                    return false;
-                });
-            }
-
-            return false;
-        });
-    });
-
-    return value;
-}
-// console.log('propertyFromStylesheet: ' + propertyFromStylesheet(".slideToggleMenu", "font-size"));
-
-
-// MARK 8/9 18:45
-
-
-// This sets the "base font-size" for a collection of selectors based on the width of the viewport. 
-// function slideToggleMenu_setFontSize() {
-cssClass = {
-	selectorObj: {
-		'<=768px': {
-			'.slideToggleMenu': {
-				'font-size': '10px'
-			}
-		},
-		'768px <= 1160px': {
-			'.slideToggleMenu': {
-				'font-size': '20px'
-			}
-		},
-		'1160px <=': {
-			'.slideToggleMenu': {
-				'font-size': '20px'
-			}
-		}
-	},
-
-	preprocessor: function (selectorObj) {
-
-		var opLookUp = {'=<':'(1)','<=':'(2)','=>':'(3)','>=':'(4)','<':'(5)','>':'(6)'};
-		
-		// var Twidth = $(window).width();
-		var Twidth = parseInt($('.container-fluid').css('width').replace('px', ''));
-
-		var pos, key_selected = null, count = 0;
-
-		var TselectorObj = {};  // TselectorObj is a sanitiezed version of selectorObj, without spaces and "px".
-		for (var key in selectorObj){
-			var originalKey = key;
-			key = key.replace(/ /g, '').replace(/px/g, '');
-			TselectorObj[key] = selectorObj[key];
-
-			var lowDim = null, highDim = null, dimFound = false;
-
-			for (var op in opLookUp) {
-				pos = key.indexOf(op);
-				console.log('slideToggleMenu_setFontSize - x - pos: ' + pos + ', op: ' + op + ', key: ' + key + ', count: ' + count);
-
-				if (pos!==-1) {
-					lowDim = key.substring(0, pos);
-					highDim = key.substring(pos+op.length);
-					console.log('slideToggleMenu_setFontSize - x - lowDim 1: ' + lowDim + ', highDim 1: ' + highDim);
-
-					lowDim = (lowDim=='')? null : lowDim;
-					highDim = (highDim=='')? null : highDim;
-					console.log('slideToggleMenu_setFontSize - x - lowDim 2: ' + lowDim + ', highDim 2: ' + highDim);
-
-					key_selected = this.keySelector(op, originalKey, lowDim, highDim);
-					console.log('slideToggleMenu_setFontSize - x - key_selected: ' + key_selected + ', Twidth: ' + Twidth);
-				}
-
-				++count;
-
-				if ((key_selected!==null)) { // Break the first loop if key_selected is found...
-					console.log('slideToggleMenu_setFontSize - x - break 1');
-					break;
-				}
-			}
-
-			if ((key_selected!==null)) { // Break the second loop if key_selected is found...
-				console.log('slideToggleMenu_setFontSize - x - break 2');
-				break;
-			}
-		}
-		console.log('slideToggleMenu_setFontSize - x - final - key_selected: ' + key_selected);
-
-		return key_selected;
-	}, 
-
-
-	// setCssFontSize(selectorObj, key_selected);
-
-
-	getCss: function (selectorObj, key_selected) {
-		return selectorObj[key_selected];
-	},
-
-	setCss: function () {
-
-	},
-
-	scaleFontSize: function (selectorObj, selectorArr) {
-		console.log('scaleFontSize - CALLED');
-
-		this.setBaseFontSize(selectorObj);
-		this.scaleBaseFonts(selectorArr);
-	},
-
-	setBaseFontSize: function (selectorObj) {
-		console.log('setBaseFontSize - CALLED');
-
-		var key_selected = this.preprocessor( selectorObj );
-
-		var propertyObj;
-
-		for (var selector in selectorObj[key_selected]) {
-			propertyObj = selectorObj[key_selected][selector]
-			console.log('setBaseFontSize - selector: "' + selector + '", propertyObj: ' + JSON.stringify( propertyObj ));
-
-			if (propertyObj.hasOwnProperty('font-size')){
-				console.log('setBaseFontSize - font-size - FOUND');
-
-				$(selector).attr('data-baseFontSize', propertyObj['font-size']);
-			}
-		}
-	},
-
-	scaleBaseFonts: function (selectorArr) {
-
-		// var selectorArr = ['.slideToggle_header', '.slideToggle_content', '#videoPlayBtn1'];  
-
-		var maxWidth = parseInt($('.container-fluid').css('max-width').replace('px', ''));
-		var width = parseInt($('.container-fluid').css('width').replace('px', ''));
-
-		var ratio = width/maxWidth;
-		var percent = 100*ratio; 
-
-		var fs;
-
-		console.log('scaleBaseFonts - maxWidth: ' + maxWidth + ', width: ' + width + ', ratio: ' + ratio + ', percent: ' + percent);
-
-		for (var n in selectorArr) {
-			if (typeof($(selectorArr[n]).attr('data-baseFontSize')) === 'undefined') {
-				console.log('scaleBaseFonts - selectorArr['+n+']: ' + selectorArr[n]); 
-				$(selectorArr[n]).attr('data-baseFontSize', $(selectorArr[n]).css('font-size').replace('px', ''));
-			}
-			fs = parseInt($(selectorArr[n]).attr('data-baseFontSize').replace('px', '')); 
-			$(selectorArr[n]).css({'font-size': String(Math.round(ratio*fs))+'px'});   
-		}
-	},
-
-
-	keySelector: function (operator, key, lowDim, highDim) {
-		console.log('keySelector - x - operator: "'+operator+'" , key: "' + key + '", lowDim: ' + lowDim + ', highDim: ' + highDim); 
-
-		// var width = $(window).width();
-		var width = parseInt($('.container-fluid').css('width').replace('px', ''));
-
-		var Tkey = null;
-
-		// '<=768px'
-		if ((lowDim===null) && (highDim!==null)) {
-			console.log('keySelector - A0');
-
-			if (eval(width+operator+highDim)) {
-				console.log('keySelector - A1');
-
-				Tkey = key;
-			}
-		}
-
-		// '768px < 1160px'
-		if ((lowDim!==null) && (highDim!==null)) {
-			console.log('keySelector - A2');
-
-			if (eval('('+lowDim+operator+width+') && ('+width+operator+highDim+')')) {
-				console.log('keySelector - A3');
-
-				Tkey = key;
-			}
-		}
-
-		// '1160px <='
-		if ((lowDim!==null) && (highDim===null)) {
-			console.log('keySelector - A4');
-
-			if (eval(lowDim+operator+width)) {
-				console.log('keySelector - A5');
-
-				Tkey = key;
-			}
-		}
-		console.log('keySelector - Tkey: ' + Tkey + ', width: ' + width);
-
-		return Tkey;
-	}
-}
-
-
-function linearFontScale() {   
-
-	var fontObj = {
-		'.slideToggle_header': [
-			{'width': '600px', 'font-size': '13px'}, // <----- Width has to be in asending order downwards, e.g.: 500px, 600px, 700px...
-			{'width': '1160px', 'font-size': '18px'}
-		],
-		'.slideToggle_content': [
-			{'width': '600px', 'font-size': '10px'}, // <----- Width has to be in asending order downwards, e.g.: 500px, 600px, 700px...
-			{'width': '1160px', 'font-size': '15px'}
-		]
-	}
-
-	var maxWidth = parseInt($('.container-fluid').css('max-width').replace('px', ''));
-	var width = parseInt($('.container-fluid').css('width').replace('px', ''));
-
-	var w1, w2, s, s1, s2, a, b;
-	for (var selector in fontObj) {
-		console.log('linearFontScale - selector: ' + selector + ', fontObj: ' + JSON.stringify( fontObj[selector] ));
-		for (var i = 0; i < fontObj[selector].length; i++) {
-			w1 = parseInt(fontObj[selector][i]['width'].replace('px', ''));
-			s1 = parseInt(fontObj[selector][i]['font-size'].replace('px', ''));
-			console.log('linearFontScale - w1: ' + w1 + ', s1: ' + s1);
-
-			if ((i == 0) && (width <= w1)) { 
-				$(selector).css({'font-size': s1});
-			}
-			
-			if (i+1 < fontObj[selector].length) {
-				w2 = parseInt(fontObj[selector][i+1]['width'].replace('px', ''));
-				s2 = parseInt(fontObj[selector][i+1]['font-size'].replace('px', ''));
-
-				if ((w1 < width) && (width < w2)) { 
-					a = (s2-s1)/(w2-w1);
-					b = s1 - a*w1;
-
-					s = Math.round(a*width + b);
-
-					console.log('linearFontScale - a: ' + a + ', b: ' + b + ', s: ' + s);
-
-					$(selector).css({'font-size': s});
-				}
-			}
-
-			if ((i+1 == fontObj[selector].length) && (w1 <= width)) {
-				$(selector).css({'font-size': s1});
-			}
-			
-		};
-	}
-
-	// var ratio = width/maxWidth;
-	// var percent = 100*ratio; 
-
-	// var fs;
-
-	// console.log('scaleBaseFonts - maxWidth: ' + maxWidth + ', width: ' + width + ', ratio: ' + ratio + ', percent: ' + percent);
-
-	// for (var n in selectorArr) {
-	// 	if (typeof($(selectorArr[n]).attr('data-baseFontSize')) === 'undefined') {
-	// 		console.log('scaleBaseFonts - selectorArr['+n+']: ' + selectorArr[n]); 
-	// 		$(selectorArr[n]).attr('data-baseFontSize', $(selectorArr[n]).css('font-size').replace('px', ''));
-	// 	}
-	// 	fs = parseInt($(selectorArr[n]).attr('data-baseFontSize').replace('px', '')); 
-	// 	$(selectorArr[n]).css({'font-size': String(Math.round(ratio*fs))+'px'});   
-	// }
-}
-
-
-// Scales the fonts in all ".slideToggleMenu"
-function slideToggleMenu_scaleFonts() {
-	// var selectorArr = ['.slideToggleMenu'];  
-	// var selectorArr = ['#slideToggleMenu1', '#slideToggleMenu2', '#slideToggleMenu2b', '#slideToggleMenu3', '.slideToggleMenu_outer', '.slideToggleMenu_inner', '#videoPlayBtn1'];  
-	// var selectorArr = ['.slideToggleMenu_outer', '.slideToggleMenu_inner', '#videoPlayBtn1']; 
-	var selectorArr = ['.slideToggle_header', '.slideToggle_content', '#videoPlayBtn1'];  
-
-	var maxWidth = parseInt($('.container-fluid').css('max-width').replace('px', ''));
-	var width = parseInt($('.container-fluid').css('width').replace('px', ''));
-
-	var ratio = width/maxWidth;
-	var percent = 100*ratio; 
-
-	// if (typeof(fs)==='undefined') {
-	// 	window.fs = parseInt($('.slideToggleMenu').css('font-size').replace('px', ''));
-	// }
-	var fs = parseInt(slideToggleMenu_fontSize.replace('px', '')); 
-
-	console.log('slideToggleMenu_scaleFonts - maxWidth: ' + maxWidth + ', width: ' + width + ', ratio: ' + ratio + ', percent: ' + percent + ', fs: ' + fs+ ', ratio*fs: ' + ratio*fs);
-
-	for (var n in selectorArr) {
-		// $('#outerContainer > ' + selectorArr[n]).css({'font-size': percent+'%'});
-		$('#outerContainer ' + selectorArr[n]).css({'font-size': String(Math.round(ratio*fs))+'px'});   // slideToggleMenu_fontSize
-	}
-}
-
-
-function styleSheetProperty() {
-	for (var i=0; i < document.styleSheets.length; i++){
-	 	var styleSheet = document.styleSheets[i];
-	 	console.log('styleSheetProperty - styleSheet: ' + styleSheet);
-	 	for (var k = 0; k < styleSheet.length; k++) {
-	 		var cssRule = document.styleSheets[i].cssRules[k];
-	 		console.log('styleSheetProperty - cssRule: ' + cssRule);
-	 	};
-	}
-
-	var first_rule = document.styleSheets[1].cssRules[2];
-	console.log('styleSheetProperty - first_rule: ' + cssRule);
-
-	
-	// https://developer.mozilla.org/en-US/docs/Web/API/StyleSheetList
-	var allCSS = [].slice.call(document.styleSheets).reduce(function (prev, styleSheet) {
-        if (styleSheet.cssRules) {
-            return prev +
-                [].slice.call(styleSheet.cssRules)
-                    .reduce(function (prev, cssRule) {
-                        return prev + '(' + cssRule.cssText + ')\n';
-                    }, '');
-        } else {
-            return prev;
-        }
-    }, '');
-	console.log('styleSheetProperty - allCSS: ' + allCSS);
-
-
-}
 
 
 scrollCallback = function() {
@@ -689,9 +339,7 @@ $( document ).on('click', ".objLink", function(event){
 $( document ).on('mouseenter', '.objLink', function(){
 	console.log('mouseover - CALLED');
 
-	$('.cviOverlay', this).fadeIn( "fast", function() {
-		// fadeDone = true;
-	});
+	$('.cviOverlay', this).fadeIn( "fast", function() {});
 
 	$('.btn_ghost', this).switchClass( "btn_ghost_noStyle", "vuc-primary", 300, "easeInOutQuad" );
 });
@@ -699,9 +347,7 @@ $( document ).on('mouseenter', '.objLink', function(){
 $( document ).on('mouseleave', '.objLink', function(){
 	console.log('mouseout - CALLED');
 	
-	$('.cviOverlay', this).fadeOut( "fast", function() {
-		// fadeDone = true;
-	});
+	$('.cviOverlay', this).fadeOut( "fast", function() {});
 
 	$('.btn_ghost', this).switchClass( "vuc-primary", "btn_ghost_noStyle", 300, "easeInOutQuad" );
 });
@@ -713,8 +359,16 @@ $( document ).on('click', ".imgOverlayBtn", function(event){
 	console.log('click - SCROLL - scrollTo: ' + scrollTo + ', offset().top: ' + $("#"+scrollTo).offset().top + ', height()/2: ' + $("#"+scrollTo).height()/2);
 	// var pos = Math.round($("#"+scrollTo).offset().top - $("#"+scrollTo).height()/2);
 	// var pos = Math.round($("#"+scrollTo).offset().top + $("#"+scrollTo).outerWidth( true )/2);
+	var ajust = {
+		'groupContainer1': 0, 
+		'groupContainer2': 0, 
+		'groupContainer3': 0, 
+		'groupContainer4': 0, 
+		'groupContainer5': 0, 
+		'groupContainer6': 0
+	}
 	var pos = Math.round($("#"+scrollTo).offset().top + 0);
-	$('#outerContainer').append('<div style="background-color:#F00; width: 20px; height: 20px; position: absolute; top:'+pos+'px;"></div>');
+	// $('#outerContainer').append('<div style="background-color:#F00; width: 20px; height: 20px; position: absolute; top:'+pos+'px;"></div>');
 	$('html, body').animate({  // See: https://stackoverflow.com/questions/6677035/jquery-scroll-to-element
         scrollTop: pos
     }, 1000);
@@ -725,24 +379,8 @@ $(window).resize(function() {
 	scaleAndPosition_sliderContainer();
 	slideToggleMenu_align_slideToggle_content();
 
-	// slideToggleMenu_scaleFonts();
-
-	// cc.setBaseFontSize( selectorObj );
-	// cc.scaleBaseFonts( ['.slideToggle_header', '.slideToggle_content', '#videoPlayBtn1'] );
-	// linearFontScale();
+	
 });
-
-
-
-// "faq": [
-// 		["Hvor lang må min SSO være?", "SSO står for Større Skriftlig Opgave, og er en opgave du skal skrive hvis du tager en fuld HF-eksamen. <br/>Du vælger selv hvilket fag du vil skrive i, og er med til at afgrænse emnet sammen med din vejleder. Der er krav til både indholdet og formen, og du vurderes på din evne til at behandle et fagligt emne på en korrekt og akademisk måde, hvor du bruger fagets stof og metoder."],
-// 		["Hvad må man skrive om? (Emne)", "Når du har valgt fag, skal du vælge et emne der hverken er for bredt eller for smalt. Denne emneafgrænsning sker sammen med din vejleder. Det vigtigste er at du kommer til at arbejde med et emne hvor der både er materiale nok og hvor kvaliteten af materialet sikrer at du kan lave en akademisk og faglig opgave, der lever op til de krav der stilles."],
-// 		["Hvor lang må SSO’en være?", "Din opgave skal være mellem 10 og 15 sider lang (én normalside = 2400 anslag, inklusiv mellemrum)."],
-// 		["Må man inddrage i flere fag?", "Ja, SSO’en skal skrives i ét eller to fag. Du skal dog huske at hvis du vælger at skrive i to fag, så fordobler du de faglige krav til dig selv, idet du vil blive bedømt i begge fag. Det er således langt mere krævende at skrive en SSO i to fag, end i ét."],
-// 		["Må man skrive i C-niveau fag?", "Du må ikke skrive i et C-niveau fag alene, der skal indgå et fag på mindst B-niveau. "],
-// 		["Hvilke fag kan man vælge mellem?", "Du kan vælge mellem de A- og B-niveau fag som du enten har afsluttet eller er i gang med. Du skal dog overveje om du har opnået faglig viden nok til at skrive en god SSO i et fag som du er i gang med - hvis du har startet faget i januar og skal skrive opgaven i midten af februar (uge 7), har du kun fået ca. én måneds undervisning."]
-// 	]
-
 
 
 $(document).ready(function() {
@@ -750,23 +388,6 @@ $(document).ready(function() {
 	console.log('document.ready - faqObj1: ' + JSON.stringify(faqObj1));
 	console.log('document.ready - checklist: ' + JSON.stringify(checklist));
 	console.log('document.ready - formalia: ' + JSON.stringify(formalia));
-
-
-	// $('#outerContainer').append(makeSlideToggleMenus_faq('FAQ: Introduktion til SSO', 'slideToggleMenu1'));
-	// $('#outerContainer').append(makeVideoPlayBtn('Test video', 'videoPlayBtn1', 'https://www.youtube.com/embed/-Go7min716I'));
-	// $('#outerContainer').append(makeSlideToggleMenus_faq('FAQ 2', 'slideToggleMenu2'));
-	// $('#outerContainer').append(makeSlideToggleMenus_faq('FAQ 3', 'slideToggleMenu3'));
-
-
-	// var img_overlay_btns = '';
-	// img_overlay_btns += '<div id="imgOverlayBtn_container">';
-	// 	img_overlay_btns += '<div id="imgOverlayBtn_phase1" class="imgOverlayBtn"> &nbsp; </div>';
-	// 	img_overlay_btns += '<div id="imgOverlayBtn_phase2" class="imgOverlayBtn"> &nbsp; </div>';
-	// 	img_overlay_btns += '<div id="imgOverlayBtn_phase3" class="imgOverlayBtn"> &nbsp; </div>';
-	// 	img_overlay_btns += '<div id="imgOverlayBtn_phase4" class="imgOverlayBtn"> &nbsp; </div>';
-	// 	img_overlay_btns += '<div id="imgOverlayBtn_phase5" class="imgOverlayBtn"> &nbsp; </div>';
-	// img_overlay_btns += '</div>';
-	// $('#sliderContainer').append(img_overlay_btns);
 
 
 	var faqObj;
@@ -839,33 +460,14 @@ $(document).ready(function() {
 
 	//######################################################################################################################################
 
-	// slideToggleMenu_setFontSize();   // <-------------  TEST 7/9-2017
-	window.cc = Object.create(cssClass);
-	window.selectorObj = {
-		'<=768px': {
-			'.slideToggle_header': {
-				'font-size': '26px'
-			}
-		},
-		'768px < 1160px': {
-			'.slideToggle_header': {
-				'font-size': '18px'
-			}
-		}
-	};
-	// window.selectorArr = ['.slideToggle_header', '.slideToggle_content', '#videoPlayBtn1']; 
-
-	// cc.setBaseFontSize( selectorObj );
-	// cc.scaleBaseFonts( ['.slideToggle_header', '.slideToggle_content', '#videoPlayBtn1'] );
-	// linearFontScale();  // <---------- // NEWEST function: 11/9-2017
-
-
+	
 	scaleAndPosition_sliderContainer();
+
 
 	slideToggleMenu();
 
-	$( "#slider" ).css({left: 0}); // <------ This is a bugfix on the live server, that causes the "#slider" to be initialized outside "#sliderContainer". This moves the "#slider" to the start position.
 
+	$( "#slider" ).css({left: 0}); // <------ This is a bugfix on the live server, that causes the "#slider" to be initialized outside "#sliderContainer". This moves the "#slider" to the start position.
 
 
 	microhint($('#slider'), 'Du kan navigere i sidens indhold ved at scrolle eller ved at at trække i slideren.' , true, '#000');
@@ -873,7 +475,3 @@ $(document).ready(function() {
 	microhint($('#sso_emner .btn_ghost'), 'Her er en side, som viser dig lidt om at finde et godt emne. Siden åbner i et nyt vindue' , true, '#000');
 });
 
-
-// $(window).load(function() {
-// 	// $( "#slider" ).css({left: 0});
-// });

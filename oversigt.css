@@ -82,7 +82,7 @@
 	border-top: 1px solid #999;
 	background-color: #f8f8f6;
 
-	background-color: #e7e6e2;  /* Lys undermenu-content - 17/9-2017  */
+	background-color: #EEE;  /* Lys undermenu-content - 17/9-2017  */
 
 	/*padding-bottom: 20px;*/
 }
@@ -196,7 +196,7 @@
 .slideToggle_header {
 	padding: 5px 10px 5px 10px;
 	margin: 0px;
-	display: inline-block;
+	/*display: inline-block;*/
 }
 
 
@@ -259,6 +259,7 @@
     /*border: 1px solid #111; 
     border-radius: 8px;
 	clear: both;*/
+	color: #666;
 }
 
 .slideToggle_content .slideGlyph {
@@ -267,10 +268,14 @@
 }
 
 
-.glyphicons-show-thumbnails-with-lines{
+.glyphicon-question-sign{
     margin-top: 0%;
     margin-right: 0%;
     margin-left: 0%;
+    font-size: 1.1em;
+    position: relative;
+    top: 3px;
+    color: #05a0a8;
 }
 
 
@@ -390,25 +395,25 @@
 
 #groupContainer1 {  /* Få overblik over SSO */
 	position: absolute;
-	top: 3%;
+	top: 1%;
 	width: 100%;
 }
 
 #groupContainer2 {  /* Vælge fag, emne og vejleder */
 	position: absolute;
-	top: 13%;
+	top: 12%;
 	width: 100%;
 }
 
 #groupContainer3 {  /* Indsnævre emne */
 	position: absolute;
-	top: 18%;
+	top: 16%;
 	width: 100%;
 }
 
 #sso_emner {
 	position: absolute;
-	top: 22%;
+	top: 20%;
 	box-shadow: 6px 6px 30px #888888;
     border-radius: 6px;
     border-bottom-left-radius: 4px;
@@ -435,7 +440,7 @@
 
 #groupContainer6 {  /* Skrive SSO */
 	position: absolute;
-	top: 38%;
+	top: 84%;
 	width: 100%;
 }
 /*
@@ -464,24 +469,24 @@
 	position: relative;
 	height: 100%;
 }
-
+/*
 .groupColumn h2 {
 	margin-top: 10px;
 	margin-bottom: 10px;
 }
-
+*/
 .slideToggleMenu_outer {
 	/*position: absolute;
 	top: 50%;
 	transform: translateY(-50%);*/
 
 	position: relative;
-	display: inline-block;
+	/*display: inline-block;*/
 	/*margin-top: 20%;*/
 }
 
 #groupContainer1 .slideToggleMenu_outer {  /* <--- Alle der har video */
-	margin-top: 20%;
+	/*margin-top: 20%;*/
 }
 
 .slideToggleMenu_outer h4 {
@@ -489,6 +494,7 @@
 	padding-top: 10px;
 	padding-bottom: 10px;
 	margin-right: 5px;
+	margin-left: 3px;
 }
 
 .MsgBox_bgr_video {
