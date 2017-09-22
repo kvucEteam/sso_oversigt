@@ -361,14 +361,15 @@ $( document ).on('click', ".imgOverlayBtn", function(event){
 	// var pos = Math.round($("#"+scrollTo).offset().top - $("#"+scrollTo).height()/2);
 	// var pos = Math.round($("#"+scrollTo).offset().top + $("#"+scrollTo).outerWidth( true )/2);
 	var ajust = {
-		'groupContainer1': 0, 
-		'groupContainer2': 0, 
+		'groupContainer1': -300, 
+		'groupContainer2': -200, 
 		'groupContainer3': 0, 
 		'groupContainer4': 0, 
 		'groupContainer5': 0, 
 		'groupContainer6': 0
 	}
-	var pos = Math.round($("#"+scrollTo).offset().top + 0);
+	// var pos = Math.round($("#"+scrollTo).offset().top + 0);
+	var pos = Math.round($("#"+scrollTo).offset().top + ajust[scrollTo]);
 	// $('#outerContainer').append('<div style="background-color:#F00; width: 20px; height: 20px; position: absolute; top:'+pos+'px;"></div>');
 	$('html, body').animate({  // See: https://stackoverflow.com/questions/6677035/jquery-scroll-to-element
         scrollTop: pos
