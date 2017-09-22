@@ -1,38 +1,131 @@
 [
 	{
-		"header": "Checkliste",
+		"FR_overskrift": "Intro",
+		"header": "Tjekliste: Klar til skriveugen",
 		"instruction":	"instruction text",
 		"explanation":	"explanation text",
 		"checklist": [
-			"Du skal huske at...",
-			"Du skal huske at...",
-			"Du skal huske at...",
-			"Du skal huske at...",
-			"Du skal huske at..."
+			"Jeg har et NemID eller unilogin til netprøver.dk", 
+			"Jeg har haft kontakt til min vejleder flere gange og fået feedback på foreløbigt arbejde",
+			"Har har et telefonnummer, mail eller andet på min vejleder",
+			"Jeg har styr på <a href='#'>kravene til SSO</a>"
 		]
 	},
 	{
-		"header": "Checkliste",
+		"FR_overskrift": "Dag 1",
+		"header": "Dag 1",
 		"instruction":	"instruction text",
 		"explanation":	"explanation text",
 		"checklist": [
-			"Du skal huske at...",
-			"Du skal huske at...",
-			"Du skal huske at...",
-			"Du skal huske at...",
-			"Du skal huske at..."
+			"Jeg forstår min opgaveformulering... ellers har jeg kontaktet min vejleder",
+			"Jeg har organiseret mine materialer, således at jeg ved hvad jeg skal anvende hvornår",
+			"Jeg har noteret al min litteratur ned alfabetisk i en <a href='#'>litteraturliste</a>, således at det letter mit arbejde med <a href='#'>litteraturhenvisninger</a> (fodnoter)",
+			"Jeg er begyndt at skrive på første del af opgaveformuleringen",
+			"Jeg husker at dokumentere det jeg skriver med 2-3 litteraturhenvisninger pr. side",
+			"Jeg er sikker på at jeg er igang med at svare på min opgaveformulering"
 		]
 	},
 	{
-		"header": "Klar til skriveugen",
+		"FR_overskrift": "Dag 2",
+		"header": "Dag 2",
 		"instruction":	"instruction text",
 		"explanation":	"explanation text",
 		"checklist": [
-			"Du har et NemID eller unilogin til netprøver.dk", 
-			"Du har en vejleder",
-			"Du har fået godkendt dit emne med vejlederen",
-			"Du har fundet litteratur og orienteret dig i litteraturen",
-			"Du har styr på kravene til SSO"
+			"Hvis min opgaveformulering består af tre dele, har jeg nu et udkast til første del",
+			"Jeg har lavet en aftale med en bekendt om at læse opgaven igennem dagen inden aflevering",
+			"Jeg husker ikke at lave for lange <a href='#'>citater</a> og lave litteraturhenvisninger ved brug af citatet"
+		]
+	},
+	{
+		"FR_overskrift": "Dag 3",
+		"header": "Dag 3",
+		"instruction":	"instruction text",
+		"explanation":	"explanation text",
+		"checklist": [
+			"Jeg har genlæst og rettet første del af min opgave...",
+			"Jeg har overblik over hvilke delafsnit/kapitler næste del af opgaveformuleringen skal besvares med",
+			"Jeg er begyndt at skrive på min opgaves hoveddel (analyse)",
+			"Jeg husker at lave 2-3 litteraturhenvisninger pr. side",
+			"Jeg er sikker på at jeg svarer på min opgaveformulering",
+			"Jeg husker at citater skal kommenteres fagligt"
+		]
+	},
+	{
+		"FR_overskrift": "Dag 4",
+		"header": "Dag 4",
+		"instruction":	"instruction text",
+		"explanation":	"explanation text",
+		"checklist": [
+			"Jeg arbejder videre på min opgaves hoveddel",
+			"Jeg er sikker på at jeg anvender fagets begreber, metoder og eventuelle teorier",
+			"Jeg genlæser løbende det jeg skriver",
+			"Jeg husker at lave 2-3 litteraturhenvisninger pr. side",
+			"Jeg er sikker på at jeg svarer på min opgaveformulering",
+			"Jeg husker at citater skal kommenteres fagligt"
+		]
+	},
+	{
+		"FR_overskrift": "Dag 5",
+		"header": "Dag 5",
+		"instruction":	"instruction text",
+		"explanation":	"explanation text",
+		"checklist": [
+			"Jeg har afsluttet/besvaret opgavens hoveddel",
+			"Jeg er sikker på at min litteraturliste er opdateret",
+			"Jeg har gennemlæst alt hvad jeg indtil nu har skrevet og jeg er sikker på at jeg svarer på min opgaveformulering",
+			"Jeg er begyndt at skrive på opgaveformuleringens sidste del. (diskussion/vurdering/perspektivering)",
+			"Jeg husker at lave 2-3 litteraturhenvisninger pr. side",
+			"Jeg er sikker på at jeg svarer på min opgaveformulering",
+			"Jeg husker at citater skal kommenteres fagligt"
+		]
+	},
+	{
+		"FR_overskrift": "Dag 6",
+		"header": "Dag 6",
+		"instruction":	"instruction text",
+		"explanation":	"explanation text",
+		"checklist": [
+			"Jeg har skrevet den sidste del af opgavebesvarelsen færdig, og er sikker på at jeg svarer på opgaveformuleringen",
+			"Jeg er sikker på at min opgave er besvaret fagligt og rummer fagets begreber, metoder og eventuelle teorier",
+			"Jeg har sendt min opgavebesvarelse til gennemlæsning til en bekendt, som kigger på sprog, tegnsætning og forståelighed"
+		]
+	},
+	{
+		"FR_overskrift": "Dag 7",
+		"header": "Dag 7",
+		"instruction":	"instruction text",
+		"explanation":	"explanation text",
+		"checklist": [
+			"Jeg har skrevet en <a href='#'>konklusion</a> på en halv til en hel side, der samler op på spørgsmålene i min opgaveformulering",
+			"Jeg har skrevet min <a href='#'>indledning</a> hvor jeg forklarer ideen med mit emne og dets relevans",
+			"Jeg har skrevet en <a href='#'>resumé</a> på dansk, på ca. 150 ord",
+			"Jeg har lavet en <a href='#'>indholdsfortegnelse</a> med sidetal og kapiteloverskrifter.",
+			"Jeg har lavet min <a href='#'>forside</a> og <a href='#'>konverteret det hele til PDF</a>",
+			"Jeg er sikker på hvordan og hvornår jeg skal aflevere, ellers har jeg kontaktet min vejleder"
+		]
+	},
+	{
+		"FR_overskrift": "Dag 8",
+		"header": "Dag 8",
+		"instruction":	"instruction text",
+		"explanation":	"explanation text",
+		"checklist": [
+			"Jeg er sikker på at jeg har afleveret opgaven korrekt"
+		]
+	},
+	{
+		"n1": "=====================================================================",
+		"n3": "                          DUMMY TEJEKLISTER                          ",
+		"n3": "=====================================================================",
+		"header": "Tjekliste",
+		"instruction":	"instruction text",
+		"explanation":	"explanation text",
+		"checklist": [
+			"Jeg skal huske at...",
+			"Jeg skal huske at...",
+			"Jeg skal huske at...",
+			"Jeg skal huske at...",
+			"Jeg skal huske at..."
 		]
 	}
 ]

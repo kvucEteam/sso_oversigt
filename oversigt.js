@@ -132,7 +132,8 @@ function makeSlideToggleMenus_checklist(checklistObj) {
 	HTML += 	'<h4 class="slideToggle_header"><span class="glyphicon glyphicon-ok-sign"></span><div class="slideToggle_headerText">'+checklistObj.header+'</div><span class="slideGlyph glyphicon glyphicon-chevron-down"></span></h4>';
 	HTML += 	'<div class="slideToggle_content">';
 		for (var n in checklistObj.checklist) {
-			HTML += '<div class="checklistItem"><span class="glyphicon glyphicon-ok"></span>'+checklistObj.checklist[n]+'</div>';
+			// HTML += '<div class="checklistItem"><span class="glyphicon glyphicon-ok"></span>'+checklistObj.checklist[n]+'</div>';
+			HTML += '<div class="checklistItem"><span class="glyphicon glyphicon-ok"></span><div class="checklistItemText">'+checklistObj.checklist[n]+'</div></div>';
 		}
 	HTML += 	'</div>';
 	HTML += '</div>';
@@ -399,29 +400,32 @@ $(document).ready(function() {
 	$('#outerContainer').append(makeGroupContainers('groupContainer1', {header: "Få overblik over SSO", columnContent: [{'video': videoObj1}, {'faq': faqObj1}]} ));   // Om SSO Generelt
 
 
-	faqObj = JSON.parse(JSON.stringify(faqObj1));
+	faqObj = JSON.parse(JSON.stringify(faqObj2));
 	faqObj.header = "FAQ: Valg af fag og emne"; 
+	checklist[9].header = "Tjekliste: Fag og emne";
 	var videoObj2 = {thumbnailSrc: 'img/dummy_introyoutube.png', videoSrc: 'https://www.youtube.com/embed/WmYhbS401lY'};
 	// $('#outerContainer').append(makeGroupContainers('groupContainer2', {header: "Vælge fag, emne og vejleder", columnContent: [{'faq': faqObj}, {'checklist': checklist[1]}, {'formalia': formalia[1]}]} )); 
-	$('#outerContainer').append(makeGroupContainers('groupContainer2', {header: "Vælge fag, emne og vejleder", columnContent: [{'faq': faqObj}, {'checklist': checklist[1]}]} )); 
+	$('#outerContainer').append(makeGroupContainers('groupContainer2', {header: "Vælge fag, emne og vejleder", columnContent: [{'faq': faqObj}, {'checklist': checklist[9]}]} )); 
 
 
-	faqObj = JSON.parse(JSON.stringify(faqObj1));
-	faqObj.header = "FAQ"; 
+	faqObj = JSON.parse(JSON.stringify(faqObj2));
+	faqObj.header = "FAQ: Emner"; 
+	checklist[9].header = "Tjekliste: Emne";
 	var videoObj2 = {thumbnailSrc: 'img/dummy_introyoutube.png', videoSrc: 'https://www.youtube.com/embed/-Go7min716I'};
 	// $('#outerContainer').append(makeGroupContainers('groupContainer3', {header: "Indsnævre emne", columnContent: [ {'faq': faqObj}, {'checklist': checklist[1]}, {'formalia': formalia[1]}]} )); 
-	$('#outerContainer').append(makeGroupContainers('groupContainer3', {header: "Indsnævre emne", columnContent: [ {'faq': faqObj}, {'checklist': checklist[1]}]} )); 
+	$('#outerContainer').append(makeGroupContainers('groupContainer3', {header: "Indsnævre emne", columnContent: [ {'faq': faqObj}, {'checklist': checklist[9]}]} )); 
 
 
 	faqObj = JSON.parse(JSON.stringify(faqObj2));
 	faqObj.header = "FAQ: Søg efter materialer"; 
+	checklist[9].header = "Tjekliste: Materialer";
 	var videoObj2 = {thumbnailSrc: 'img/dummy_introyoutube.png', videoSrc: 'https://www.youtube.com/embed/-Go7min716I'};
 	// $('#outerContainer').append(makeGroupContainers('groupContainer4', {header: "Søge materiale", columnContent: [{'faq': faqObj}, {'checklist': checklist[1]}, {'formalia': formalia[1]}]} )); 
-	$('#outerContainer').append(makeGroupContainers('groupContainer4', {header: "Søge materiale", columnContent: [{'faq': faqObj}, {'checklist': checklist[1]}]} )); 
+	$('#outerContainer').append(makeGroupContainers('groupContainer4', {header: "Søge materiale", columnContent: [{'faq': faqObj}, {'checklist': checklist[9]}]} )); 
 
 
 	var sso_emner = '';
-	sso_emner += '<span id="sso_emner" class="objLink" data-url="../sso_emner/emner.html">';
+	sso_emner += '<span id="sso_emner" class="objLink col-xs-12 col-sm-6" data-url="../sso_emner/emner.html">';
 		sso_emner += '<div class="imgContainer"><div class="cviOverlay">&nbsp;</div><img class="img-responsive" src="img/sso_emne.png"></div>';
 		sso_emner += '<div class="objText"><h3>Få hjælp til at vælge dit emne</h3> <div class="btn_ghost btn_ghost_noStyle btn btn-default">Til emnerne</div> </div>';
 	sso_emner += '</span>';
@@ -431,21 +435,22 @@ $(document).ready(function() {
 
 	faqObj = JSON.parse(JSON.stringify(faqObj1));
 	faqObj.header = "FAQ"; 
+	checklist[9].header = "Tjekliste: Læs";
 	var videoObj2 = {thumbnailSrc: 'img/dummy_introyoutube.png', videoSrc: 'https://www.youtube.com/embed/WmYhbS401lY'};
 	// $('#outerContainer').append(makeGroupContainers('groupContainer5', {header: "Læse", columnContent: [{'faq': faqObj}, {'checklist': checklist[1]}, {'formalia': formalia[1]}]} )); 
-	$('#outerContainer').append(makeGroupContainers('groupContainer5', {header: "Læse", columnContent: [{'faq': faqObj}, {'checklist': checklist[1]}]} )); 
+	$('#outerContainer').append(makeGroupContainers('groupContainer5', {header: "Læse", columnContent: [{'faq': faqObj}, {'checklist': checklist[9]}]} )); 
 
 
 	faqObj = JSON.parse(JSON.stringify(faqObj3));
 	faqObj.header = "FAQ: Om skriveugen"; 
 	var videoObj2 = {thumbnailSrc: 'img/dummy_introyoutube.png', videoSrc: 'https://www.youtube.com/embed/WmYhbS401lY'};
 	// $('#outerContainer').append(makeGroupContainers('groupContainer6', {header: "Selve skriveugen", columnContent: [{'faq': faqObj}, {'checklist': checklist[2]}, {'formalia': formalia[1]}]} )); 
-	$('#outerContainer').append(makeGroupContainers('groupContainer6', {header: "Selve skriveugen", columnContent: [{'faq': faqObj}, {'checklist': checklist[2]}]} )); 
+	$('#outerContainer').append(makeGroupContainers('groupContainer6', {header: "Selve skriveugen", columnContent: [{'faq': faqObj}, {'checklist': checklist[0]}]} )); 
 
 
 	// $('#outerContainer').append('<a id="sso_skriveuge" href="../sso_skriveuge/skriveuge.html"><img class="img-responsive" src="img/sso_skriveuge.png"></a>');
 	var sso_skriveuge = '';
-	sso_skriveuge += '<span id="sso_skriveuge" class="objLink" data-url="../sso_skriveuge/skriveuge.html">';
+	sso_skriveuge += '<span id="sso_skriveuge" class="objLink col-xs-12 col-sm-6" data-url="../sso_skriveuge/skriveuge.html">';
 		sso_skriveuge += '<div class="imgContainer"><div class="cviOverlay">&nbsp;</div><img class="img-responsive" src="img/sso_skriveuge.png"></div>';
 		sso_skriveuge += '<div class="objText"><h3>Få overblik over skriveugen</h3> <div class="btn_ghost btn_ghost_noStyle btn btn-default">Til skriveugen</div> </div>';
 	sso_skriveuge += '</span>';
