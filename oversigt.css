@@ -421,7 +421,8 @@
 
 #sso_emner {
 	position: absolute;
-	top: 20%;
+	/*top: 20%;*/
+	top: 16%;
 	box-shadow: 6px 6px 30px #888888;
     border-radius: 6px;
     border-bottom-left-radius: 4px;
@@ -597,6 +598,15 @@
 .checklistItemText {
 	width: 90%;
 	display: inline-block;
+}
+
+
+/**********************************************************************
+						hiddenContent
+/*********************************************************************/
+
+#hiddenContent {
+	display: none;
 }
 
 

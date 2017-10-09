@@ -189,11 +189,21 @@ function UserMsgBox_video(src) {
 }
 
 
+$( ".MsgBox_bgr_video" ).on( "keydown", function( event ) {
+	if ((event.which == 165) && ($( ".MsgBox_bgr_video" ).length > 0)) {
+		$( ".MsgBox_bgr_video" ).fadeOut(400, function(){
+			$(this).remove();
+		});
+	}
+});
+
 $( document ).on('click', '.videoPlayBtn', function(){
 	console.log('videoPlayBtn - CLICK - CALLED');
 	var videoSrc = $(this).attr('data-videoSrc');
 
 	UserMsgBox_video( videoSrc );
+
+	scaleVideo('16:9');
 });
 
 
@@ -202,7 +212,33 @@ $( document ).on('click', '.videoPlayThumbnail', function(){
 	var videoSrc = $(this).attr('data-videoSrc');
 
 	UserMsgBox_video( videoSrc );
+
+	scaleVideo('16:9');
 });
+
+
+function scaleVideo(ratio) {
+	console.log('\nscaleVideo - CALLED');
+
+	if ($( ".MsgBox_bgr_video" ).length > 0) {
+		var w = $( ".MsgBox_bgr_video" ).width();
+		var h = $( ".MsgBox_bgr_video" ).height();
+		// var ratio = 16/9;
+		var ratioArr = ratio.split(':');
+		ratio = parseInt(ratioArr[0])/parseInt(ratioArr[1]);
+		console.log('scaleVideo 1 - w: ' + w + ', h: ' + h + ', ratio: ' + ratio + ' ratio*h: ' + String(ratio*h));
+
+		if (w >= ratio*h) {
+			w = ratio*h;
+		} else {
+			h = w/ratio;
+		}
+		console.log('scaleVideo 2 - w: ' + w + ', h: ' + h + ', ratio: ' + ratio + ' ratio*h: ' + String(ratio*h));
+
+		$('#UserMsgBox_video').width(w);
+		$('#UserMsgBox_video').height(h);
+	}
+}
 
 
 function scaleAndPosition_sliderContainer() {
@@ -290,6 +326,49 @@ function slideToggleMenu_align_slideToggle_content() {
 		}
 	});
 }
+
+
+//===============================================
+//				KOPI FRA SKRIVEUGEN
+//===============================================
+$( document ).on('click', '.skriveuge_item', function(){   // <----- KOPI FRA SKRIVEUGEN
+	if ($('.btn', this).length) {
+		console.log('click - A0');
+		var numOfSlides = jsonData.itemsPrSlide_global;
+		var index_day = $(this).closest('.carouselPage').index();
+		var index_slide = $(this).closest('.item').index();
+		var index_card = $(this).closest('.skriveuge_item').index();
+		var json_index = numOfSlides*index_slide + index_card; 
+		console.log('click - index_day: ' + index_day + ', index_slide: ' + index_slide + ', index_card: ' + index_card + ', json_index: ' + json_index);
+
+		var cardObj = jsonData.day[index_day].content[json_index];
+		console.log('click - cardObj: ' + JSON.stringify(cardObj));
+
+		if (cardObj.hasOwnProperty('userMsgBox_data')) {
+			console.log('click - A1');
+			var displayMode = cardObj.userMsgBox_data.displayMode;
+			var HTML = '';
+
+			switch (displayMode) {
+	            case "html":
+	            	console.log('click - A2');
+	                HTML += '<div id="UserMsgBox_text">'+cardObj.userMsgBox_data.html+'</div>';
+	                break;
+	            case "text":
+	            	console.log('click - A3');
+	                HTML += '<div id="UserMsgBox_text">'+cardObj.userMsgBox_data.text+'</div>';
+	                break;
+	            default:
+	            	console.log('click - A4');
+	                alert('Invalid "type"');
+			}
+
+			UserMsgBox('body', HTML);
+
+			html(cardObj.userMsgBox_data);
+		}
+	}
+});
 
 
 
@@ -381,7 +460,7 @@ $(window).resize(function() {
 	scaleAndPosition_sliderContainer();
 	slideToggleMenu_align_slideToggle_content();
 
-	
+	scaleVideo('16:9');
 });
 
 
@@ -403,26 +482,26 @@ $(document).ready(function() {
 
 	faqObj = JSON.parse(JSON.stringify(faqObj2));
 	faqObj.header = "FAQ: Valg af fag og emne"; 
-	checklist[9].header = "Tjekliste: Fag og emne";
+	checklist[0].header = "Tjekliste: Fag, emne og vejleder";
 	var videoObj2 = {thumbnailSrc: 'img/dummy_introyoutube.png', videoSrc: 'https://www.youtube.com/embed/WmYhbS401lY'};
 	// $('#outerContainer').append(makeGroupContainers('groupContainer2', {header: "Vælge fag, emne og vejleder", columnContent: [{'faq': faqObj}, {'checklist': checklist[1]}, {'formalia': formalia[1]}]} )); 
-	$('#outerContainer').append(makeGroupContainers('groupContainer2', {header: "Vælge fag, emne og vejleder", columnContent: [{'faq': faqObj}, {'checklist': checklist[9]}]} )); 
+	$('#outerContainer').append(makeGroupContainers('groupContainer2', {header: "Vælge fag, emne og vejleder", columnContent: [{'faq': faqObj}, {'checklist': checklist[0]}]} )); 
 
 
-	faqObj = JSON.parse(JSON.stringify(faqObj2));
-	faqObj.header = "FAQ: Emner"; 
-	checklist[9].header = "Tjekliste: Emne";
-	var videoObj2 = {thumbnailSrc: 'img/dummy_introyoutube.png', videoSrc: 'https://www.youtube.com/embed/-Go7min716I'};
-	// $('#outerContainer').append(makeGroupContainers('groupContainer3', {header: "Indsnævre emne", columnContent: [ {'faq': faqObj}, {'checklist': checklist[1]}, {'formalia': formalia[1]}]} )); 
-	$('#outerContainer').append(makeGroupContainers('groupContainer3', {header: "Indsnævre emne", columnContent: [ {'faq': faqObj}, {'checklist': checklist[9]}]} )); 
+	// faqObj = JSON.parse(JSON.stringify(faqObj2));
+	// faqObj.header = "FAQ: Emner"; 
+	// checklist[2].header = "Tjekliste: Emne";
+	// var videoObj2 = {thumbnailSrc: 'img/dummy_introyoutube.png', videoSrc: 'https://www.youtube.com/embed/-Go7min716I'};
+	// // $('#outerContainer').append(makeGroupContainers('groupContainer3', {header: "Indsnævre emne", columnContent: [ {'faq': faqObj}, {'checklist': checklist[1]}, {'formalia': formalia[1]}]} )); 
+	// $('#outerContainer').append(makeGroupContainers('groupContainer3', {header: "Indsnævre emne", columnContent: [ {'faq': faqObj}, {'checklist': checklist[2]}]} )); 
 
 
 	faqObj = JSON.parse(JSON.stringify(faqObj2));
 	faqObj.header = "FAQ: Søg efter materialer"; 
-	checklist[9].header = "Tjekliste: Materialer";
+	checklist[1].header = "Tjekliste: Materialer";
 	var videoObj2 = {thumbnailSrc: 'img/dummy_introyoutube.png', videoSrc: 'https://www.youtube.com/embed/-Go7min716I'};
 	// $('#outerContainer').append(makeGroupContainers('groupContainer4', {header: "Søge materiale", columnContent: [{'faq': faqObj}, {'checklist': checklist[1]}, {'formalia': formalia[1]}]} )); 
-	$('#outerContainer').append(makeGroupContainers('groupContainer4', {header: "Søge materiale", columnContent: [{'faq': faqObj}, {'checklist': checklist[9]}]} )); 
+	$('#outerContainer').append(makeGroupContainers('groupContainer4', {header: "Søge materiale", columnContent: [{'faq': faqObj}, {'checklist': checklist[1]}]} )); 
 
 
 	var sso_emner = '';
@@ -436,17 +515,17 @@ $(document).ready(function() {
 
 	faqObj = JSON.parse(JSON.stringify(faqObj1));
 	faqObj.header = "FAQ"; 
-	checklist[9].header = "Tjekliste: Læs";
+	checklist[2].header = "Tjekliste: Læs";
 	var videoObj2 = {thumbnailSrc: 'img/dummy_introyoutube.png', videoSrc: 'https://www.youtube.com/embed/WmYhbS401lY'};
 	// $('#outerContainer').append(makeGroupContainers('groupContainer5', {header: "Læse", columnContent: [{'faq': faqObj}, {'checklist': checklist[1]}, {'formalia': formalia[1]}]} )); 
-	$('#outerContainer').append(makeGroupContainers('groupContainer5', {header: "Læse", columnContent: [{'faq': faqObj}, {'checklist': checklist[9]}]} )); 
+	$('#outerContainer').append(makeGroupContainers('groupContainer5', {header: "Læse", columnContent: [{'faq': faqObj}, {'checklist': checklist[2]}]} )); 
 
 
 	faqObj = JSON.parse(JSON.stringify(faqObj3));
 	faqObj.header = "FAQ: Om skriveugen"; 
 	var videoObj2 = {thumbnailSrc: 'img/dummy_introyoutube.png', videoSrc: 'https://www.youtube.com/embed/WmYhbS401lY'};
 	// $('#outerContainer').append(makeGroupContainers('groupContainer6', {header: "Selve skriveugen", columnContent: [{'faq': faqObj}, {'checklist': checklist[2]}, {'formalia': formalia[1]}]} )); 
-	$('#outerContainer').append(makeGroupContainers('groupContainer6', {header: "Selve skriveugen", columnContent: [{'faq': faqObj}, {'checklist': checklist[0]}]} )); 
+	$('#outerContainer').append(makeGroupContainers('groupContainer6', {header: "Selve skriveugen", columnContent: [{'faq': faqObj}, {'checklist': checklist[3]}]} )); 
 
 
 	// $('#outerContainer').append('<a id="sso_skriveuge" href="../sso_skriveuge/skriveuge.html"><img class="img-responsive" src="img/sso_skriveuge.png"></a>');
