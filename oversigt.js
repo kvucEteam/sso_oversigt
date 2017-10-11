@@ -77,16 +77,20 @@ function makeGroupContainers(id, contentObj) {
 					    	console.log('makeGroupContainers - A2');
 					        HTML += makeSlideToggleMenus_checklist(contentObj.columnContent[n].checklist);
 					        break;
+					    case 'html':
+					    	console.log('makeGroupContainers - A3');
+					        HTML += makeSlideToggleMenus_checklist(contentObj.columnContent[n].checklist);
+					        break;
 					    case 'formalia':
-					    	console.log('makeGroupContainers - A2');
+					    	console.log('makeGroupContainers - A4');
 					        HTML += makeSlideToggleMenus_formalia(contentObj.columnContent[n].formalia);
 					        break;
 					    case 'video':
-					    	console.log('makeGroupContainers - A3');
+					    	console.log('makeGroupContainers - A5');
 					    	HTML += makeVideoPlayThumbnail(contentObj.columnContent[n].video.thumbnailSrc, contentObj.columnContent[n].video.videoSrc);
 					        break;
 					    default:
-					    	console.log('makeGroupContainers - A4');
+					    	console.log('makeGroupContainers - A6');
 					        // alert('ERROR');
 					}
 
@@ -123,6 +127,30 @@ function makeSlideToggleMenus_faq(header, faqObj) {
 	return HTML;
 }
 
+function makeSlideToggleMenus_faq2(header, imgSrc, faqObj) {
+	console.log('makeSlideToggleMenus_faq - jsonData: ' + JSON.stringify(jsonData));
+
+	var HTML = '';
+	// HTML += '<div id="'+id+'" class="slideToggleMenu_outer slideToggleMenu">';
+	HTML += '<div class="slideToggleMenu_outer slideToggleMenu">';
+	HTML += 	'<img class="img-responsive" src="'+imgSrc+'">';
+	// HTML += 	'<h4 class="slideToggle_header"><span class="glyphicon glyphicon-question-sign"></span><div class="slideToggle_headerText">'+header+'</div><span class="slideGlyph glyphicon glyphicon-chevron-down"></span></h4>';
+	HTML += 	'<h3 class="slideToggle_header"><div class="slideToggle_headerText">'+header+'</div><span class="slideGlyph glyphicon glyphicon-chevron-down"></span></h3>';
+	HTML += 	'<div class="slideToggle_content">';
+		for (var n in faqObj.faq) {
+			HTML += '<div class="slideToggleMenu_inner slideToggleMenu">';
+			HTML += 	'<h4 class="slideToggle_header"><div class="slideToggle_headerText">'+faqObj.faq[n][0]+'</div><span class="slideGlyph glyphicon glyphicon-chevron-down"></span></h4>';
+			HTML += 	'<div class="slideToggle_content">'+faqObj.faq[n][1]+'</div>';
+			HTML += '</div>';
+		}
+	HTML += 	'</div>';
+	// HTML += 	'<div class="slideToggle_paddingElement">&nbsp;</div>';
+	HTML += '</div>';
+	console.log('makeSlideToggleMenus_faq - HTML: ' + HTML);
+
+	return HTML;
+}
+
 
 function makeSlideToggleMenus_checklist(checklistObj) {
 	console.log('makeSlideToggleMenus_checklist - checklistObj: ' + JSON.stringify(checklistObj));
@@ -130,6 +158,26 @@ function makeSlideToggleMenus_checklist(checklistObj) {
 	var HTML = '';
 	HTML += '<div class="slideToggleMenu_outer slideToggleMenu">';
 	HTML += 	'<h4 class="slideToggle_header"><span class="glyphicon glyphicon-ok-sign"></span><div class="slideToggle_headerText">'+checklistObj.header+'</div><span class="slideGlyph glyphicon glyphicon-chevron-down"></span></h4>';
+	HTML += 	'<div class="slideToggle_content">';
+		for (var n in checklistObj.checklist) {
+			// HTML += '<div class="checklistItem"><span class="glyphicon glyphicon-ok"></span>'+checklistObj.checklist[n]+'</div>';
+			HTML += '<div class="checklistItem"><span class="glyphicon glyphicon-ok"></span><div class="checklistItemText">'+checklistObj.checklist[n]+'</div></div>';
+		}
+	HTML += 	'</div>';
+	HTML += '</div>';
+	console.log('makeSlideToggleMenus_checklist - HTML: ' + HTML);
+
+	return HTML;
+}
+
+function makeSlideToggleMenus_checklist2(checklistObj, imgSrc) {
+	console.log('makeSlideToggleMenus_checklist - checklistObj: ' + JSON.stringify(checklistObj));
+
+	var HTML = '';
+	HTML += '<div class="slideToggleMenu_outer slideToggleMenu">';
+	HTML += 	'<img class="img-responsive" src="'+imgSrc+'">';
+	// HTML += 	'<h4 class="slideToggle_header"><span class="glyphicon glyphicon-ok-sign"></span><div class="slideToggle_headerText">'+checklistObj.header+'</div><span class="slideGlyph glyphicon glyphicon-chevron-down"></span></h4>';
+	HTML += 	'<h3 class="slideToggle_header"><div class="slideToggle_headerText">'+checklistObj.header+'</div><span class="slideGlyph glyphicon glyphicon-chevron-down"></span></h3>';
 	HTML += 	'<div class="slideToggle_content">';
 		for (var n in checklistObj.checklist) {
 			// HTML += '<div class="checklistItem"><span class="glyphicon glyphicon-ok"></span>'+checklistObj.checklist[n]+'</div>';
@@ -164,13 +212,30 @@ function makeSlideToggleMenus_formalia(checklistObj) {
 
 
 function makeVideoPlayBtn(btnText, id, videoSrc){
-	return '<div id="'+id+'" class="videoPlayBtn btn btn-default btn-lg" role="button" data-videoSrc="'+videoSrc+'"><span class="glyphicon glyphicon-play"></span>'+btnText+'</div>';
+	return '<div id="'+id+'" class="videoPlayBtn btn btn-primary btn-lg" role="button" data-XXX-videoSrc="'+videoSrc+'"><span class="glyphicon glyphicon-play"></span>'+btnText+'</div>';
 }
 
 
 function makeVideoPlayThumbnail(thumbnail, videoSrc){
 	console.log('makeVideoPlayThumbnail - thumbnail: ' + thumbnail + ', videoSrc: ' + videoSrc);
-	return '<div class="videoPlayThumbnail" role="button" data-videoSrc="'+videoSrc+'"><img class="img-responsive" src="'+thumbnail+'"></div>';
+	// return '<div class="videoPlayThumbnail" role="button" data-XXX-videoSrc="'+videoSrc+'"><img class="img-responsive" src="'+thumbnail+'"></div>';
+	return '<div class="videoPlayThumbnail"></div>';
+}
+
+function makeVideoPlayThumbnail_2(thumbnail, videoSrc){
+	console.log('makeVideoPlayThumbnail - thumbnail: ' + thumbnail + ', videoSrc: ' + videoSrc);
+	var HTML = '';
+	HTML += '<div class="skriveuge_item objLink videoLink" style="width: 224px;">';
+	HTML += 	'<div class="imgContainer">';
+	HTML += 		'<div class="videoPlayThumbnail" data-XXX-videosrc="'+videoSrc+'" role="button"><img class="img-responsive" src="'+thumbnail+'"></div>';
+	HTML += 	'</div>';
+	HTML += 	'<div class="objText">';
+	HTML += 		'<h4>Kom godt i gang med din SSO</h4>';
+	HTML += 		'<p>Filmen giver en introduktion til hvad det er godt at have fokus på i de første dages arbejde.</p>';
+	HTML += 		'<div class="Clear"></div>';
+	HTML += 	'</div>';
+	HTML += '</div>';
+	return HTML;
 }
 
 
@@ -197,23 +262,29 @@ $( ".MsgBox_bgr_video" ).on( "keydown", function( event ) {
 	}
 });
 
+// $( document ).on('click', '.videoPlayBtn', function(){
 $( document ).on('click', '.videoPlayBtn', function(){
 	console.log('videoPlayBtn - CLICK - CALLED');
 	var videoSrc = $(this).attr('data-videoSrc');
 
-	UserMsgBox_video( videoSrc );
+	if ((typeof(videoSrc)!=='undefined') && (videoSrc.length > 0)) {
+		UserMsgBox_video( videoSrc );
 
-	scaleVideo('16:9');
+		scaleVideo('16:9');
+	}
 });
 
 
 $( document ).on('click', '.videoPlayThumbnail', function(){
 	console.log('videoPlayThumbnail - CLICK - CALLED');
-	var videoSrc = $(this).attr('data-videoSrc');
+	var videoSrc = $(this).closest('.objLink').attr('data-videoSrc');
+	console.log('videoPlayBtn - CLICK - videoSrc: ' + videoSrc + ', this.tagName: ' + $(this).find('.objLink').prop("tagName"));
 
-	UserMsgBox_video( videoSrc );
+	if ((typeof(videoSrc)!=='undefined') && (videoSrc.length !== '')) {
+		UserMsgBox_video( videoSrc );
 
-	scaleVideo('16:9');
+		scaleVideo('16:9');
+	}
 });
 
 
@@ -410,9 +481,12 @@ $( document ).on('click', ".objLink", function(event){
 	console.log('click - CALLED');
 
 	var dataUrl = $(this).attr('data-url');
-	console.log('click - dataUrl: ' + dataUrl);
 
-	window.open(dataUrl, '_blank');
+	if ((typeof(dataUrl)!=='undefined') && (dataUrl.length > 0)) {
+		console.log('click - dataUrl: ' + dataUrl);
+
+		window.open(dataUrl, '_blank');
+	}
 
 });
 
@@ -475,9 +549,34 @@ $(document).ready(function() {
 
 
 	faqObj1.header = "FAQ: Om SSO Generelt"; 
-	var videoObj1 = {thumbnailSrc: 'img/dummy_introyoutube.png', videoSrc: 'https://www.youtube.com/embed/WmYhbS401lY'};
+	console.log('faqObj1: ' + JSON.stringify(faqObj1, null, 4));
+	// var videoObj1 = {thumbnailSrc: 'img/dummy_introyoutube.png', videoSrc: 'https://www.youtube.com/embed/WmYhbS401lY'};
+	var videoObj1 = {thumbnailSrc: 'img/video1.png', videoSrc: 'https://www.youtube.com/embed/WmYhbS401lY'};
 	// $('#outerContainer').append(makeGroupContainers('groupContainer1', {header: "Få overblik over SSO", columnContent: [{'video': videoObj1}, {'faq': faqObj1}, {'checklist': checklist[0]}]} ));   // Om SSO Generelt
+	// $('#outerContainer').append(makeGroupContainers('groupContainer1', {header: "Få overblik over SSO", columnContent: [{'video': videoObj1}, {'faq': faqObj1}]} ));   // Om SSO Generelt
 	$('#outerContainer').append(makeGroupContainers('groupContainer1', {header: "Få overblik over SSO", columnContent: [{'video': videoObj1}, {'faq': faqObj1}]} ));   // Om SSO Generelt
+
+	$('#groupContainer1 > .groupColumn:eq(2) > .groupColumn').html(makeSlideToggleMenus_faq2(faqObj1.header, "img/faq_img.png", faqObj1));
+
+
+	// var HTML = '';
+	// HTML += '<div  id="groupContainer1" class="groupContainer blue">';
+	// HTML += 	'<div class="groupColumn col-xs-12 col-md-12 blue">';
+	// HTML += 		'<h2>Få overblik over SSO</h2>';
+	// HTML += 	'</div>';
+	// HTML += 	'<div class="groupColumn">';
+	// HTML += 		'<div class="groupColumn col-xs-12 col-sm-6 blue">';
+	// HTML += 			'<div class="videoPlayThumbnail" data-videosrc="https://www.youtube.com/embed/WmYhbS401lY" role="button"><img class="img-responsive" src="img/dummy_introyoutube.png"></div>';
+	// HTML += 		'</div>';
+	// HTML += 	'</div>';
+	// HTML += 	'<div class="groupColumn">';
+	// HTML += 		'<div class="groupColumn col-xs-12 col-sm-6 blue">';
+	// HTML += 			makeSlideToggleMenus_faq(faqObj1.header, faqObj1.faq);			
+	// HTML += 		'</div>';
+	// HTML += 	'</div>';
+	// HTML += '</div>';
+	// $('#outerContainer').append( HTML );
+
 
 
 	faqObj = JSON.parse(JSON.stringify(faqObj2));
@@ -486,6 +585,20 @@ $(document).ready(function() {
 	var videoObj2 = {thumbnailSrc: 'img/dummy_introyoutube.png', videoSrc: 'https://www.youtube.com/embed/WmYhbS401lY'};
 	// $('#outerContainer').append(makeGroupContainers('groupContainer2', {header: "Vælge fag, emne og vejleder", columnContent: [{'faq': faqObj}, {'checklist': checklist[1]}, {'formalia': formalia[1]}]} )); 
 	$('#outerContainer').append(makeGroupContainers('groupContainer2', {header: "Vælge fag, emne og vejleder", columnContent: [{'faq': faqObj}, {'checklist': checklist[0]}]} )); 
+
+	$('#groupContainer2 > .groupColumn:eq(1) > .groupColumn').html(makeSlideToggleMenus_faq2(faqObj.header, "img/faq_img.png", faqObj));
+	$('#groupContainer2 > .groupColumn:eq(2) > .groupColumn').html(makeSlideToggleMenus_checklist2(checklist[0], "img/tjekliste_img.png") );
+
+
+	var sso_video1 = '';
+	sso_video1 += '<span id="sso_video1" class="objLink videoPlayThumbnail col-xs-12 col-sm-6" data-videosrc="https://www.youtube.com/embed/tLFbQK38bsg">';
+		sso_video1 += '<div class="imgContainer"><div class="cviOverlay">&nbsp;</div><img class="img-responsive" src="img/video1.png"></div>';
+		sso_video1 += '<div class="objText"><h3>Introduktion til at skrive SSO</h3> <div class="btn_ghost btn_ghost_noStyle btn btn-primary">Se filmen</div> </div>';
+	sso_video1 += '</span>';
+	// $('#outerContainer').append('<a id="sso_emner" href="../sso_emner/emner.html"><img class="img-responsive" src="img/sso_emne.png"></a>');
+	$('.videoPlayThumbnail').html(sso_video1);
+
+	
 
 
 	// faqObj = JSON.parse(JSON.stringify(faqObj2));
@@ -503,14 +616,34 @@ $(document).ready(function() {
 	// $('#outerContainer').append(makeGroupContainers('groupContainer4', {header: "Søge materiale", columnContent: [{'faq': faqObj}, {'checklist': checklist[1]}, {'formalia': formalia[1]}]} )); 
 	$('#outerContainer').append(makeGroupContainers('groupContainer4', {header: "Søge materiale", columnContent: [{'faq': faqObj}, {'checklist': checklist[1]}]} )); 
 
+	$('#groupContainer4 > .groupColumn:eq(1) > .groupColumn').html(makeSlideToggleMenus_faq2(faqObj.header, "img/faq_img.png", faqObj));
+	$('#groupContainer4 > .groupColumn:eq(2) > .groupColumn').html(makeSlideToggleMenus_checklist2(checklist[1], "img/tjekliste_img.png") );
+
+
 
 	var sso_emner = '';
 	sso_emner += '<span id="sso_emner" class="objLink col-xs-12 col-sm-6" data-url="../sso_emner/emner.html">';
 		sso_emner += '<div class="imgContainer"><div class="cviOverlay">&nbsp;</div><img class="img-responsive" src="img/sso_emne.png"></div>';
-		sso_emner += '<div class="objText"><h3>Få hjælp til at vælge dit emne</h3> <div class="btn_ghost btn_ghost_noStyle btn btn-default">Til emnerne</div> </div>';
+		sso_emner += '<div class="objText"><h3>Få hjælp til at vælge dit emne</h3> <div class="btn_ghost btn_ghost_noStyle btn btn-primary">Til emnerne</div> </div>';
 	sso_emner += '</span>';
 	// $('#outerContainer').append('<a id="sso_emner" href="../sso_emner/emner.html"><img class="img-responsive" src="img/sso_emne.png"></a>');
 	$('#outerContainer').append(sso_emner);
+	
+	var sso_skriveguide = '';
+	sso_skriveguide += '<span id="sso_skriveguide" class="objLink col-xs-12 col-sm-6" data-url="../sso_emner/emner.html">';
+		sso_skriveguide += '<div class="imgContainer"><div class="cviOverlay">&nbsp;</div><img class="img-responsive" src="img/skriveguide_img.png"></div>';
+		sso_skriveguide += '<div class="objText"><h3>Få hjælp til formulering af emne</h3> <div class="btn_ghost btn_ghost_noStyle btn btn-primary">Til skriveguide</div> </div>';
+	sso_skriveguide += '</span>';
+	// $('#outerContainer').append('<a id="sso_emner" href="../sso_emner/emner.html"><img class="img-responsive" src="img/sso_emne.png"></a>');
+	$('#outerContainer').append(sso_skriveguide);
+
+	var sso_video2 = '';
+	sso_video2 += '<span id="sso_video2" class="objLink videoPlayThumbnail col-xs-12 col-sm-6" data-videosrc="https://www.youtube.com/embed/tLFbQK38bsg">';
+		sso_video2 += '<div class="imgContainer"><div class="cviOverlay">&nbsp;</div><img class="img-responsive" src="img/video1.png"></div>';
+		sso_video2 += '<div class="objText"><h3>Vejlederens rolle</h3> <div class="btn_ghost btn_ghost_noStyle btn btn-primary">Se filmen</div> </div>';
+	sso_video2 += '</span>';
+	// $('#outerContainer').append('<a id="sso_emner" href="../sso_emner/emner.html"><img class="img-responsive" src="img/sso_emne.png"></a>');
+	$('#outerContainer').append(sso_video2);
 
 
 	faqObj = JSON.parse(JSON.stringify(faqObj1));
@@ -520,6 +653,9 @@ $(document).ready(function() {
 	// $('#outerContainer').append(makeGroupContainers('groupContainer5', {header: "Læse", columnContent: [{'faq': faqObj}, {'checklist': checklist[1]}, {'formalia': formalia[1]}]} )); 
 	$('#outerContainer').append(makeGroupContainers('groupContainer5', {header: "Læse", columnContent: [{'faq': faqObj}, {'checklist': checklist[2]}]} )); 
 
+	$('#groupContainer5 > .groupColumn:eq(1) > .groupColumn').html(makeSlideToggleMenus_faq2(faqObj.header, "img/faq_img.png", faqObj));
+	$('#groupContainer5 > .groupColumn:eq(2) > .groupColumn').html(makeSlideToggleMenus_checklist2(checklist[2], "img/tjekliste_img.png") );
+
 
 	faqObj = JSON.parse(JSON.stringify(faqObj3));
 	faqObj.header = "FAQ: Om skriveugen"; 
@@ -527,14 +663,26 @@ $(document).ready(function() {
 	// $('#outerContainer').append(makeGroupContainers('groupContainer6', {header: "Selve skriveugen", columnContent: [{'faq': faqObj}, {'checklist': checklist[2]}, {'formalia': formalia[1]}]} )); 
 	$('#outerContainer').append(makeGroupContainers('groupContainer6', {header: "Selve skriveugen", columnContent: [{'faq': faqObj}, {'checklist': checklist[3]}]} )); 
 
+	$('#groupContainer6 > .groupColumn:eq(1) > .groupColumn').html(makeSlideToggleMenus_faq2(faqObj.header, "img/faq_img.png", faqObj));
+	$('#groupContainer6 > .groupColumn:eq(2) > .groupColumn').html(makeSlideToggleMenus_checklist2(checklist[3], "img/tjekliste_img.png") );
+
 
 	// $('#outerContainer').append('<a id="sso_skriveuge" href="../sso_skriveuge/skriveuge.html"><img class="img-responsive" src="img/sso_skriveuge.png"></a>');
 	var sso_skriveuge = '';
 	sso_skriveuge += '<span id="sso_skriveuge" class="objLink col-xs-12 col-sm-6" data-url="../sso_skriveuge/skriveuge.html">';
 		sso_skriveuge += '<div class="imgContainer"><div class="cviOverlay">&nbsp;</div><img class="img-responsive" src="img/sso_skriveuge.png"></div>';
-		sso_skriveuge += '<div class="objText"><h3>Få overblik over skriveugen</h3> <div class="btn_ghost btn_ghost_noStyle btn btn-default">Til skriveugen</div> </div>';
+		sso_skriveuge += '<div class="objText"><h3>Få overblik over skriveugen</h3> <div class="btn_ghost btn_ghost_noStyle btn btn-primary">Til skriveugen</div> </div>';
 	sso_skriveuge += '</span>';
 	$('#outerContainer').append(sso_skriveuge);
+
+
+	var sso_video3 = '';
+	sso_video3 += '<span id="sso_video3" class="objLink videoPlayThumbnail col-xs-12 col-sm-6" data-videosrc="https://www.youtube.com/embed/tLFbQK38bsg">';
+		sso_video3 += '<div class="imgContainer"><div class="cviOverlay">&nbsp;</div><img class="img-responsive" src="img/video1.png"></div>';
+		sso_video3 += '<div class="objText"><h3>Har du styr på det hele inden skriveugen?</h3> <div class="btn_ghost btn_ghost_noStyle btn btn-primary">Se filmen</div> </div>';
+	sso_video3 += '</span>';
+	// $('#outerContainer').append('<a id="sso_emner" href="../sso_emner/emner.html"><img class="img-responsive" src="img/sso_emne.png"></a>');
+	$('#outerContainer').append(sso_video3);
 
 
 	var sObj = window.getComputedStyle($('.container-fluid')[0], null);   
