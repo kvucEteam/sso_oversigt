@@ -13,6 +13,7 @@
 
 window.scrollHeight = $('body').height(); // This n 
 window.sliderContainerWidth = $('#sliderContainer').width();
+window.sliderContainerheight = $('#sliderContainer').height();
 
 
 $( "#slider" ).draggable({ 
@@ -44,199 +45,6 @@ $( "#slider" ).draggable({
     }
 });
 
-// var contentObj = {header: "...", columnContent: [{'video': videoObj1}, {'faq': faqObj}, {'checklist': checklistObj1}]}   faqObj =  {header, "....", } 
-function makeGroupContainers(id, contentObj) {
-	console.log('makeGroupContainers - CALLED');
-
-	console.log('makeGroupContainers - contentObj: ' + JSON.stringify(contentObj));
-
-	var HTML = "";
-	HTML += '<div id="'+id+'" class="groupContainer blue">'; 
-		if (contentObj.hasOwnProperty('header')){
-			console.log('makeGroupContainers - A0');
-			HTML += '<div class="groupColumn col-xs-12 col-md-12 blue"><h2>'+contentObj.header+'</h2></div>';
-		} 
-		var numOfColumns = contentObj.columnContent.length;
-		var numOfBsColPrElement = 12/numOfColumns
-		console.log('makeGroupContainers - numOfColumns: ' + numOfColumns + ', numOfBsColPrElement: ' + numOfBsColPrElement);
-
-		for (var n in contentObj.columnContent) {
-			HTML += '<div class="groupColumn">';  // col-xs-12 col-md-12
-				HTML += '<div class="groupColumn col-xs-12 col-sm-'+numOfBsColPrElement+' blue">'; 
-					var columnContent = String(Object.keys(contentObj.columnContent[n]));
-					console.log('makeGroupContainers - columnContent: ' + columnContent + ', typeof(columnContent): ' + typeof(columnContent));
-
-					console.log('makeGroupContainers - contentObj.columnContent['+n+']: ' + JSON.stringify(contentObj.columnContent[n]) );
-
-					switch(columnContent) {
-					    case 'faq':
-					    	console.log('makeGroupContainers - A1');
-					        HTML += makeSlideToggleMenus_faq(contentObj.columnContent[n].faq.header, contentObj.columnContent[n].faq);
-					        break;
-					    case 'checklist':
-					    	console.log('makeGroupContainers - A2');
-					        HTML += makeSlideToggleMenus_checklist(contentObj.columnContent[n].checklist);
-					        break;
-					    case 'html':
-					    	console.log('makeGroupContainers - A3');
-					        HTML += makeSlideToggleMenus_checklist(contentObj.columnContent[n].checklist);
-					        break;
-					    case 'formalia':
-					    	console.log('makeGroupContainers - A4');
-					        HTML += makeSlideToggleMenus_formalia(contentObj.columnContent[n].formalia);
-					        break;
-					    case 'video':
-					    	console.log('makeGroupContainers - A5');
-					    	HTML += makeVideoPlayThumbnail(contentObj.columnContent[n].video.thumbnailSrc, contentObj.columnContent[n].video.videoSrc);
-					        break;
-					    default:
-					    	console.log('makeGroupContainers - A6');
-					        // alert('ERROR');
-					}
-
-				HTML += '</div>';
-			HTML += '</div>';
-		}
-	HTML += '</div>';
-
-	return HTML;
-}
-
-
-
-function makeSlideToggleMenus_faq(header, faqObj) {
-	console.log('makeSlideToggleMenus_faq - jsonData: ' + JSON.stringify(jsonData));
-
-	var HTML = '';
-	// HTML += '<div id="'+id+'" class="slideToggleMenu_outer slideToggleMenu">';
-	HTML += '<div class="slideToggleMenu_outer slideToggleMenu">';
-	// HTML += 	'<div class="slideToggle_header">'+header+'<span class="slideGlyph glyphicon glyphicon-chevron-down"></span></div>';
-	HTML += 	'<h4 class="slideToggle_header"><span class="glyphicon glyphicon-question-sign"></span><div class="slideToggle_headerText">'+header+'</div><span class="slideGlyph glyphicon glyphicon-chevron-down"></span></h4>';
-	HTML += 	'<div class="slideToggle_content">';
-		for (var n in faqObj.faq) {
-			HTML += '<div class="slideToggleMenu_inner slideToggleMenu">';
-			HTML += 	'<h4 class="slideToggle_header"><div class="slideToggle_headerText">'+faqObj.faq[n][0]+'</div><span class="slideGlyph glyphicon glyphicon-chevron-down"></span></h4>';
-			HTML += 	'<div class="slideToggle_content">'+faqObj.faq[n][1]+'</div>';
-			HTML += '</div>';
-		}
-	HTML += 	'</div>';
-	// HTML += 	'<div class="slideToggle_paddingElement">&nbsp;</div>';
-	HTML += '</div>';
-	console.log('makeSlideToggleMenus_faq - HTML: ' + HTML);
-
-	return HTML;
-}
-
-function makeSlideToggleMenus_faq2(header, imgSrc, faqObj) {
-	console.log('makeSlideToggleMenus_faq - jsonData: ' + JSON.stringify(jsonData));
-
-	var HTML = '';
-	// HTML += '<div id="'+id+'" class="slideToggleMenu_outer slideToggleMenu">';
-	HTML += '<div class="slideToggleMenu_outer slideToggleMenu">';
-	HTML += 	'<img class="img-responsive" src="'+imgSrc+'">';
-	// HTML += 	'<h4 class="slideToggle_header"><span class="glyphicon glyphicon-question-sign"></span><div class="slideToggle_headerText">'+header+'</div><span class="slideGlyph glyphicon glyphicon-chevron-down"></span></h4>';
-	HTML += 	'<h3 class="slideToggle_header"><div class="slideToggle_headerText">'+header+'</div><span class="slideGlyph glyphicon glyphicon-chevron-down"></span></h3>';
-	HTML += 	'<div class="slideToggle_content">';
-		for (var n in faqObj.faq) {
-			HTML += '<div class="slideToggleMenu_inner slideToggleMenu">';
-			HTML += 	'<h4 class="slideToggle_header"><div class="slideToggle_headerText">'+faqObj.faq[n][0]+'</div><span class="slideGlyph glyphicon glyphicon-chevron-down"></span></h4>';
-			HTML += 	'<div class="slideToggle_content">'+faqObj.faq[n][1]+'</div>';
-			HTML += '</div>';
-		}
-	HTML += 	'</div>';
-	// HTML += 	'<div class="slideToggle_paddingElement">&nbsp;</div>';
-	HTML += '</div>';
-	console.log('makeSlideToggleMenus_faq - HTML: ' + HTML);
-
-	return HTML;
-}
-
-
-function makeSlideToggleMenus_checklist(checklistObj) {
-	console.log('makeSlideToggleMenus_checklist - checklistObj: ' + JSON.stringify(checklistObj));
-
-	var HTML = '';
-	HTML += '<div class="slideToggleMenu_outer slideToggleMenu">';
-	HTML += 	'<h4 class="slideToggle_header"><span class="glyphicon glyphicon-ok-sign"></span><div class="slideToggle_headerText">'+checklistObj.header+'</div><span class="slideGlyph glyphicon glyphicon-chevron-down"></span></h4>';
-	HTML += 	'<div class="slideToggle_content">';
-		for (var n in checklistObj.checklist) {
-			// HTML += '<div class="checklistItem"><span class="glyphicon glyphicon-ok"></span>'+checklistObj.checklist[n]+'</div>';
-			HTML += '<div class="checklistItem"><span class="glyphicon glyphicon-ok"></span><div class="checklistItemText">'+checklistObj.checklist[n]+'</div></div>';
-		}
-	HTML += 	'</div>';
-	HTML += '</div>';
-	console.log('makeSlideToggleMenus_checklist - HTML: ' + HTML);
-
-	return HTML;
-}
-
-function makeSlideToggleMenus_checklist2(checklistObj, imgSrc) {
-	console.log('makeSlideToggleMenus_checklist - checklistObj: ' + JSON.stringify(checklistObj));
-
-	var HTML = '';
-	HTML += '<div class="slideToggleMenu_outer slideToggleMenu">';
-	HTML += 	'<img class="img-responsive" src="'+imgSrc+'">';
-	// HTML += 	'<h4 class="slideToggle_header"><span class="glyphicon glyphicon-ok-sign"></span><div class="slideToggle_headerText">'+checklistObj.header+'</div><span class="slideGlyph glyphicon glyphicon-chevron-down"></span></h4>';
-	HTML += 	'<h3 class="slideToggle_header"><div class="slideToggle_headerText">'+checklistObj.header+'</div><span class="slideGlyph glyphicon glyphicon-chevron-down"></span></h3>';
-	HTML += 	'<div class="slideToggle_content">';
-		for (var n in checklistObj.checklist) {
-			// HTML += '<div class="checklistItem"><span class="glyphicon glyphicon-ok"></span>'+checklistObj.checklist[n]+'</div>';
-			HTML += '<div class="checklistItem"><span class="glyphicon glyphicon-ok"></span><div class="checklistItemText">'+checklistObj.checklist[n]+'</div></div>';
-		}
-	HTML += 	'</div>';
-	HTML += '</div>';
-	console.log('makeSlideToggleMenus_checklist - HTML: ' + HTML);
-
-	return HTML;
-}
-
-
-function makeSlideToggleMenus_formalia(checklistObj) {
-	console.log('makeSlideToggleMenus_formalia - checklistObj: ' + JSON.stringify(checklistObj));
-
-	var HTML = '';
-	HTML += '<div class="slideToggleMenu_outer slideToggleMenu">';
-	HTML += 	'<h4 class="slideToggle_header"><span class="glyphicons glyphicons-paragraph-alt"></span><div class="slideToggle_headerText">'+checklistObj.header+'</div><span class="slideGlyph glyphicon glyphicon-chevron-down"></span></h4>';
-	HTML += 	'<div class="slideToggle_content">';
-		for (var n in checklistObj.checklist) {
-			HTML += '<div class="checklistItem"><span class="glyphicons glyphicons-paragraph-alt"></span>'+checklistObj.checklist[n]+'</div>';
-		}
-	HTML += 	'</div>';
-	HTML += '</div>';
-	console.log('makeSlideToggleMenus_formalia - HTML: ' + HTML);
-
-	return HTML;
-}  // 
-
-
-
-
-function makeVideoPlayBtn(btnText, id, videoSrc){
-	return '<div id="'+id+'" class="videoPlayBtn btn btn-primary btn-lg" role="button" data-XXX-videoSrc="'+videoSrc+'"><span class="glyphicon glyphicon-play"></span>'+btnText+'</div>';
-}
-
-
-function makeVideoPlayThumbnail(thumbnail, videoSrc){
-	console.log('makeVideoPlayThumbnail - thumbnail: ' + thumbnail + ', videoSrc: ' + videoSrc);
-	// return '<div class="videoPlayThumbnail" role="button" data-XXX-videoSrc="'+videoSrc+'"><img class="img-responsive" src="'+thumbnail+'"></div>';
-	return '<div class="videoPlayThumbnail"></div>';
-}
-
-function makeVideoPlayThumbnail_2(thumbnail, videoSrc){
-	console.log('makeVideoPlayThumbnail - thumbnail: ' + thumbnail + ', videoSrc: ' + videoSrc);
-	var HTML = '';
-	HTML += '<div class="skriveuge_item objLink videoLink" style="width: 224px;">';
-	HTML += 	'<div class="imgContainer">';
-	HTML += 		'<div class="videoPlayThumbnail" data-XXX-videosrc="'+videoSrc+'" role="button"><img class="img-responsive" src="'+thumbnail+'"></div>';
-	HTML += 	'</div>';
-	HTML += 	'<div class="objText">';
-	HTML += 		'<h4>Kom godt i gang med din SSO</h4>';
-	HTML += 		'<p>Filmen giver en introduktion til hvad det er godt at have fokus på i de første dages arbejde.</p>';
-	HTML += 		'<div class="Clear"></div>';
-	HTML += 	'</div>';
-	HTML += '</div>';
-	return HTML;
-}
 
 
 function UserMsgBox_video(src) {
@@ -338,30 +146,66 @@ function scaleAndPosition_sliderContainer() {
 
 
 function slideToggleMenu() {
+
 	$('.slideToggle_content').hide(); 
 
-	$( document ).on('click', '.slideToggle_header', function(){
-		console.log('slideToggleMenu - click - CALLED');
+
+	$( document ).on('click', '.slideToggleMenu_img', function(){  // QUICK FIX! TLY wants an img for both FAQs and tjeklists - slideToggle needs to activate when the img is clicked.
+		var parentObj = $(this).closest('.card');
+		$( "> .slideToggle_header", parentObj ).trigger( "click" );
+	});
+
+
+	$( document ).on('click', '.slideToggle_header', function(){  
+		console.log('.slideToggle_header - click - CALLED');
 		var jqThis = this;
 		var parentObj = $(this).parent();
 		$('> .slideToggle_content', parentObj).slideToggle(400, function() {
-			if ($('> .slideGlyph', jqThis).hasClass('glyphicon-chevron-down')) {
-				$('> .slideGlyph', jqThis).removeClass('glyphicon-chevron-down').addClass('glyphicon-chevron-up');
-			} else {
-				$('> .slideGlyph', jqThis).removeClass('glyphicon-chevron-up').addClass('glyphicon-chevron-down');
-			}
+			// if ($('> .slideGlyph', jqThis).hasClass('glyphicon-chevron-down')) {   // COMMENTED OUT 12/10-2017 - TLY wants chevron up/down action to be immeadiate!
+			// 	$('> .slideGlyph', jqThis).removeClass('glyphicon-chevron-down').addClass('glyphicon-chevron-up');
+			// } else {
+			// 	$('> .slideGlyph', jqThis).removeClass('glyphicon-chevron-up').addClass('glyphicon-chevron-down');
+			// }
 		});
 
+		if ($('> .slideGlyph', jqThis).hasClass('glyphicon-chevron-down')) {  // ADDED 12/10-2017 - TLY wants chevron up/down action to be immeadiate!
+			$('> .slideGlyph', jqThis).removeClass('glyphicon-chevron-down').addClass('glyphicon-chevron-up');
+		} else {
+			$('> .slideGlyph', jqThis).removeClass('glyphicon-chevron-up').addClass('glyphicon-chevron-down');
+		}
 		
-		$('.slideToggleMenu_outer').each(function( index, element ) {
+		$('.objElement').each(function( index, element ) {
 			$(element).css({'z-index': 0});
 		});
-		$(parentObj).closest('.slideToggleMenu_outer').css({'z-index': 1});
 
-
-		slideToggleMenu_align_slideToggle_content();
-		
+		$(parentObj).closest('.objElement').css({'z-index': 1});
 	});
+
+	// When the user interacts with an ".objElement" all ".slideToggle_content" for each ".slideToggleMenu_outer" needs to close.
+	$( document ).on('click', '.card', function( event ){ 
+		console.log('\n.card - click - CALLED - id: ' + $(this).attr('id'));
+
+		var Tthis = this;
+		$('.card').each(function( index, element ) {
+			console.log('.card - click - each.index: ' + index + ', id: ' + $(element).attr('id'));
+
+			if (($('> .slideToggle_content', element).is(':visible')) && ($(Tthis).attr('id') != $(element).attr('id'))) {
+				console.log('.card - click - A0');
+
+				$('> .slideToggle_content', element).hide();
+
+				if ($('> .slideToggle_header .slideGlyph', element).hasClass('glyphicon-chevron-down')) {  // ADDED 12/10-2017 - TLY wants chevron up/down action to be immeadiate!
+					$('> .slideToggle_header .slideGlyph', element).removeClass('glyphicon-chevron-down').addClass('glyphicon-chevron-up');
+				} else {
+					$('> .slideToggle_header .slideGlyph', element).removeClass('glyphicon-chevron-up').addClass('glyphicon-chevron-down');
+				}
+			} else {
+				console.log('.card - click - A1');
+			}
+		});
+	});
+
+
 }
 
 
@@ -490,7 +334,8 @@ $( document ).on('click', ".objLink", function(event){
 
 });
 
-$( document ).on('mouseenter', '.objLink', function(){
+// $( document ).on('mouseenter', '.objLink', function(){   // COMMENTED OUT 12/10-2017
+$( document ).on('mouseenter', '.card', function(){ 		// ADDED 12/10-2017
 	console.log('mouseover - CALLED');
 
 	$('.cviOverlay', this).fadeIn( "fast", function() {});
@@ -498,7 +343,8 @@ $( document ).on('mouseenter', '.objLink', function(){
 	$('.btn_ghost', this).switchClass( "btn_ghost_noStyle", "vuc-primary", 300, "easeInOutQuad" );
 });
 
-$( document ).on('mouseleave', '.objLink', function(){
+// $( document ).on('mouseleave', '.objLink', function(){   // COMMENTED OUT 12/10-2017
+$( document ).on('mouseleave', '.card', function(){			// ADDED 12/10-2017
 	console.log('mouseout - CALLED');
 	
 	$('.cviOverlay', this).fadeOut( "fast", function() {});
@@ -514,15 +360,17 @@ $( document ).on('click', ".imgOverlayBtn", function(event){
 	// var pos = Math.round($("#"+scrollTo).offset().top - $("#"+scrollTo).height()/2);
 	// var pos = Math.round($("#"+scrollTo).offset().top + $("#"+scrollTo).outerWidth( true )/2);
 	var ajust = {
-		'groupContainer1': -300, 
-		'groupContainer2': -200, 
-		'groupContainer3': 0, 
-		'groupContainer4': 0, 
-		'groupContainer5': 0, 
-		'groupContainer6': 0
+		'groupHeading1': -300, 
+		'groupHeading2': -200, 
+		'groupHeading3': -200, 
+		'groupHeading4': -200, 
+		'groupHeading5': -200
 	}
 	// var pos = Math.round($("#"+scrollTo).offset().top + 0);
-	var pos = Math.round($("#"+scrollTo).offset().top + ajust[scrollTo]);
+
+	// var pos = Math.round($("#"+scrollTo).offset().top + ajust[scrollTo]);    // COMMENTED OUT 12/10-2017
+	var pos = Math.round($("#"+scrollTo).offset().top - sliderContainerheight);	// ADDED 12/10-2017
+
 	// $('#outerContainer').append('<div style="background-color:#F00; width: 20px; height: 20px; position: absolute; top:'+pos+'px;"></div>');
 	$('html, body').animate({  // See: https://stackoverflow.com/questions/6677035/jquery-scroll-to-element
         scrollTop: pos
@@ -530,9 +378,163 @@ $( document ).on('click', ".imgOverlayBtn", function(event){
 });
 
 
+$( document ).on('click', ".userMsgBox_link", function(event){
+
+	event.preventDefault();
+
+	var link = $(this).attr('data-link');
+
+	if (link != '') {
+		UserMsgBox('body', $('#'+link).html());
+		$('.MsgBox_bgr').css({'z-index': '102'});
+	}
+});
+
+
+//#################################################################################################################
+//											NY KODE 12/10-2017
+//#################################################################################################################
+
+
+function makeGroupContainer(id, groupHeading, groupArr) {
+	var HTML = '';
+	HTML += '<div id="'+id+'" class="groupContainer">';
+		HTML += '<div class="groupHeading col-xs-12"><h2>'+groupHeading+'</h2></div>';
+		for (var n in groupArr) {
+			// HTML += '<div class="groupElement'+((!detectmob())?' column_50_percent':' column_100_percent')+(((n%2==0) && (!detectmob()))?' floatLeft':' floatRight')+'">'+groupArr[n]+'</div>';
+			HTML += '<div class="groupElement col-xs-12 col-sm-6">'+groupArr[n]+'</div>';
+		}
+	HTML += '</div>';
+
+	return HTML;
+}
+
+
+function groupHeading(id, heading) {
+	return '<div id="'+id+'" class="objElement groupHeading col-xs-12"><h2>'+heading+'</h2></div>';
+}
+
+
+function makeVideoCard(id, cardText, btnText, imgSrc, videoSrc) {
+	var HTML = '';
+	HTML += '<div id="'+id+'" class="objElement card objLink videoPlayThumbnail" data-videosrc="'+videoSrc+'">';
+		HTML += '<div class="imgContainer"><div class="cviOverlay">&nbsp;</div><img class="img-responsive" src="'+imgSrc+'"></div>';
+		HTML += '<div class="objText"><h3>'+cardText+'</h3> <div class="btn_ghost btn_ghost_noStyle btn btn-primary">'+btnText+'</div> <div class="Clear"></div></div>';
+	HTML += '</div>';
+	
+	return HTML;
+}
+
+function makeObjectCard(id, cardText, btnText, imgSrc, url) {
+	var HTML = '';
+	HTML += '<div id="'+id+'" class="objElement card objLink" data-url="'+url+'">';
+		HTML += '<div class="imgContainer"><div class="cviOverlay">&nbsp;</div><img class="img-responsive" src="'+imgSrc+'"></div>';
+		HTML += '<div class="objText"><h3>'+cardText+'</h3> <div class="btn_ghost btn_ghost_noStyle btn btn-primary">'+btnText+'</div> </div>';
+	HTML += '</div>';
+
+	return HTML;
+}
+
+function makeSlideToggleCard_faq(id, cardText, imgSrc, faqObj) {
+	console.log('makeSlideToggleMenus_faq - jsonData: ' + JSON.stringify(jsonData));
+
+	var HTML = '';
+	HTML += '<div id="'+id+'" class="objElement card slideToggleMenu_outer slideToggleMenu slideToggleMenus_faq">';
+	// HTML += 	'<img class="img-responsive slideToggleMenu_img" src="'+imgSrc+'">';
+	HTML += 	'<div class="imgContainer slideToggleMenu_img"><div class="cviOverlay">&nbsp;</div><img class="img-responsive" src="'+imgSrc+'"></div>';
+	HTML += 	'<h3 class="slideToggle_header"><div class="slideToggle_headerText">'+cardText+'</div><span class="slideGlyph glyphicon glyphicon-chevron-down"></span></h3>';
+	HTML += 	'<div class="slideToggle_content">';
+		for (var n in faqObj.faq) {
+			HTML += '<div class="slideToggleMenu_inner slideToggleMenu">';
+			HTML += 	'<h4 class="slideToggle_header"><div class="slideToggle_headerText">'+faqObj.faq[n][0]+'</div><span class="slideGlyph glyphicon glyphicon-chevron-down"></span></h4>';
+			HTML += 	'<div class="slideToggle_content">'+faqObj.faq[n][1]+'</div>';
+			HTML += '</div>';
+		}
+	HTML += 	'</div>';
+	HTML += '</div>';
+	console.log('makeSlideToggleMenus_faq - HTML: ' + HTML);
+
+	return HTML;
+}
+
+
+function makeSlideToggleCard_checklist(id, cardText, imgSrc, checklistObj) {
+	console.log('makeSlideToggleMenus_checklist - checklistObj: ' + JSON.stringify(checklistObj));
+
+	var HTML = '';
+	HTML += '<div id="'+id+'" class="objElement card slideToggleMenu_outer slideToggleMenu slideToggleMenus_checklist">';
+	// HTML += 	'<img class="img-responsive slideToggleMenu_img" src="'+imgSrc+'">';
+	HTML += 	'<div class="imgContainer slideToggleMenu_img"><div class="cviOverlay">&nbsp;</div><img class="img-responsive" src="'+imgSrc+'"></div>';
+	HTML += 	'<h3 class="slideToggle_header"><div class="slideToggle_headerText">'+cardText+'</div><span class="slideGlyph glyphicon glyphicon-chevron-down"></span></h3>';
+	HTML += 	'<div class="slideToggle_content">';
+		for (var n in checklistObj.checklist) {
+			HTML += '<div class="checklistItem"><span class="glyphicon glyphicon-ok"></span><div class="checklistItemText">'+checklistObj.checklist[n]+'</div></div>';
+		}
+	HTML += 	'</div>';
+	HTML += '</div>';
+	console.log('makeSlideToggleMenus_checklist - HTML: ' + HTML);
+
+	return HTML;
+}
+
+
+function insertCards() {
+
+	var faqObj;
+
+	$('#outerContainer').append(groupHeading('groupHeading1', 'Få overblik over SSO'));
+	$('#outerContainer').append(makeVideoCard('sso_video1', 'Introduktion til at skrive SSO', 'Se filmen', 'img/video1.png', 'https://www.youtube.com/embed/tLFbQK38bsg'));
+	$('#outerContainer').append(makeSlideToggleCard_faq('faq1', "Spørgsmål til SSO", "img/faq_img.png", faqObj1));
+
+
+	faqObj = JSON.parse(JSON.stringify(faqObj2));
+	$('#outerContainer').append(groupHeading('groupHeading2', 'Vælge fag, emne og vejleder'));
+	$('#outerContainer').append(makeSlideToggleCard_faq('faq2', "Spørgsmål til valg af fag og emne", "img/faq_img.png", faqObj));
+	$('#outerContainer').append(makeSlideToggleCard_checklist('checklist1', 'Tjekliste: Fag, emne og vejleder', 'img/tjekliste_img.png', checklist[0]));
+	$('#outerContainer').append(makeObjectCard('sso_emner', 'Få hjælp til at vælge dit emne', 'Se emneoversigten', 'img/sso_emne.png', '../sso_emner/emner.html'));
+	$('#outerContainer').append(makeObjectCard('sso_skriveguide', 'Få hjælp til formulering af emne', 'Prøv skriveguiden', 'img/skriveguide_img.png', '../sso_emner/emner.html'));
+	$('#outerContainer').append(makeVideoCard('sso_video2', 'Vejlederens rolle', 'Se filmen', 'img/video1.png', 'https://www.youtube.com/embed/tLFbQK38bsg'));
+
+
+	faqObj = JSON.parse(JSON.stringify(faqObj2));
+	$('#outerContainer').append(groupHeading('groupHeading3', 'Søge efter materialer'));
+	$('#outerContainer').append(makeSlideToggleCard_faq('faq3', "Spørgsmål om at finde materialer", "img/faq_img.png", faqObj));
+	$('#outerContainer').append(makeSlideToggleCard_checklist('checklist2', 'Tjekliste: Materialer', 'img/tjekliste_img.png', checklist[1]));
+
+
+	faqObj = JSON.parse(JSON.stringify(faqObj1));
+	$('#outerContainer').append(groupHeading('groupHeading4', 'Læse'));
+	$('#outerContainer').append(makeSlideToggleCard_faq('faq4', "Spørgsmål om læseprocessen", "img/faq_img.png", faqObj));
+	$('#outerContainer').append(makeSlideToggleCard_checklist('checklist3', 'Tjekliste: Læs', 'img/tjekliste_img.png', checklist[2]));
+
+
+	faqObj = JSON.parse(JSON.stringify(faqObj3));
+	$('#outerContainer').append(groupHeading('groupHeading5', 'Selve skriveugen'));
+	$('#outerContainer').append(makeSlideToggleCard_faq('faq5', "Spørgsmål til skriveugen", "img/faq_img.png", faqObj));
+	$('#outerContainer').append(makeObjectCard('sso_skriveuge', 'Få overblik over skriveugen', 'Hjælp til skriveugen', 'img/sso_skriveuge.png', '../sso_skriveuge/skriveuge.html'));
+	$('#outerContainer').append(makeVideoCard('sso_video3', 'Har du styr på det hele inden skriveugen?', 'Se filmen', 'img/video1.png', 'https://www.youtube.com/embed/tLFbQK38bsg'));
+	$('#outerContainer').append(makeSlideToggleCard_checklist('checklist4', 'Tjekliste: Klar til skriveugen?', 'img/tjekliste_img.png', checklist[3]));
+}
+
+
+function mobileDisplay() {
+	if (detectmob()) {
+		$('#mainImg').hide();
+		$('.card').addClass('card_mobile').removeClass('card');  // IMPORTANT: This disables the auto-closing of FAQs and tjecklists!
+		$('.objElement').css({'position': 'relative', 'top': '0px', 'left': '0px', 'display': 'table', 'width': 'inherit', 'max-width': '800px'});
+		// $('.card').css({'margin-bottom': '3%'});
+	}
+}
+
+
+//#################################################################################################################
+//											RUN PROGRAM
+//#################################################################################################################
+
+
 $(window).resize(function() {
 	scaleAndPosition_sliderContainer();
-	slideToggleMenu_align_slideToggle_content();
+	// slideToggleMenu_align_slideToggle_content();
 
 	scaleVideo('16:9');
 });
@@ -544,149 +546,9 @@ $(document).ready(function() {
 	console.log('document.ready - checklist: ' + JSON.stringify(checklist));
 	console.log('document.ready - formalia: ' + JSON.stringify(formalia));
 
+	insertCards();
 
-	var faqObj;
-
-
-	faqObj1.header = "FAQ: Om SSO Generelt"; 
-	console.log('faqObj1: ' + JSON.stringify(faqObj1, null, 4));
-	// var videoObj1 = {thumbnailSrc: 'img/dummy_introyoutube.png', videoSrc: 'https://www.youtube.com/embed/WmYhbS401lY'};
-	var videoObj1 = {thumbnailSrc: 'img/video1.png', videoSrc: 'https://www.youtube.com/embed/WmYhbS401lY'};
-	// $('#outerContainer').append(makeGroupContainers('groupContainer1', {header: "Få overblik over SSO", columnContent: [{'video': videoObj1}, {'faq': faqObj1}, {'checklist': checklist[0]}]} ));   // Om SSO Generelt
-	// $('#outerContainer').append(makeGroupContainers('groupContainer1', {header: "Få overblik over SSO", columnContent: [{'video': videoObj1}, {'faq': faqObj1}]} ));   // Om SSO Generelt
-	$('#outerContainer').append(makeGroupContainers('groupContainer1', {header: "Få overblik over SSO", columnContent: [{'video': videoObj1}, {'faq': faqObj1}]} ));   // Om SSO Generelt
-
-	$('#groupContainer1 > .groupColumn:eq(2) > .groupColumn').html(makeSlideToggleMenus_faq2(faqObj1.header, "img/faq_img.png", faqObj1));
-
-
-	// var HTML = '';
-	// HTML += '<div  id="groupContainer1" class="groupContainer blue">';
-	// HTML += 	'<div class="groupColumn col-xs-12 col-md-12 blue">';
-	// HTML += 		'<h2>Få overblik over SSO</h2>';
-	// HTML += 	'</div>';
-	// HTML += 	'<div class="groupColumn">';
-	// HTML += 		'<div class="groupColumn col-xs-12 col-sm-6 blue">';
-	// HTML += 			'<div class="videoPlayThumbnail" data-videosrc="https://www.youtube.com/embed/WmYhbS401lY" role="button"><img class="img-responsive" src="img/dummy_introyoutube.png"></div>';
-	// HTML += 		'</div>';
-	// HTML += 	'</div>';
-	// HTML += 	'<div class="groupColumn">';
-	// HTML += 		'<div class="groupColumn col-xs-12 col-sm-6 blue">';
-	// HTML += 			makeSlideToggleMenus_faq(faqObj1.header, faqObj1.faq);			
-	// HTML += 		'</div>';
-	// HTML += 	'</div>';
-	// HTML += '</div>';
-	// $('#outerContainer').append( HTML );
-
-
-
-	faqObj = JSON.parse(JSON.stringify(faqObj2));
-	faqObj.header = "FAQ: Valg af fag og emne"; 
-	checklist[0].header = "Tjekliste: Fag, emne og vejleder";
-	var videoObj2 = {thumbnailSrc: 'img/dummy_introyoutube.png', videoSrc: 'https://www.youtube.com/embed/WmYhbS401lY'};
-	// $('#outerContainer').append(makeGroupContainers('groupContainer2', {header: "Vælge fag, emne og vejleder", columnContent: [{'faq': faqObj}, {'checklist': checklist[1]}, {'formalia': formalia[1]}]} )); 
-	$('#outerContainer').append(makeGroupContainers('groupContainer2', {header: "Vælge fag, emne og vejleder", columnContent: [{'faq': faqObj}, {'checklist': checklist[0]}]} )); 
-
-	$('#groupContainer2 > .groupColumn:eq(1) > .groupColumn').html(makeSlideToggleMenus_faq2(faqObj.header, "img/faq_img.png", faqObj));
-	$('#groupContainer2 > .groupColumn:eq(2) > .groupColumn').html(makeSlideToggleMenus_checklist2(checklist[0], "img/tjekliste_img.png") );
-
-
-	var sso_video1 = '';
-	sso_video1 += '<span id="sso_video1" class="objLink videoPlayThumbnail col-xs-12 col-sm-6" data-videosrc="https://www.youtube.com/embed/tLFbQK38bsg">';
-		sso_video1 += '<div class="imgContainer"><div class="cviOverlay">&nbsp;</div><img class="img-responsive" src="img/video1.png"></div>';
-		sso_video1 += '<div class="objText"><h3>Introduktion til at skrive SSO</h3> <div class="btn_ghost btn_ghost_noStyle btn btn-primary">Se filmen</div> </div>';
-	sso_video1 += '</span>';
-	// $('#outerContainer').append('<a id="sso_emner" href="../sso_emner/emner.html"><img class="img-responsive" src="img/sso_emne.png"></a>');
-	$('.videoPlayThumbnail').html(sso_video1);
-
-	
-
-
-	// faqObj = JSON.parse(JSON.stringify(faqObj2));
-	// faqObj.header = "FAQ: Emner"; 
-	// checklist[2].header = "Tjekliste: Emne";
-	// var videoObj2 = {thumbnailSrc: 'img/dummy_introyoutube.png', videoSrc: 'https://www.youtube.com/embed/-Go7min716I'};
-	// // $('#outerContainer').append(makeGroupContainers('groupContainer3', {header: "Indsnævre emne", columnContent: [ {'faq': faqObj}, {'checklist': checklist[1]}, {'formalia': formalia[1]}]} )); 
-	// $('#outerContainer').append(makeGroupContainers('groupContainer3', {header: "Indsnævre emne", columnContent: [ {'faq': faqObj}, {'checklist': checklist[2]}]} )); 
-
-
-	faqObj = JSON.parse(JSON.stringify(faqObj2));
-	faqObj.header = "FAQ: Søg efter materialer"; 
-	checklist[1].header = "Tjekliste: Materialer";
-	var videoObj2 = {thumbnailSrc: 'img/dummy_introyoutube.png', videoSrc: 'https://www.youtube.com/embed/-Go7min716I'};
-	// $('#outerContainer').append(makeGroupContainers('groupContainer4', {header: "Søge materiale", columnContent: [{'faq': faqObj}, {'checklist': checklist[1]}, {'formalia': formalia[1]}]} )); 
-	$('#outerContainer').append(makeGroupContainers('groupContainer4', {header: "Søge materiale", columnContent: [{'faq': faqObj}, {'checklist': checklist[1]}]} )); 
-
-	$('#groupContainer4 > .groupColumn:eq(1) > .groupColumn').html(makeSlideToggleMenus_faq2(faqObj.header, "img/faq_img.png", faqObj));
-	$('#groupContainer4 > .groupColumn:eq(2) > .groupColumn').html(makeSlideToggleMenus_checklist2(checklist[1], "img/tjekliste_img.png") );
-
-
-
-	var sso_emner = '';
-	sso_emner += '<span id="sso_emner" class="objLink col-xs-12 col-sm-6" data-url="../sso_emner/emner.html">';
-		sso_emner += '<div class="imgContainer"><div class="cviOverlay">&nbsp;</div><img class="img-responsive" src="img/sso_emne.png"></div>';
-		sso_emner += '<div class="objText"><h3>Få hjælp til at vælge dit emne</h3> <div class="btn_ghost btn_ghost_noStyle btn btn-primary">Til emnerne</div> </div>';
-	sso_emner += '</span>';
-	// $('#outerContainer').append('<a id="sso_emner" href="../sso_emner/emner.html"><img class="img-responsive" src="img/sso_emne.png"></a>');
-	$('#outerContainer').append(sso_emner);
-	
-	var sso_skriveguide = '';
-	sso_skriveguide += '<span id="sso_skriveguide" class="objLink col-xs-12 col-sm-6" data-url="../sso_emner/emner.html">';
-		sso_skriveguide += '<div class="imgContainer"><div class="cviOverlay">&nbsp;</div><img class="img-responsive" src="img/skriveguide_img.png"></div>';
-		sso_skriveguide += '<div class="objText"><h3>Få hjælp til formulering af emne</h3> <div class="btn_ghost btn_ghost_noStyle btn btn-primary">Til skriveguide</div> </div>';
-	sso_skriveguide += '</span>';
-	// $('#outerContainer').append('<a id="sso_emner" href="../sso_emner/emner.html"><img class="img-responsive" src="img/sso_emne.png"></a>');
-	$('#outerContainer').append(sso_skriveguide);
-
-	var sso_video2 = '';
-	sso_video2 += '<span id="sso_video2" class="objLink videoPlayThumbnail col-xs-12 col-sm-6" data-videosrc="https://www.youtube.com/embed/tLFbQK38bsg">';
-		sso_video2 += '<div class="imgContainer"><div class="cviOverlay">&nbsp;</div><img class="img-responsive" src="img/video1.png"></div>';
-		sso_video2 += '<div class="objText"><h3>Vejlederens rolle</h3> <div class="btn_ghost btn_ghost_noStyle btn btn-primary">Se filmen</div> </div>';
-	sso_video2 += '</span>';
-	// $('#outerContainer').append('<a id="sso_emner" href="../sso_emner/emner.html"><img class="img-responsive" src="img/sso_emne.png"></a>');
-	$('#outerContainer').append(sso_video2);
-
-
-	faqObj = JSON.parse(JSON.stringify(faqObj1));
-	faqObj.header = "FAQ"; 
-	checklist[2].header = "Tjekliste: Læs";
-	var videoObj2 = {thumbnailSrc: 'img/dummy_introyoutube.png', videoSrc: 'https://www.youtube.com/embed/WmYhbS401lY'};
-	// $('#outerContainer').append(makeGroupContainers('groupContainer5', {header: "Læse", columnContent: [{'faq': faqObj}, {'checklist': checklist[1]}, {'formalia': formalia[1]}]} )); 
-	$('#outerContainer').append(makeGroupContainers('groupContainer5', {header: "Læse", columnContent: [{'faq': faqObj}, {'checklist': checklist[2]}]} )); 
-
-	$('#groupContainer5 > .groupColumn:eq(1) > .groupColumn').html(makeSlideToggleMenus_faq2(faqObj.header, "img/faq_img.png", faqObj));
-	$('#groupContainer5 > .groupColumn:eq(2) > .groupColumn').html(makeSlideToggleMenus_checklist2(checklist[2], "img/tjekliste_img.png") );
-
-
-	faqObj = JSON.parse(JSON.stringify(faqObj3));
-	faqObj.header = "FAQ: Om skriveugen"; 
-	var videoObj2 = {thumbnailSrc: 'img/dummy_introyoutube.png', videoSrc: 'https://www.youtube.com/embed/WmYhbS401lY'};
-	// $('#outerContainer').append(makeGroupContainers('groupContainer6', {header: "Selve skriveugen", columnContent: [{'faq': faqObj}, {'checklist': checklist[2]}, {'formalia': formalia[1]}]} )); 
-	$('#outerContainer').append(makeGroupContainers('groupContainer6', {header: "Selve skriveugen", columnContent: [{'faq': faqObj}, {'checklist': checklist[3]}]} )); 
-
-	$('#groupContainer6 > .groupColumn:eq(1) > .groupColumn').html(makeSlideToggleMenus_faq2(faqObj.header, "img/faq_img.png", faqObj));
-	$('#groupContainer6 > .groupColumn:eq(2) > .groupColumn').html(makeSlideToggleMenus_checklist2(checklist[3], "img/tjekliste_img.png") );
-
-
-	// $('#outerContainer').append('<a id="sso_skriveuge" href="../sso_skriveuge/skriveuge.html"><img class="img-responsive" src="img/sso_skriveuge.png"></a>');
-	var sso_skriveuge = '';
-	sso_skriveuge += '<span id="sso_skriveuge" class="objLink col-xs-12 col-sm-6" data-url="../sso_skriveuge/skriveuge.html">';
-		sso_skriveuge += '<div class="imgContainer"><div class="cviOverlay">&nbsp;</div><img class="img-responsive" src="img/sso_skriveuge.png"></div>';
-		sso_skriveuge += '<div class="objText"><h3>Få overblik over skriveugen</h3> <div class="btn_ghost btn_ghost_noStyle btn btn-primary">Til skriveugen</div> </div>';
-	sso_skriveuge += '</span>';
-	$('#outerContainer').append(sso_skriveuge);
-
-
-	var sso_video3 = '';
-	sso_video3 += '<span id="sso_video3" class="objLink videoPlayThumbnail col-xs-12 col-sm-6" data-videosrc="https://www.youtube.com/embed/tLFbQK38bsg">';
-		sso_video3 += '<div class="imgContainer"><div class="cviOverlay">&nbsp;</div><img class="img-responsive" src="img/video1.png"></div>';
-		sso_video3 += '<div class="objText"><h3>Har du styr på det hele inden skriveugen?</h3> <div class="btn_ghost btn_ghost_noStyle btn btn-primary">Se filmen</div> </div>';
-	sso_video3 += '</span>';
-	// $('#outerContainer').append('<a id="sso_emner" href="../sso_emner/emner.html"><img class="img-responsive" src="img/sso_emne.png"></a>');
-	$('#outerContainer').append(sso_video3);
-
-
-	var sObj = window.getComputedStyle($('.container-fluid')[0], null);   
-	console.log('resize - sObj: ' + JSON.stringify(sObj['max-width']));
+	mobileDisplay();
 
 	console.log('resize - sObj 2 : ' + $('.container-fluid').css('max-width')); 
 
@@ -703,7 +565,7 @@ $(document).ready(function() {
 	$( "#slider" ).css({left: 0}); // <------ This is a bugfix on the live server, that causes the "#slider" to be initialized outside "#sliderContainer". This moves the "#slider" to the start position.
 
 
-	microhint($('#slider'), 'Du kan navigere i sidens indhold ved at scrolle eller ved at at trække i slideren.' , true, '#000');
+	microhint($('#slider'), 'Du kan klikke i menuen herover for at scrolle ned på siden.' , true, '#000');
 	$('.microhint').css({position: "fixed"});
 	microhint($('#sso_emner .btn_ghost'), 'Her er en side, som viser dig lidt om at finde et godt emne. Siden åbner i et nyt vindue' , true, '#000');
 });
