@@ -5,8 +5,8 @@
 		"instruction":	"instruction text",
 		"explanation":	"explanation text",
 		"checklist": [
-			"Jeg har <a href='#' class='userMsgBox_link red'>valgt et fag</a> jeg enten har afsluttet eller er i gang med på minimum B-niveau.", 
-			"Jeg har kontaktet min vejleder pr. mail og sendt en kort beskrivelse af mine tanker om <a href='#' class='userMsgBox_link red'>SSO-emne</a>.",
+			"Jeg har valgt et fag jeg enten har afsluttet eller er i gang med på minimum B-niveau.", 
+			"Jeg har kontaktet min vejleder pr. mail og sendt en kort beskrivelse af mine tanker om <a href='../sso_emner/emner.html' target='_blank'>SSO-emne</a>.",
 			"Jeg har afgrænset og fået godkendt mit emne af min vejleder."
 		]
 	},
@@ -16,7 +16,7 @@
 		"instruction":	"instruction text",
 		"explanation":	"explanation text",
 		"checklist": [
-			"Jeg har været på <a href='#' class='userMsgBox_link red'>biblioteket</a> og lånt 2-3 bøger der grundigt berører emnet.", 
+			"Jeg har været på <a href='#' class='userMsgBox_link' data-link='bibliotek'>biblioteket</a> og lånt 2-3 bøger der grundigt berører emnet.", 
 			"Jeg har kigget i bøgerne/overblikslitteraturen og markeret de kapitler der synes at være relevante for mit emne.",
 			"Jeg har fundet <a href='#' class='userMsgBox_link' data-link='analyserelevant_materiale'>analyserelevant materiale</a> der kan anvendes til at besvare centrale problemstillinger inden for mit emne."
 		]
@@ -43,10 +43,10 @@
 			"Jeg har sikret mig at min litteratur er fyldestgørende i forhold til at svare på centrale problemstillinger inden for mit emne, eller skaffet mere/ny litteratur.",
 			"Jeg har nu det fulde overblik over min litteratur.",
 			"Jeg har, hvis jeg har behov for det, aftalt endnu et møde med min vejleder inden skriveugen.",
-			"Jeg har afholdt et sidste møde med min vejleder inden <a href='#' class='userMsgBox_link red'>skriveugen</a>, hvor vi har talt om opgaven som helhed.",
+			"Jeg har afholdt et sidste møde med min vejleder inden <a href='../sso_skriveuge/skriveuge.html' target='_blank'>skriveugen</a>, hvor vi har talt om opgaven som helhed.",
 			"Jeg har et NemID eller unilogin til netprøver.dk.",
 			"Jeg har et telefonnummer, mail eller andet på min vejleder.",
-			"Jeg har styr på <a href='#' class='userMsgBox_link red'>kravene til SSO</a>."
+			"Jeg har styr på <a href='#' class='userMsgBox_link' data-link='krav_til_sso'>kravene til SSO</a>."
 		]
 	},
 	{
