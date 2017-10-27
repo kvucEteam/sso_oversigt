@@ -1,6 +1,6 @@
 #mainImg {
 	width: 100%;
-	opacity: 0.8;
+	opacity: 0.65;
 }
 
 #sliderImg {
@@ -575,16 +575,21 @@
 
 	/* ===== */
 
-	box-shadow: 6px 6px 30px #888888;
+	box-shadow: 0px 0px 15px #aaa;
     border-radius: 4px;
     border-bottom-left-radius: 4px;
     border-bottom-right-radius: 4px;
 }
 
-.objLink img, .objLink:hover img, .objLink:visited img {
+/* ATO RETTELSE FRA objLink --> objElement, som alle cards deler 27/10 2017*/ 
+.objElement img, .objElement:hover img, .objElement:visited img {
 	border-top-left-radius: 4px;
 	border-top-right-radius: 4px;
 }
+
+
+
+/*ATO RETTELSE SLUT */
 
 .objText {
 	padding-left: 30px;
