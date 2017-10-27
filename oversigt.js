@@ -521,11 +521,32 @@ function mobileDisplay() {
 	if (detectmob()) {
 		$('#mainImg').hide();
 		$('.card').addClass('card_mobile').removeClass('card');  // IMPORTANT: This disables the auto-closing of FAQs and tjecklists!
-		$('.objElement').css({'position': 'relative', 'top': '0px', 'left': '0px', 'display': 'table', 'width': 'inherit', 'max-width': '800px'});
+		$('.objElement').css({'position': 'relative', 'top': '0px', 'left': '0px', 'display': 'table', 'width': 'inherit', 'max-width': '800px'});  // <---- Indsæt disse i klassen card_mobile?
 		// $('.card').css({'margin-bottom': '3%'});
+
+		mobileDisplay_setLeftMargin();
 	}
 }
 
+
+function mobileDisplay_setLeftMargin() {
+
+	if (detectmob()) {
+		var averageWidth, sumWidth  = 0;
+		var count = 0;
+		$('.objElement').each(function( index, element ) {
+			sumWidth += $(element).outerWidth();
+			++count;
+			averageWidth = sumWidth/count;
+		});
+
+		var w = $('#outerContainer').innerWidth();
+		var marginLeft = (w - averageWidth)/2;
+		console.log('mobileDisplay - w: ' + w + ', marginLeft: ' + marginLeft);
+
+		$('.objElement').css({'margin-left': marginLeft});
+	}
+}
 
 //#################################################################################################################
 //											RUN PROGRAM
@@ -535,6 +556,8 @@ function mobileDisplay() {
 $(window).resize(function() {
 	scaleAndPosition_sliderContainer();
 	// slideToggleMenu_align_slideToggle_content();
+
+	mobileDisplay_setLeftMargin();
 
 	scaleVideo('16:9');
 });

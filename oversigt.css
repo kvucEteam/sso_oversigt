@@ -825,3 +825,13 @@
 	}
 
 }
+
+
+/************************************************************************/
+
+
+#dummyMargin {
+	display: inline-block;
+	height: 100% !important;
+	float: left;
+}
