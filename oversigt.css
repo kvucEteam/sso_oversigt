@@ -20,14 +20,14 @@
 	margin-top: 16%;
 	margin-top: 15.5%;
 	/*margin-top: 21%;*/
-	position: relative; 
+	position: relative;  
 }
 
 #sliderContainer {
 
 	/*display: none;*/ /* <------------  DEBUG 12/10-2017  */
 
-	width: 100%;
+	width: 110%;
 	/*position: absolute;*/
 	position: fixed;
 	top: 0%;

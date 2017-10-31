@@ -349,7 +349,7 @@
 
     </div>
     <script src="../library/vendor_scripts.js"></script>
-    <script src="../library/custom_scripts.js"></script>
+    <script src="../library/custom_scripts.js"></script> 
     <script src="oversigt.js"></script>
     <script type="text/javascript"> 
         getAjaxData("GET", "../sso_faq/json/faq_1.json", false, "json"); 
@@ -369,6 +369,9 @@
 
         getAjaxData("GET", "json/formalia.json", false, "json"); 
         window.formalia = JSON.parse(JSON.stringify(jsonData));
+
+        getAjaxData("GET", "json/example.json", false, "json"); 
+        window.example = JSON.parse(JSON.stringify(jsonData));
     </script>
     <script type="text/javascript">
         $(document).ready(function() {

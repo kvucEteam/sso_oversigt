@@ -452,6 +452,39 @@ function makeSlideToggleCard_faq(id, cardText, imgSrc, faqObj) {
 		}
 	HTML += 	'</div>';
 	HTML += '</div>';
+	console.log('makeSlideToggleMenus_faq - HTML: ' + HTML); 
+
+	return HTML;
+}
+
+
+function makeSlideToggleCard_example(id, cardText, imgSrc, exObj) { 
+	console.log('makeSlideToggleMenus_faq - jsonData: ' + JSON.stringify(jsonData));
+
+	var HTML = '';
+	HTML += '<div id="'+id+'" class="objElement card slideToggleMenu_outer slideToggleMenu slideToggleMenus_faq">';
+	// HTML += 	'<img class="img-responsive slideToggleMenu_img" src="'+imgSrc+'">';
+	HTML += 	'<div class="imgContainer slideToggleMenu_img"><div class="cviOverlay">&nbsp;</div><img class="img-responsive" src="'+imgSrc+'"></div>';
+	HTML += 	'<h3 class="slideToggle_header"><div class="slideToggle_headerText">'+cardText+'</div><span class="slideGlyph glyphicon glyphicon-chevron-down"></span></h3>';
+	HTML += 	'<div class="slideToggle_content">';
+		for (var name in exObj.subject) {
+			HTML += '<div class="slideToggleMenu_inner slideToggleMenu">';
+			HTML += 	'<h4 class="slideToggle_header"><div class="slideToggle_headerText">'+name+'</div><span class="slideGlyph glyphicon glyphicon-chevron-down"></span></h4>';
+			HTML += 	'<div class="slideToggle_content">';
+			for (var n in exObj.subject[name]) {
+				HTML += '<div class="slideToggleMenu_inner slideToggleMenu">';
+				HTML += 	'<h4 class="slideToggle_header"><div class="slideToggle_headerText">'+exObj.subject[name][n].title+', karakter: '+exObj.subject[name][n].grade+'</div><span class="slideGlyph glyphicon glyphicon-chevron-down"></span></h4>';
+				HTML += 	'<div class="slideToggle_content">';
+				// HTML += 		exObj.subject[name][n].title + '<br>' + exObj.subject[name][n].subHeader + '<br> Karakter: ' +exObj.subject[name][n].grade + '<br> <i>' +exObj.subject[name][n].description +'</i>';
+				HTML += 		'<h5><b>'+exObj.subject[name][n].title + '</b></h5><i>' +exObj.subject[name][n].description +'</i><br><a href="'+exObj.subject[name][n].url+'" target="_blank">Download</a>';
+				HTML += 	'</div>';
+				HTML += '</div>';
+			}
+			HTML += 	'</div>';
+			HTML += '</div>';
+		}
+	HTML += 	'</div>';
+	HTML += '</div>';
 	console.log('makeSlideToggleMenus_faq - HTML: ' + HTML);
 
 	return HTML;
@@ -484,12 +517,14 @@ function insertCards() {
 
 	$('#outerContainer').append(groupHeading('groupHeading1', 'Få overblik over SSO'));
 	$('#outerContainer').append(makeVideoCard('sso_video1', 'Introduktion til at skrive SSO', 'Se filmen', 'img/video1.png', 'https://www.youtube.com/embed/tLFbQK38bsg'));
-	$('#outerContainer').append(makeSlideToggleCard_faq('faq1', "Spørgsmål til SSO", "img/faq_img.png", faqObj1));
+	// $('#outerContainer').append(makeSlideToggleCard_faq('faq1', "Spørgsmål til SSO", "img/faq_img.png", faqObj1));
+	$('#outerContainer').append(makeSlideToggleCard_faq('faq1', faqObj1.userInterface.header, "img/faq_img.png", faqObj1));
 
 
 	faqObj = JSON.parse(JSON.stringify(faqObj2));
 	$('#outerContainer').append(groupHeading('groupHeading2', 'Vælge fag, emne og vejleder'));
-	$('#outerContainer').append(makeSlideToggleCard_faq('faq2', "Spørgsmål til valg af fag og emne", "img/faq_img.png", faqObj));
+	// $('#outerContainer').append(makeSlideToggleCard_faq('faq2', "Spørgsmål til valg af fag og emne", "img/faq_img.png", faqObj));
+	$('#outerContainer').append(makeSlideToggleCard_faq('faq2', faqObj.userInterface.header, "img/faq_img.png", faqObj));
 	$('#outerContainer').append(makeSlideToggleCard_checklist('checklist1', 'Tjekliste: Fag, emne og vejleder', 'img/tjekliste_img.png', checklist[0]));
 	$('#outerContainer').append(makeObjectCard('sso_emner', 'Få hjælp til at vælge dit emne', 'Se emneoversigten', 'img/sso_emne.png', '../sso_emner/emner.html'));
 	$('#outerContainer').append(makeObjectCard('sso_skriveguide', 'Få hjælp til formulering af emne', 'Prøv skriveguiden', 'img/skriveguide_img.png', '../sso_emner/emner.html'));
@@ -498,19 +533,22 @@ function insertCards() {
 
 	faqObj = JSON.parse(JSON.stringify(faqObj2));
 	$('#outerContainer').append(groupHeading('groupHeading3', 'Søge efter materialer'));
-	$('#outerContainer').append(makeSlideToggleCard_faq('faq3', "Spørgsmål om at finde materialer", "img/faq_img.png", faqObj));
+	// $('#outerContainer').append(makeSlideToggleCard_faq('faq3', "Spørgsmål om at finde materialer", "img/faq_img.png", faqObj));
+	$('#outerContainer').append(makeSlideToggleCard_faq('faq3',  "Spørgsmål om at finde materialer", "img/faq_img.png", faqObj));
 	$('#outerContainer').append(makeSlideToggleCard_checklist('checklist2', 'Tjekliste: Materialer', 'img/tjekliste_img.png', checklist[1]));
 
 
-	faqObj = JSON.parse(JSON.stringify(faqObj1));
+	example = JSON.parse(JSON.stringify(example));
 	$('#outerContainer').append(groupHeading('groupHeading4', 'Læse'));
-	$('#outerContainer').append(makeSlideToggleCard_faq('faq4', "Spørgsmål om læseprocessen", "img/faq_img.png", faqObj));
+	// $('#outerContainer').append(makeSlideToggleCard_faq('faq4', "Spørgsmål om læseprocessen", "img/faq_img.png", faqObj));
+	$('#outerContainer').append(makeSlideToggleCard_example('faq4', "Eksempler på opgaver", "img/eksemplariske_img.png", example));
 	$('#outerContainer').append(makeSlideToggleCard_checklist('checklist3', 'Tjekliste: Læs', 'img/tjekliste_img.png', checklist[2]));
 
 
 	faqObj = JSON.parse(JSON.stringify(faqObj3));
 	$('#outerContainer').append(groupHeading('groupHeading5', 'Selve skriveugen'));
-	$('#outerContainer').append(makeSlideToggleCard_faq('faq5', "Spørgsmål til skriveugen", "img/faq_img.png", faqObj));
+	// $('#outerContainer').append(makeSlideToggleCard_faq('faq5', "Spørgsmål til skriveugen", "img/faq_img.png", faqObj));
+	$('#outerContainer').append(makeSlideToggleCard_faq('faq5', faqObj.userInterface.header, "img/faq_img.png", faqObj));
 	$('#outerContainer').append(makeObjectCard('sso_skriveuge', 'Få overblik over skriveugen', 'Hjælp til skriveugen', 'img/sso_skriveuge.png', '../sso_skriveuge/skriveuge.html'));
 	$('#outerContainer').append(makeVideoCard('sso_video3', 'Har du styr på det hele inden skriveugen?', 'Se filmen', 'img/video1.png', 'https://www.youtube.com/embed/tLFbQK38bsg'));
 	$('#outerContainer').append(makeSlideToggleCard_checklist('checklist4', 'Tjekliste: Klar til skriveugen?', 'img/tjekliste_img.png', checklist[3]));

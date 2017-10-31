@@ -1,0 +1,74 @@
+{
+	"header": "Eksemplariske opgaver",
+	"subject": {
+		"Dansk": [
+			{
+				"title": "Eksemplarisk opgave 1",
+				"subHeader": "Min underoverskrift",
+				"description": "Kort beskrivelse af den eksemplarisk opgave",
+				"grade": 12,
+				"url": "../danA_skriveproces/pdf/Patienten.pdf"
+			},
+			{
+				"title": "Eksemplarisk opgave 2",
+				"subHeader": "Min underoverskrift",
+				"description": "Kort beskrivelse af den eksemplarisk opgave",
+				"grade": 10,
+				"url": "../danA_skriveproces/pdf/Patienten.pdf" 
+			},
+			{
+				"title": "Eksemplarisk opgave 3",
+				"subHeader": "Min underoverskrift",
+				"description": "Kort beskrivelse af den eksemplarisk opgave",
+				"grade": 7,
+				"url": "../danA_skriveproces/pdf/Patienten.pdf"
+			}
+		],
+		"Engelsk": [
+			{
+				"title": "Eksemplarisk opgave 1",
+				"subHeader": "Min underoverskrift",
+				"description": "Kort beskrivelse af den eksemplarisk opgave",
+				"grade": 12,
+				"url": "../danA_skriveproces/pdf/Patienten.pdf"
+			},
+			{
+				"title": "Eksemplarisk opgave 2",
+				"subHeader": "Min underoverskrift",
+				"description": "Kort beskrivelse af den eksemplarisk opgave",
+				"grade": 10,
+				"url": "../danA_skriveproces/pdf/Patienten.pdf"
+			},
+			{
+				"title": "Eksemplarisk opgave 3",
+				"subHeader": "Min underoverskrift",
+				"description": "Kort beskrivelse af den eksemplarisk opgave",
+				"grade": 7,
+				"url": "../danA_skriveproces/pdf/Patienten.pdf"
+			}
+		],
+		"Historie": [
+			{
+				"title": "Eksemplarisk opgave 1",
+				"subHeader": "Min underoverskrift",
+				"description": "Kort beskrivelse af den eksemplarisk opgave",
+				"grade": 12,
+				"url": "../danA_skriveproces/pdf/Patienten.pdf"
+			},
+			{
+				"title": "Eksemplarisk opgave 2",
+				"subHeader": "Min underoverskrift",
+				"description": "Kort beskrivelse af den eksemplarisk opgave",
+				"grade": 10,
+				"url": "../danA_skriveproces/pdf/Patienten.pdf"
+			},
+			{
+				"title": "Eksemplarisk opgave 3",
+				"subHeader": "Min underoverskrift",
+				"description": "Kort beskrivelse af den eksemplarisk opgave",
+				"grade": 7,
+				"url": "../danA_skriveproces/pdf/Patienten.pdf"
+			}
+		]
+	}
+}
