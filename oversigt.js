@@ -15,6 +15,8 @@ window.scrollHeight = $('body').height(); // This n
 window.sliderContainerWidth = $('#sliderContainer').width();
 window.sliderContainerheight = $('#sliderContainer').height();
 
+window.videoObj = '';
+
 
 $( "#slider" ).draggable({ 
 	containment: "#sliderContainer", 
@@ -49,7 +51,7 @@ $( "#slider" ).draggable({
 
 function UserMsgBox_video(src) {
 
-    var HTML = '<div class="video embed-responsive embed-responsive-16by9 col-xs-12 col-md-12"><iframe class="embed-responsive-item" src="'+src+'?iv_load_policy=3&amp;modestbranding=1&amp;showinfo=0&amp;autohide=1&amp;rel=0" allowfullscreen="1" frameborder="0"></iframe></div>';
+    var HTML = '<div class="video embed-responsive embed-responsive-16by9 col-xs-12 col-md-12"><iframe id="video" class="embed-responsive-item" src="'+src+'?iv_load_policy=3&amp;modestbranding=1&amp;showinfo=0&amp;autohide=1&amp;rel=0" allowfullscreen="1" frameborder="0"></iframe></div>';
     UserMsgBox_xclick('body', HTML);
 
     $('.MsgBox_bgr').addClass('MsgBox_bgr_video');
@@ -59,16 +61,78 @@ function UserMsgBox_video(src) {
     // $('.CloseClass').html('<span class="CloseClass_inner right glyphicon glyphicon-remove"></span>');  // TEST to see if it is possible to place a inner glyphicon-remove inside another...
 
     // $('MsgBox_bgr_video').hide().fadeIn();
+
+    console.log('MsgBox_bgr_video - #video - NOT LOADED');
+
+    $('#video').on('load', function (e) {
+    	console.log('MsgBox_bgr_video - #video - LOADED - A0');
+    	// window.videoObj = $('#video')[0].contentWindow.document;
+
+    	// var cl = videoObj.attr('class');
+    	// console.log('MsgBox_bgr_video - #video - LOADED - class: ' + typeof(cl));
+
+    	// $(".MsgBox_bgr_video").attr("tabindex", 1).focus();  // SEE: https://stackoverflow.com/questions/5965924/jquery-focus-to-div-is-not-working
+
+
+
+    	// $( "#video" ).one( "keydown", function( event ) {
+  //   	// $( "body", videoObj ).one( "keydown", function( event ) {
+		// 	console.log('MsgBox_bgr_video - #video - LOADED - A1');
+
+		// 	if ((event.which == 27)) {
+		// 		console.log('MsgBox_bgr_video - #video - LOADED - A2');
+
+		// 		$( "#outerContainer .MsgBox_bgr_video" ).fadeOut(400, function(){
+		// 			$(this).remove();
+		// 		});
+		// 	}
+		// });
+    });
+
+
 }
 
 
-$( ".MsgBox_bgr_video" ).on( "keydown", function( event ) {
-	if ((event.which == 165) && ($( ".MsgBox_bgr_video" ).length > 0)) {
-		$( ".MsgBox_bgr_video" ).fadeOut(400, function(){
+$( document ).on('mousedown', '#video', function(){ 
+
+	console.log('mouseenter - #video');
+
+	// e = window;
+	// while (e.frameElement !== null) {e = e.parent;}
+	// e.parent.focus();
+});
+
+
+
+// $( ".MsgBox_bgr_video" ).on( "keydown", function( event ) {
+$( "#parentBody" ).on( "keydown", function( event ) {
+	console.log('MsgBox_bgr_video - A0');
+
+	if ((event.which == 27)) {
+		console.log('MsgBox_bgr_video - A1');
+
+		$(".MsgBox_bgr_video").attr("tabindex", 1).focus();  // SEE: https://stackoverflow.com/questions/5965924/jquery-focus-to-div-is-not-working
+
+		$( "#outerContainer .MsgBox_bgr_video" ).fadeOut(400, function(){
 			$(this).remove();
 		});
 	}
 });
+
+
+
+
+// $( "#video" ).on( "click", function( event ) { // <------ SEE:  https://stackoverflow.com/questions/1609741/how-to-add-click-event-to-a-iframe-with-jquery
+// $( "body", videoObj).on( "click", function( event ) {
+// 	console.log('MsgBox_bgr_video - iframe - A0');
+
+// 	setTimeout(function(){  
+// 		console.log('MsgBox_bgr_video - iframe - A1');
+// 		$( ".MsgBox_bgr_video" ).trigger('click');
+// 	}, 1000);
+	
+// });
+
 
 // $( document ).on('click', '.videoPlayBtn', function(){
 $( document ).on('click', '.videoPlayBtn', function(){
@@ -528,7 +592,7 @@ function insertCards() {
 	$('#outerContainer').append(makeSlideToggleCard_checklist('checklist1', 'Tjekliste: Fag, emne og vejleder', 'img/tjekliste_img.png', checklist[0]));
 	$('#outerContainer').append(makeObjectCard('sso_emner', 'Få hjælp til at vælge dit emne', 'Se emneoversigten', 'img/sso_emne.png', '../sso_emner/emner.html'));
 	$('#outerContainer').append(makeObjectCard('sso_skriveguide', 'Få hjælp til formulering af emne', 'Prøv skriveguiden', 'img/skriveguide_img.png', '../sso_emner/emner.html'));
-	$('#outerContainer').append(makeVideoCard('sso_video2', 'Vejlederens rolle', 'Se filmen', 'img/video1.png', 'https://www.youtube.com/embed/tLFbQK38bsg'));
+	$('#outerContainer').append(makeVideoCard('sso_video2', 'Vejlederens rolle', 'Se filmen', 'img/video1.png', 'https://www.youtube.com/embed/BRyrmClmbEg'));
 
 
 	faqObj = JSON.parse(JSON.stringify(faqObj2));
@@ -550,7 +614,7 @@ function insertCards() {
 	// $('#outerContainer').append(makeSlideToggleCard_faq('faq5', "Spørgsmål til skriveugen", "img/faq_img.png", faqObj));
 	$('#outerContainer').append(makeSlideToggleCard_faq('faq5', faqObj.userInterface.header, "img/faq_img.png", faqObj));
 	$('#outerContainer').append(makeObjectCard('sso_skriveuge', 'Få overblik over skriveugen', 'Hjælp til skriveugen', 'img/sso_skriveuge.png', '../sso_skriveuge/skriveuge.html'));
-	$('#outerContainer').append(makeVideoCard('sso_video3', 'Har du styr på det hele inden skriveugen?', 'Se filmen', 'img/video1.png', 'https://www.youtube.com/embed/tLFbQK38bsg'));
+	$('#outerContainer').append(makeVideoCard('sso_video3', 'Har du styr på det hele inden skriveugen?', 'Se filmen', 'img/video1.png', 'https://www.youtube.com/embed/D7JpAXtaBzM'));
 	$('#outerContainer').append(makeSlideToggleCard_checklist('checklist4', 'Tjekliste: Klar til skriveugen?', 'img/tjekliste_img.png', checklist[3]));
 }
 
