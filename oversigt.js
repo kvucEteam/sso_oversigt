@@ -356,7 +356,12 @@ scrollCallback = function() {
 
 	window.bodyPos = $(window).scrollTop();
 
-	var posPercent = (bodyPos + 0)/scrollHeight;
+	// var posPercent = (bodyPos + 0)/scrollHeight; 
+
+	window.windowHeight = $(window).height();
+	var posPercent = (bodyPos + 0)/(scrollHeight - windowHeight)*0.95;   // QUICK FIX ADDED 01-11-2017
+
+
 	console.log('onScroll - bodyPos: ' + bodyPos + ', scrollHeight: ' + scrollHeight + ', posPercent: ' + posPercent);
 
 	$('.slider').css({left: posPercent*sliderContainerWidth});
@@ -591,7 +596,7 @@ function insertCards() {
 	$('#outerContainer').append(makeSlideToggleCard_faq('faq2', faqObj.userInterface.header, "img/faq_img.png", faqObj));
 	$('#outerContainer').append(makeSlideToggleCard_checklist('checklist1', 'Tjekliste: Fag, emne og vejleder', 'img/tjekliste_img.png', checklist[0]));
 	$('#outerContainer').append(makeObjectCard('sso_emner', 'Få hjælp til at vælge dit emne', 'Se emneoversigten', 'img/sso_emne.png', '../sso_emner/emner.html'));
-	$('#outerContainer').append(makeObjectCard('sso_skriveguide', 'Få hjælp til formulering af emne', 'Prøv skriveguiden', 'img/skriveguide_img.png', '../sso_emner/emner.html'));
+	$('#outerContainer').append(makeObjectCard('sso_skriveguide', 'Send materiale til din vejleder', 'Prøv skriveguiden', 'img/skriveguide_img.png', '../sso_produkt/produkt.html'));
 	$('#outerContainer').append(makeVideoCard('sso_video2', 'Vejlederens rolle', 'Se filmen', 'img/video1.png', 'https://www.youtube.com/embed/BRyrmClmbEg'));
 
 
