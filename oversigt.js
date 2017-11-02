@@ -13,7 +13,7 @@
 
 window.scrollHeight = $('body').height(); // This n 
 window.sliderContainerWidth = $('#sliderContainer').width();
-window.sliderContainerheight = $('#sliderContainer').height();
+window.sliderContainerheight = $('#sliderContainer').height(); 
 
 window.videoObj = '';
 
@@ -359,7 +359,7 @@ scrollCallback = function() {
 	// var posPercent = (bodyPos + 0)/scrollHeight; 
 
 	window.windowHeight = $(window).height();
-	var posPercent = (bodyPos + 0)/(scrollHeight - windowHeight)*0.95;   // QUICK FIX ADDED 01-11-2017
+	var posPercent = (bodyPos + 0)/(scrollHeight - windowHeight)*0.96;   // QUICK FIX ADDED 01-11-2017
 
 
 	console.log('onScroll - bodyPos: ' + bodyPos + ', scrollHeight: ' + scrollHeight + ', posPercent: ' + posPercent);
@@ -537,11 +537,11 @@ function makeSlideToggleCard_example(id, cardText, imgSrc, exObj) {
 	HTML += 	'<h3 class="slideToggle_header"><div class="slideToggle_headerText">'+cardText+'</div><span class="slideGlyph glyphicon glyphicon-chevron-down"></span></h3>';
 	HTML += 	'<div class="slideToggle_content">';
 		for (var name in exObj.subject) {
-			HTML += '<div class="slideToggleMenu_inner slideToggleMenu">';
+			HTML += '<div class="slideToggleMenu_inner slideToggleMenu slideToggleMenu_subject">';
 			HTML += 	'<h4 class="slideToggle_header"><div class="slideToggle_headerText">'+name+'</div><span class="slideGlyph glyphicon glyphicon-chevron-down"></span></h4>';
 			HTML += 	'<div class="slideToggle_content">';
 			for (var n in exObj.subject[name]) {
-				HTML += '<div class="slideToggleMenu_inner slideToggleMenu">';
+				HTML += '<div class="slideToggleMenu_inner slideToggleMenu slideToggleMenu_example">';
 				HTML += 	'<h4 class="slideToggle_header"><div class="slideToggle_headerText">'+exObj.subject[name][n].title+', karakter: '+exObj.subject[name][n].grade+'</div><span class="slideGlyph glyphicon glyphicon-chevron-down"></span></h4>';
 				HTML += 	'<div class="slideToggle_content">';
 				// HTML += 		exObj.subject[name][n].title + '<br>' + exObj.subject[name][n].subHeader + '<br> Karakter: ' +exObj.subject[name][n].grade + '<br> <i>' +exObj.subject[name][n].description +'</i>';

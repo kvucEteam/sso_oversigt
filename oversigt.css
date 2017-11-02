@@ -12,7 +12,7 @@
 }
 
 #outerContainer{
-	/*border: 1px solid #F00;*/
+	/*border: 1px solid #F00;*/ 
 	/*width: 50%;*/
 	width: 100%; 
 	margin-left: auto;
@@ -246,6 +246,15 @@
 	padding-bottom: 30px;   /* 15/9-2017 */
 }
 
+
+.slideToggleMenu_subject h4{
+	margin-right: 15px;
+}
+
+
+.slideToggleMenu_example h4{
+	margin-right: -15px;
+}
 
 
 .slideGlyph {
