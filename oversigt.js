@@ -590,34 +590,35 @@ function insertCards() {
 	$('#outerContainer').append(makeSlideToggleCard_faq('faq1', faqObj1.userInterface.header, "img/faq_img.png", faqObj1));
 
 
-	faqObj = JSON.parse(JSON.stringify(faqObj2));
+	// faqObj = JSON.parse(JSON.stringify(faqObj2));
 	$('#outerContainer').append(groupHeading('groupHeading2', 'Vælge fag, emne og vejleder'));
 	// $('#outerContainer').append(makeSlideToggleCard_faq('faq2', "Spørgsmål til valg af fag og emne", "img/faq_img.png", faqObj));
-	$('#outerContainer').append(makeSlideToggleCard_faq('faq2', faqObj.userInterface.header, "img/faq_img.png", faqObj));
+	// $('#outerContainer').append(makeSlideToggleCard_faq('faq2', faqObj.userInterface.header, "img/faq_img.png", faqObj));
+	$('#outerContainer').append(makeSlideToggleCard_faq('faq2', faqObj2.userInterface.header, "img/faq_img.png", faqObj2));
 	$('#outerContainer').append(makeSlideToggleCard_checklist('checklist1', 'Tjekliste: Fag, emne og vejleder', 'img/tjekliste_img.png', checklist[0]));
 	$('#outerContainer').append(makeObjectCard('sso_emner', 'Få hjælp til at vælge dit emne', 'Se emneoversigten', 'img/sso_emne.png', '../sso_emner/emner.html'));
 	$('#outerContainer').append(makeObjectCard('sso_skriveguide', 'Send materiale til din vejleder', 'Prøv skriveguiden', 'img/skriveguide_img.png', '../sso_produkt/produkt.html'));
 	$('#outerContainer').append(makeVideoCard('sso_video2', 'Vejlederens rolle', 'Se filmen', 'img/video1.png', 'https://www.youtube.com/embed/BRyrmClmbEg'));
 
 
-	faqObj = JSON.parse(JSON.stringify(faqObj2));
+	// faqObj = JSON.parse(JSON.stringify(faqObj2));
 	$('#outerContainer').append(groupHeading('groupHeading3', 'Søge efter materialer'));
 	// $('#outerContainer').append(makeSlideToggleCard_faq('faq3', "Spørgsmål om at finde materialer", "img/faq_img.png", faqObj));
-	$('#outerContainer').append(makeSlideToggleCard_faq('faq3',  "Spørgsmål om at finde materialer", "img/faq_img.png", faqObj));
+	$('#outerContainer').append(makeSlideToggleCard_faq('faq3',  faqObj3.userInterface.header, "img/faq_img.png", faqObj3));
 	$('#outerContainer').append(makeSlideToggleCard_checklist('checklist2', 'Tjekliste: Materialer', 'img/tjekliste_img.png', checklist[1]));
 
 
-	example = JSON.parse(JSON.stringify(example));
-	$('#outerContainer').append(groupHeading('groupHeading4', 'Læse'));
+	// example = JSON.parse(JSON.stringify(example));
+	$('#outerContainer').append(groupHeading('groupHeading4', 'Læsefasen'));
 	// $('#outerContainer').append(makeSlideToggleCard_faq('faq4', "Spørgsmål om læseprocessen", "img/faq_img.png", faqObj));
-	$('#outerContainer').append(makeSlideToggleCard_example('faq4', "Eksempler på opgaver", "img/eksemplariske_img.png", example));
+	$('#outerContainer').append(makeSlideToggleCard_example('example', "Eksempler på opgaver", "img/eksemplariske_img.png", example));
 	$('#outerContainer').append(makeSlideToggleCard_checklist('checklist3', 'Tjekliste: Læs', 'img/tjekliste_img.png', checklist[2]));
 
 
-	faqObj = JSON.parse(JSON.stringify(faqObj3));
+	// faqObj = JSON.parse(JSON.stringify(faqObj3));
 	$('#outerContainer').append(groupHeading('groupHeading5', 'Selve skriveugen'));
 	// $('#outerContainer').append(makeSlideToggleCard_faq('faq5', "Spørgsmål til skriveugen", "img/faq_img.png", faqObj));
-	$('#outerContainer').append(makeSlideToggleCard_faq('faq5', faqObj.userInterface.header, "img/faq_img.png", faqObj));
+	$('#outerContainer').append(makeSlideToggleCard_faq('faq5', faqObj5.userInterface.header, "img/faq_img.png", faqObj5));
 	$('#outerContainer').append(makeObjectCard('sso_skriveuge', 'Få overblik over skriveugen', 'Hjælp til skriveugen', 'img/sso_skriveuge.png', '../sso_skriveuge/skriveuge.html'));
 	$('#outerContainer').append(makeVideoCard('sso_video3', 'Har du styr på det hele inden skriveugen?', 'Se filmen', 'img/video1.png', 'https://www.youtube.com/embed/D7JpAXtaBzM'));
 	$('#outerContainer').append(makeSlideToggleCard_checklist('checklist4', 'Tjekliste: Klar til skriveugen?', 'img/tjekliste_img.png', checklist[3]));
