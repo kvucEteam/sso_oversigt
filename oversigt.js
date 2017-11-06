@@ -365,6 +365,8 @@ scrollCallback = function() {
 	console.log('onScroll - bodyPos: ' + bodyPos + ', scrollHeight: ' + scrollHeight + ', posPercent: ' + posPercent);
 
 	$('.slider').css({left: posPercent*sliderContainerWidth});
+
+	removeMicrohint('#microhint_slider');  // Remove the #microhint_slider at first user-interaction!
 }
 
 
@@ -458,6 +460,25 @@ $( document ).on('click', ".userMsgBox_link", function(event){
 		$('.MsgBox_bgr').css({'z-index': '102'});
 	}
 });
+
+
+$( document ).on('mousedown touchend', 'body', function(){  // Remove the #microhint_slider at first user-interaction!
+	console.log('mousedown - body - CALLED');
+
+	removeMicrohint('#microhint_slider'); 
+});
+
+
+$( document ).on('click', "#sso_emner", function(event){  // Remove the #microhint_emne if the user interacts with the card #sso_emner.
+	removeMicrohint('#microhint_emne'); 
+});
+
+
+function removeMicrohint(id) {
+	$(id).fadeOut( 400, function() {
+		$(this).remove();
+	});
+}
 
 
 //#################################################################################################################
@@ -585,7 +606,7 @@ function insertCards() {
 	var faqObj;
 
 	$('#outerContainer').append(groupHeading('groupHeading1', 'Få overblik over SSO'));
-	$('#outerContainer').append(makeVideoCard('sso_video1', 'Introduktion til at skrive SSO', 'Se filmen', 'img/video1.png', 'https://www.youtube.com/embed/tLFbQK38bsg'));
+	$('#outerContainer').append(makeVideoCard('sso_video1', 'Introduktion til at skrive SSO', 'Se filmen', 'img/video1.png', 'https://www.youtube.com/embed/2InteknUC10'));
 	// $('#outerContainer').append(makeSlideToggleCard_faq('faq1', "Spørgsmål til SSO", "img/faq_img.png", faqObj1));
 	$('#outerContainer').append(makeSlideToggleCard_faq('faq1', faqObj1.userInterface.header, "img/faq_img.png", faqObj1));
 
@@ -698,6 +719,8 @@ $(document).ready(function() {
 
 	microhint($('#slider'), 'Du kan klikke i menuen herover for at scrolle ned på siden.' , true, '#000');
 	$('.microhint').css({position: "fixed"});
+	$('.microhint').attr('id', 'microhint_slider');
 	microhint($('#sso_emner .btn_ghost'), 'Her er en side, som viser dig lidt om at finde et godt emne. Siden åbner i et nyt vindue' , true, '#000');
+	$('.microhint').last().attr('id', 'microhint_emne');
 });
 
