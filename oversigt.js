@@ -563,10 +563,11 @@ function makeSlideToggleCard_example(id, cardText, imgSrc, exObj) {
 			HTML += 	'<div class="slideToggle_content">';
 			for (var n in exObj.subject[name]) {
 				HTML += '<div class="slideToggleMenu_inner slideToggleMenu slideToggleMenu_example">';
-				HTML += 	'<h4 class="slideToggle_header"><div class="slideToggle_headerText">'+exObj.subject[name][n].title+', karakter: '+exObj.subject[name][n].grade+'</div><span class="slideGlyph glyphicon glyphicon-chevron-down"></span></h4>';
+				HTML += 	'<h4 class="slideToggle_header slideToggle_titel"><div class="slideToggle_headerText">"'+exObj.subject[name][n].title+'", karakter: '+exObj.subject[name][n].karakter+'</div><span class="slideGlyph glyphicon glyphicon-chevron-down"></span></h4>';
 				HTML += 	'<div class="slideToggle_content">';
 				// HTML += 		exObj.subject[name][n].title + '<br>' + exObj.subject[name][n].subHeader + '<br> Karakter: ' +exObj.subject[name][n].grade + '<br> <i>' +exObj.subject[name][n].description +'</i>';
-				HTML += 		'<h5><b>'+exObj.subject[name][n].title + '</b></h5><i>' +exObj.subject[name][n].description +'</i><br><a href="'+exObj.subject[name][n].url+'" target="_blank">Download</a>';
+				// HTML += 		'<h5><h4 class="sso_titel">'+exObj.subject[name][n].title + '</h4></h5><b>Problemformulering: </b>' +exObj.subject[name][n].description +'<br><a href="'+exObj.subject[name][n].url+'" target="_blank">Download</a>';
+				HTML += 		'<b>Niveau: </b>' +exObj.subject[name][n].niveau +'<br><b>Emneområde: </b>' +exObj.subject[name][n].emneOmraade +'<br><b>Problemformulering: </b>' +exObj.subject[name][n].problemformulering +'<br><a href="'+exObj.subject[name][n].url+'" target="_blank">DOWNLOAD</a>';  // encodeURIComponent(exObj.subject[name][n].url)  Dansk_A_-_Romantikken_med_fokus_paa_eventyr_(10)
 				HTML += 	'</div>';
 				HTML += '</div>';
 			}

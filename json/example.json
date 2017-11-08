@@ -3,71 +3,57 @@
 	"subject": {
 		"Dansk": [
 			{
-				"title": "Eksemplarisk opgave 1",
-				"subHeader": "Min underoverskrift",
-				"description": "Kort beskrivelse af den eksemplarisk opgave", 
-				"grade": 12,
-				"url": "../danA_skriveproces/pdf/Patienten.pdf"
-			},
-			{
-				"title": "Eksemplarisk opgave 2",
-				"subHeader": "Min underoverskrift",
-				"description": "Kort beskrivelse af den eksemplarisk opgave",
-				"grade": 10,
-				"url": "../danA_skriveproces/pdf/Patienten.pdf" 
-			},
-			{
-				"title": "Eksemplarisk opgave 3",
-				"subHeader": "Min underoverskrift",
-				"description": "Kort beskrivelse af den eksemplarisk opgave",
-				"grade": 7,
-				"url": "../danA_skriveproces/pdf/Patienten.pdf"
+				"title": "Eventyr fra Romantikken",
+				"niveau": "A",
+				"emneOmraade": "Romantikken med fokus på eventyr",
+				"problemformulering": "Redegør for romantikken med særligt fokus på eventyrgenren. Analyser og fortolk H. C. Andersens eventyr Den lille Havfrue (1837) og Historien om en Moder (1848).", 
+				"karakter": 10,
+				"url": "pdf/Dansk A - Romantikken med fokus på eventyr (10).pdf"
 			}
 		],
-		"Engelsk": [
+		"Fysik": [
 			{
-				"title": "Eksemplarisk opgave 1",
-				"subHeader": "Min underoverskrift",
-				"description": "Kort beskrivelse af den eksemplarisk opgave",
-				"grade": 12,
-				"url": "../danA_skriveproces/pdf/Patienten.pdf"
-			},
-			{
-				"title": "Eksemplarisk opgave 2",
-				"subHeader": "Min underoverskrift",
-				"description": "Kort beskrivelse af den eksemplarisk opgave",
-				"grade": 10,
-				"url": "../danA_skriveproces/pdf/Patienten.pdf"
-			},
-			{
-				"title": "Eksemplarisk opgave 3",
-				"subHeader": "Min underoverskrift",
-				"description": "Kort beskrivelse af den eksemplarisk opgave",
-				"grade": 7,
-				"url": "../danA_skriveproces/pdf/Patienten.pdf"
+				"title": "Atomets historie",
+				"niveau": "B",
+				"emneOmraade": "Atomet",
+				"problemformulering": "<span class='red'>Mangler</span>",
+				"karakter": 10,
+				"url": "pdf/Fysik B - Atomets historie (10).pdf"
 			}
 		],
 		"Historie": [
 			{
+				"title": "Vikinger, deres togter dets følger",
+				"niveau": "B",
+				"emneOmraade": "<span class='red'>Mangler</span>",
+				"problemformulering": "<span class='red'>Mangler</span>",
+				"karakter": 12,
+				"url": "pdf/Historie B - Vikinger, deres togter dets følger (12).pdf"
+			}
+		],
+		"Mediefag": [
+			{
+				"title": "Moderne Amerikanske film",
+				"emneOmraade": "Moderne Amerikanske film",
+				"problemformulering": "Redegør kort historisk for auteurbegrebet. Lav en auteuranalyse af Quentin Tarantinos film med udgangspunkt i filmen Reservoir Dogs. Vurderi hvilken grad Tarantino kan placeres inden for det klassiske auteur-begreb med afsæt i artiklen &Prime;Hvad er en Hollywood-auteur&Prime;.",
+				"karakter": 12,
+				"url": "pdf/Mediefag - Moderne Amerikanske film (12).pdf"
+			}
+		],
+		"Samfundsfag": [
+			{
 				"title": "Eksemplarisk opgave 1",
-				"subHeader": "Min underoverskrift",
-				"description": "Kort beskrivelse af den eksemplarisk opgave",
-				"grade": 12,
-				"url": "../danA_skriveproces/pdf/Patienten.pdf"
+				"emneOmraade": "Min underoverskrift",
+				"problemformulering": "Kort beskrivelse af den eksemplarisk opgave",
+				"karakter": 12,
+				"url": "pdf/XXXXXXXXXX.pdf"
 			},
 			{
-				"title": "Eksemplarisk opgave 2",
-				"subHeader": "Min underoverskrift",
-				"description": "Kort beskrivelse af den eksemplarisk opgave",
-				"grade": 10,
-				"url": "../danA_skriveproces/pdf/Patienten.pdf"
-			},
-			{
-				"title": "Eksemplarisk opgave 3",
-				"subHeader": "Min underoverskrift",
-				"description": "Kort beskrivelse af den eksemplarisk opgave",
-				"grade": 7,
-				"url": "../danA_skriveproces/pdf/Patienten.pdf"
+				"title": "Eksemplarisk opgave 1",
+				"emneOmraade": "Min underoverskrift",
+				"problemformulering": "Kort beskrivelse af den eksemplarisk opgave",
+				"karakter": 12,
+				"url": "pdf/XXXXXXXXXX.pdf"
 			}
 		]
 	}

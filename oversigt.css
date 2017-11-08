@@ -684,6 +684,13 @@
 	margin-bottom: 30px;
 }
 
+.slideToggle_titel {
+	padding-bottom: 10px !important;
+}
+
+.sso_titel{
+	padding-left: 0px !important;
+}
 
 /**********************************************************************
 						hiddenContent
