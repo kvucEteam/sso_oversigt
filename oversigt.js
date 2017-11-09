@@ -616,7 +616,7 @@ function insertCards() {
 	$('#outerContainer').append(groupHeading('groupHeading2', 'Vælge fag, emne og vejleder'));
 	// $('#outerContainer').append(makeSlideToggleCard_faq('faq2', "Spørgsmål til valg af fag og emne", "img/faq_img.png", faqObj));
 	// $('#outerContainer').append(makeSlideToggleCard_faq('faq2', faqObj.userInterface.header, "img/faq_img.png", faqObj));
-	$('#outerContainer').append(makeSlideToggleCard_faq('faq2', faqObj2.userInterface.header, "img/faq_img.png", faqObj2));
+	$('#outerContainer').append(makeSlideToggleCard_faq('faq2', faqObj2.userInterface.header, "img/faq_img.png", faqObj2)); 
 	$('#outerContainer').append(makeSlideToggleCard_checklist('checklist1', 'Tjekliste: Fag, emne og vejleder', 'img/tjekliste_img.png', checklist[0]));
 	$('#outerContainer').append(makeObjectCard('sso_emner', 'Få hjælp til at vælge dit emne', 'Se emneoversigten', 'img/sso_emne.png', '../sso_emner/emner.html'));
 	$('#outerContainer').append(makeObjectCard('sso_skriveguide', 'Send materiale til din vejleder', 'Prøv skriveguiden', 'img/skriveguide_img.png', '../sso_produkt/produkt.html'));
@@ -632,8 +632,8 @@ function insertCards() {
 
 	// example = JSON.parse(JSON.stringify(example));
 	$('#outerContainer').append(groupHeading('groupHeading4', 'Læsefasen'));
-	// $('#outerContainer').append(makeSlideToggleCard_faq('faq4', "Spørgsmål om læseprocessen", "img/faq_img.png", faqObj));
 	$('#outerContainer').append(makeSlideToggleCard_example('example', "Eksempler på opgaver", "img/eksemplariske_img.png", example));
+	$('#outerContainer').append(makeSlideToggleCard_faq('faq4', faqObj3.userInterface.header, "img/faq_img.png", faqObj3));
 	$('#outerContainer').append(makeSlideToggleCard_checklist('checklist3', 'Tjekliste: Læs', 'img/tjekliste_img.png', checklist[2]));
 
 

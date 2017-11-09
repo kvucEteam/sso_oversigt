@@ -769,29 +769,29 @@
 #faq1 {top: 3.5%; left: 51%;}
 
 
-#groupHeading2 {top: 15%;}	/* Vælge fag, emne og vejleder */
-#faq2 {top: 18%; left: 1.5%;}
-#checklist1 {top: 18%; left: 51%;}
-#sso_emner {top: 27.3%; left: 1.5%;}
-#sso_skriveguide {top: 27.3%; left: 51%;}
-#sso_video2 {top: 38%; left: 1.5%;}
+#groupHeading2 {top: 13.2%;}	/* Vælge fag, emne og vejleder */
+#faq2 {top: 16.2%; left: 1.5%;}
+#checklist1 {top: 16.2%; left: 51%;}
+#sso_emner {top: 24.8%; left: 1.5%;}
+#sso_skriveguide {top: 24.8%; left: 51%;}
+#sso_video2 {top: 34.7%; left: 1.5%;} 
 
 
-#groupHeading3 {top: 49%;}	/* Søge efter materialer */
-#faq3 {top: 52%; left: 1.5%;}
-#checklist2 {top: 52%; left: 51%;}
+#groupHeading3 {top: 44.3%;}	/* Søge efter materialer */
+#faq3 {top: 47.1%; left: 1.5%;}
+#checklist2 {top: 47.1%; left: 51%;}
 
 
-#groupHeading4 {top: 61.5%;}	/* Læse */
-/*#faq4 {top: 64.5%;  left: 1.5%;}*/
-#example {top: 64.5%;  left: 1.5%;}
-#checklist3 {top: 64.5%; left: 51%;}
+#groupHeading4 {top: 55.3%;}	/* Læse */
+#example {top: 58.1%;  left: 1.5%;}
+#faq4 {top: 58.1%; left: 51%;}
+#checklist3 {top: 66.7%; left: 1.5%;}
 
 
-#groupHeading5 {top: 74%;}	/* Selve skriveugen */
-#faq5 {top: 77%;  left: 1.5%;}
-#sso_skriveuge {top: 77%; left: 51%;}
-#sso_video3 {top: 86.2%;  left: 1.5%;}
+#groupHeading5 {top: 74.9%;}	/* Selve skriveugen */
+#faq5 {top: 77.8%;  left: 1.5%;}
+#sso_skriveuge {top: 77.8%; left: 51%;}
+#sso_video3 {top: 86.3%;  left: 1.5%;}
 #checklist4 {top: 87.8%;  left: 51%;}
 
 

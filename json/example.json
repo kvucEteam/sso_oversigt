@@ -34,7 +34,8 @@
 		"Mediefag": [
 			{
 				"title": "Moderne Amerikanske film",
-				"emneOmraade": "Moderne Amerikanske film",
+				"niveau": "B",
+				"emneOmraade": "Moderne Amerikanske film", 
 				"problemformulering": "Redegør kort historisk for auteurbegrebet. Lav en auteuranalyse af Quentin Tarantinos film med udgangspunkt i filmen Reservoir Dogs. Vurderi hvilken grad Tarantino kan placeres inden for det klassiske auteur-begreb med afsæt i artiklen &Prime;Hvad er en Hollywood-auteur&Prime;.",
 				"karakter": 12,
 				"url": "pdf/Mediefag - Moderne Amerikanske film (12).pdf"
@@ -42,18 +43,20 @@
 		],
 		"Samfundsfag": [
 			{
-				"title": "Eksemplarisk opgave 1",
-				"emneOmraade": "Min underoverskrift",
-				"problemformulering": "Kort beskrivelse af den eksemplarisk opgave",
+				"title": "Brexit",
+				"niveau": "B",
+				"emneOmraade": "Brexit",
+				"problemformulering": "Redegør for begreberne populisme og globalisering. Analyser, hvilke årsager der er til, at briterne stemte for at træde ud af EU. Vurder, hvordan EU's fremtid kommer til at se ud. Inddrag integrationsteorierne føderalisme, intergovernmentalisme og neofunktionalisme.",
 				"karakter": 12,
-				"url": "pdf/XXXXXXXXXX.pdf"
+				"url": "pdf/Samfundsfag B - Brexit  (12).pdf"
 			},
 			{
-				"title": "Eksemplarisk opgave 1",
-				"emneOmraade": "Min underoverskrift",
-				"problemformulering": "Kort beskrivelse af den eksemplarisk opgave",
-				"karakter": 12,
-				"url": "pdf/XXXXXXXXXX.pdf"
+				"title": "Præsident Trump – Hvad nu?",
+				"niveau": "B",
+				"emneOmraade": "Det Amerikanske valg 2016",
+				"problemformulering": "Redegør for, hvad der karakteriserer det amerikanske valgsystem. Inddrag begreberne repræsentativt demokrati, winner takes all og præsidentielt system. Analyser, hvilke argumenter forskellige vælgergrupper (race, køn, indkomstgruppe mv.) havde for at stemme på Trump ved det amerikanske præsidentvalg 2016. Vurder hvilke konsekvenser det vil have for amerikansk udenrigspolitik, at Trump er blevet USA's præsident.",
+				"karakter": 10,
+				"url": "pdf/Samfundsfag B - Det Amerikanske valg (10).pdf"
 			}
 		]
 	}
