@@ -16,7 +16,8 @@
 				"title": "Atomets historie",
 				"niveau": "B",
 				"emneOmraade": "Atomet",
-				"problemformulering": "<span class='red'>Mangler</span>",
+				"omitLineBreake": true,
+				"problemformulering": "Giv en gennemgang af ”Atomets opdagelseshistorie” med hovedvægt på perioden ml. 1885-1920. Redegør for principperne i nogle udvalgte forsøg og resultater, der ledte frem til Niels Bohrs model for H-atomet publiceret i 1913. Diskutér den betydning opdagelsen af neutronen og fissionsprocessen har haft på den praktiske anvendelse af kernefysikken. Du skal udføre forsøg til bestemmelse af Plancks konstant og Franck-Hertz forsøget. I forbindelse med det eksperimentelle arbejde skal du give <ul><li>En beskrivelse af udførelsen af det eksperimentelle arbejde</li><li>En gennemgang af de udførte målinger og resultater, herunder eksempler på beregninger</li><li>En vurdering af de opnåede resultater</li></ul>",
 				"karakter": 10,
 				"url": "pdf/Fysik B - Atomets historie (10).pdf"
 			}

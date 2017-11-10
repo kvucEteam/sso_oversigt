@@ -199,7 +199,8 @@ function scaleAndPosition_sliderContainer() {
 	var off = $('#outerContainer').offset();
 	console.log('scaleAndPosition_sliderContainer - height: ' + height + ', off: ' + JSON.stringify(off));
 
-	$('#sliderContainer').css({top: off.top - height});
+	// $('#sliderContainer').css({top: off.top - height});   // COMMENTED OUT 10/11-2017
+	$('#sliderContainer').css({'top': '0px'});	   // ADDED 10/11-2017
 
 	$('#slider').height(height);
 
@@ -567,7 +568,7 @@ function makeSlideToggleCard_example(id, cardText, imgSrc, exObj) {
 				HTML += 	'<div class="slideToggle_content">';
 				// HTML += 		exObj.subject[name][n].title + '<br>' + exObj.subject[name][n].subHeader + '<br> Karakter: ' +exObj.subject[name][n].grade + '<br> <i>' +exObj.subject[name][n].description +'</i>';
 				// HTML += 		'<h5><h4 class="sso_titel">'+exObj.subject[name][n].title + '</h4></h5><b>Problemformulering: </b>' +exObj.subject[name][n].description +'<br><a href="'+exObj.subject[name][n].url+'" target="_blank">Download</a>';
-				HTML += 		'<b>Niveau: </b>' +exObj.subject[name][n].niveau +'<br><b>Emneområde: </b>' +exObj.subject[name][n].emneOmraade +'<br><b>Problemformulering: </b>' +exObj.subject[name][n].problemformulering +'<br><a href="'+exObj.subject[name][n].url+'" target="_blank">DOWNLOAD</a>';  // encodeURIComponent(exObj.subject[name][n].url)  Dansk_A_-_Romantikken_med_fokus_paa_eventyr_(10)
+				HTML += 		'<b>Niveau: </b>' +exObj.subject[name][n].niveau +'<br><b>Emneområde: </b>' +exObj.subject[name][n].emneOmraade +'<br><b>Problemformulering: </b>' +exObj.subject[name][n].problemformulering + ((exObj.subject[name][n].hasOwnProperty('omitLineBreake') && exObj.subject[name][n].omitLineBreake)?'':'<br>') +'<a href="'+exObj.subject[name][n].url+'" target="_blank">DOWNLOAD</a>';  // encodeURIComponent(exObj.subject[name][n].url)  Dansk_A_-_Romantikken_med_fokus_paa_eventyr_(10)
 				HTML += 	'</div>';
 				HTML += '</div>';
 			}
