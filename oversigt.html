@@ -319,7 +319,15 @@
     <script type="text/javascript">
     $(document).ready(function() {
         one_line_footer();
+     
+    if (isInIFrame == true) {
         $(".footerCopywrite").css("opacity", 0);
+         
+
+        // iframe
+    } else {
+        // no iframe
+    }
     });
 
     //;
