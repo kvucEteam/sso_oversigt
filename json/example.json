@@ -24,12 +24,22 @@
 		],
 		"Historie": [
 			{
-				"title": "Vikinger, deres togter dets følger",
+				"title": "Besættelsestiden",
 				"niveau": "B",
-				"emneOmraade": "<span class='red'>Mangler</span>",
-				"problemformulering": "<span class='red'>Mangler</span>",
+				"emneOmraade": "Besættelsestiden",
+				"omitLineBreake": true,
+				"problemformulering": "Der ønskes:<ul><li>En redegørelse for dansk besættelsestid med fokus på hvilke relationer der var mellem almindelige danskere og besættelsesmagten</li><li>En analyse af de såkaldte 'tyskerpigernes' relationer til medlemmer af besættelsesmagten, herunder hvilke motiver der lå bag fra kvindernes side og hvordan man i samtiden opfattede disse relationer.</li><li>En diskussion og vurdering af de afstraffelsesformer som tyskerpigerne blev genstand for i forbindelse med befrielsen, herunder motiverne bag.</li></ul>",
+				"karakter": 10,
+				"url": "pdf/Historie B - Besættelsestiden (10).pdf"
+			},
+			{
+				"title": "Det engelske imperium i Indien",
+				"niveau": "B",
+				"emneOmraade": "Imperialisme og kolonialisme: De engelske koloniers udvikling",
+				"omitLineBreake": true,
+				"problemformulering": "Det engelske Indiens historie og eftermæle: <ul><li>Gennemgå hovedtrækkene af den engelske historie i Indien og det engelske styres kendetræk</li><li>Gennemgå og sammenlign argumenter i debatten i datiden og i dag om det engelske styre i Indien var til indernes og Indiens fordel.</li><li>Diskuter om man kan tale om en særlig godartet engelsk imperialisme </li></ul>",
 				"karakter": 12,
-				"url": "pdf/Historie B - Vikinger, deres togter dets følger (12).pdf"
+				"url": "pdf/Historie B - Imperialisme og kolonialisme (12).pdf"
 			}
 		],
 		"Mediefag": [

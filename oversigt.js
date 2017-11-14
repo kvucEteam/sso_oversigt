@@ -620,7 +620,7 @@ function insertCards() {
     $('#outerContainer').append(makeSlideToggleCard_checklist('checklist1', 'Tjekliste: Fag, emne og vejleder', 'img/tjekliste_img.png', checklist[0]));
     $('#outerContainer').append(makeObjectCard('sso_emner', 'Få hjælp til at vælge dit emne', 'Se emneoversigten', 'img/sso_emne.png', '../sso_emner/emner.html'));
     $('#outerContainer').append(makeObjectCard('sso_skriveguide', 'Send materiale til din vejleder', 'Prøv skriveguiden', 'img/skriveguide_img.png', '../sso_produkt/produkt.html'));
-    $('#outerContainer').append(makeVideoCard('sso_video2', 'Vejlederens rolle', 'Se filmen', 'img/video1.png', 'https://www.youtube.com/embed/BRyrmClmbEg'));
+    $('#outerContainer').append(makeVideoCard('sso_video2', 'Vejlederens rolle', 'Se filmen', 'img/video1.png', 'https://www.youtube.com/embed/QvS0z0sr1UI'));
 
 
     // faqObj = JSON.parse(JSON.stringify(faqObj2));
