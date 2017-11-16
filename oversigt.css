@@ -71,6 +71,7 @@
 	/*position: absolute;*/
 	/*width: 300%;*/
 	/*border: 1px solid #666;*/
+
 }
 
 .slideToggleMenu_outer > .slideToggle_content{
@@ -208,7 +209,8 @@
 .slideToggle_headerText {
 	display: inline-block;
     margin: 0px 20px;
-    max-width: 85%;
+    /*max-width: 85%;*/
+    max-width: 79%; 	/* ADDED 15/11-2017 */
 /*
 	width: 150%;
 	display: inline-block;
@@ -852,51 +854,53 @@
 
 }
 
-/*ATO CSS FIX TIL MOODLE: */
+/***************************************************************************
+						ATO CSS FIX TIL MOODLE: 
+***************************************************************************/
 @media (max-width: 761px) { 
 
-h3{
-font-size:3vw;	
-margin-top: 6%;
-padding-right: 10%;}
+	h3{
+	font-size:3vw;	
+	margin-top: 6%;
+	padding-right: 10%;}
 
-h2{
-	font-size: 4vw;
-}
-
-
+	h2{
+		font-size: 4vw;
+	}
 
 
 
-#groupHeading1 {top: 0.5%;}		/* Få overblik over SSO */
-#sso_video1 {top: 4.5%; left: 1.5%;}	
-#faq1 {top: 4.5%; left: 51%;}
 
 
-#groupHeading2 {top: 17%;}	/* Vælge fag, emne og vejleder */
-#faq2 {top: 21%;left: 1.5%;}
-#checklist1 {top: 21%;left: 51%;}
-#sso_emner {top: 32.5%;left: 1.5%;}
-#sso_skriveguide {top: 32.5%;left: 51%;}
-#sso_video2 {top: 46%;left: 1.5%;}
+	#groupHeading1 {top: 0.5%;}		/* Få overblik over SSO */
+	#sso_video1 {top: 4.5%; left: 1.5%;}	
+	#faq1 {top: 4.5%; left: 51%;}
 
 
-#groupHeading3 {top: 57.2%;}	/* Søge efter materialer */
-#faq3 {top: 61.5%;left: 1.5%;}
-#checklist2 {top: 61.5%;left: 51%;}
+	#groupHeading2 {top: 17%;}	/* Vælge fag, emne og vejleder */
+	#faq2 {top: 21%;left: 1.5%;}
+	#checklist1 {top: 21%;left: 51%;}
+	#sso_emner {top: 32.5%;left: 1.5%;}
+	#sso_skriveguide {top: 32.5%;left: 51%;}
+	#sso_video2 {top: 46%;left: 1.5%;}
 
 
-#groupHeading4 {top: 72%;}	/* Læse */
-#faq4 {top: 46.1%;  left: 51%;}
-#example {top: 76.5%;left: 1.5%;}
-#checklist3 {top: 76.5%;left: 51%;}
+	#groupHeading3 {top: 57.2%;}	/* Søge efter materialer */
+	#faq3 {top: 61.5%;left: 1.5%;}
+	#checklist2 {top: 61.5%;left: 51%;}
 
 
-#groupHeading5 {top: 86%;}	/* Selve skriveugen */
-#faq5 {top: 90.5%;left: 1.5%;}
-#sso_skriveuge {top: 102.2%;left: 51%;}
-#sso_video3 {top: 100.6%;left: 1.5%;}
-#checklist4 {top: 90.5%;left: 51%;}
+	#groupHeading4 {top: 72%;}	/* Læse */
+	#faq4 {top: 46.1%;  left: 51%;}
+	#example {top: 76.5%;left: 1.5%;}
+	#checklist3 {top: 76.5%;left: 51%;}
+
+
+	#groupHeading5 {top: 86%;}	/* Selve skriveugen */
+	#faq5 {top: 90.5%;left: 1.5%;}
+	#sso_skriveuge {top: 102.2%;left: 51%;}
+	#sso_video3 {top: 100.6%;left: 1.5%;}
+	#checklist4 {top: 90.5%;left: 51%;}
 
 
 }

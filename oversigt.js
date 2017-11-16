@@ -461,17 +461,18 @@ $(document).on('click', ".userMsgBox_link", function(event) {
     }
 });
 
+// Udkommenteret d. 15/11-2017 idet costume eventlitsners mistænkes for at være grunden til at de ikke fjernes
+// $(document).on('mousedown touchend', 'body', function() { // Remove the #microhint_slider at first user-interaction!
+//     console.log('mousedown - body - CALLED');
 
-$(document).on('mousedown touchend', 'body', function() { // Remove the #microhint_slider at first user-interaction!
-    console.log('mousedown - body - CALLED');
-
-    removeMicrohint('#microhint_slider');
-});
+//     removeMicrohint('#microhint_slider');
+// });
 
 
-$(document).on('click', "#sso_emner", function(event) { // Remove the #microhint_emne if the user interacts with the card #sso_emner.
-    removeMicrohint('#microhint_emne');
-});
+// Udkommenteret d. 15/11-2017 idet costume eventlitsners mistænkes for at være grunden til at de ikke fjernes - dog var "touchend" ikke på denne (som var problemet), men nu er beslutningen taget om kun at have eet microhint: on('click touchend') fra shared_functions lukker nu microhintet.
+// $(document).on('click touchend', "#sso_emner", function(event) { // Remove the #microhint_emne if the user interacts with the card #sso_emner.
+//     removeMicrohint('#microhint_emne');
+// });
 
 
 function removeMicrohint(id) {
@@ -729,6 +730,6 @@ $(document).ready(function() {
     microhint($('#slider'), 'Du kan klikke i menuen herover for at scrolle ned på siden.', true, '#000');
     $('.microhint').css({ position: "fixed" });
     $('.microhint').attr('id', 'microhint_slider');
-    microhint($('#sso_emner .btn_ghost'), 'Her er en side, som viser dig lidt om at finde et godt emne. Siden åbner i et nyt vindue', true, '#000');
-    $('.microhint').last().attr('id', 'microhint_emne');
+    // microhint($('#sso_emner .btn_ghost'), 'Her er en side, som viser dig lidt om at finde et godt emne. Siden åbner i et nyt vindue', true, '#000');
+    // $('.microhint').last().attr('id', 'microhint_emne');
 });
