@@ -203,7 +203,8 @@
 .slideToggle_headerText {
     display: inline-block;
     margin: 0px 20px;
-    max-width: 85%;
+    /*max-width: 85%;*/
+    max-width: 78%;
     /*
 	width: 150%;
 	display: inline-block;
@@ -686,7 +687,7 @@
 }
 
 .checklistItemText {
-    width: 90%;
+    width: 84%;
     display: inline-block;
 }
 
