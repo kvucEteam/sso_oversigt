@@ -215,7 +215,11 @@ function slideToggleMenu() {
 
 
     $(document).on('click', '.slideToggleMenu_img', function() { // QUICK FIX! TLY wants an img for both FAQs and tjeklists - slideToggle needs to activate when the img is clicked.
-        var parentObj = $(this).closest('.card');
+        if ($('.card').length > 0) {
+	        var parentObj = $(this).closest('.card');
+	    } else {
+	        var parentObj = $(this).closest('.card_mobile');
+	    }
         $("> .slideToggle_header", parentObj).trigger("click");
     });
 
@@ -424,7 +428,7 @@ $(document).on('mouseleave', '.card', function() { // ADDED 12/10-2017
 });
 // objLink
 
-$(document).on('click', ".imgOverlayBtn", function(event) {
+$(document).on('click touchend', ".imgOverlayBtn", function(event) {
     console.log('click - CALLED - SCROLL');
     var scrollTo = $(this).attr('data-scrollTo');
     console.log('click - SCROLL - scrollTo: ' + scrollTo + ', offset().top: ' + $("#" + scrollTo).offset().top + ', height()/2: ' + $("#" + scrollTo).height() / 2);

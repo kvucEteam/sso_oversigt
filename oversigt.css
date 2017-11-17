@@ -210,7 +210,7 @@
 	display: inline-block;
     margin: 0px 20px;
     /*max-width: 85%;*/
-    max-width: 79%; 	/* ADDED 15/11-2017 */
+    max-width: 75%; 	/* ADDED 15/11-2017 */
 /*
 	width: 150%;
 	display: inline-block;
@@ -675,7 +675,7 @@
 }
 
 .checklistItemText {
-	width: 90%;
+	width: 84%;
 	display: inline-block;
 }
 
