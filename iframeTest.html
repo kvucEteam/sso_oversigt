@@ -2,73 +2,33 @@
 <html>
 
 <head>
-    <title>Timeline</title>
+    <title>iframeTest</title>
     <!-- http://www.robotstxt.org/meta.html -->
     <meta name="robots" content="noindex, nofollow" />
     <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <!-- <link rel="stylesheet" href="../library/css/styles.css" type="text/css" /> -->
-    <!-- <link rel="stylesheet" href="timeline_scroll2.css" type="text/css" /> -->
+    <link rel="stylesheet" href="../library/css/styles.css" type="text/css" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <style type="text/css">
+        iframe {
+            width: 750px;
+            height: 4500px; 
+        }
+    </style>
 </head>
 
 <body>
     <div class="container-fluid">
+        
+        <iframe src="oversigt.html"></iframe>
 
-        <h1>Scrapingtest fra bibleotek.dk</h1>
-
-<!-- 
-    VIGTIGT:
-    ========
-    Chrome returnere: 
-            Refused to display 'https://bibliotek.dk/' in a frame because it set 'X-Frame-Options' to 'sameorigin'.
-
-    - med andre ord: vi kan ikke scrape via javascript - vi pliver nødt til at gøre det vis wget 
-
-    JAVASCRIPT løsning:
-    ===================
-
-    Se svar her:
-    https://stackoverflow.com/questions/20860650/how-to-get-value-from-external-website-while-the-value-is-set-by-javascript-in-t
-    - som anvender følgende JS ilbery:
-    http://phantomjs.org/
-
- -->
-
-<!-- 
-     src="https://bibliotek.dk/da/search/work?search_block_form=sortes+rettigheder&select_material_type=bibdk_frontpage&op=S%C3%B8g&year_op=%2522year_eq%2522&year_value=&form_build_id=form-S2dBffMKEsLa8SKqi9bdl5c-omfomv7KTfwFiyeAToc&form_id=search_block_form&sort=rank_frequency&page_id=bibdk_frontpage#content"   
- -->
-        <iframe id="testIframe" height="570" width="100%" frameborder="0" src="https://bibliotek.dk"></iframe>
-
-
-        <php>
-
-            <?php
-                $homepage = file_get_contents('http://www.example.com/');
-                echo $homepage;
-            ?>
-
-        </php>
-       
     </div>
-<!-- 
     <script src="../library/vendor_scripts.js"></script>
     <script src="../library/custom_scripts.js"></script>
-  -->   
-<!-- 
-    <script src="timeline_scroll2.js"></script>
-  -->   
-    <script type="text/javascript"> 
-        // getAjaxData("GET", "../sso_faq/json/faq_1.json", false, "json"); 
-    </script>
-    <script type="text/javascript"> 
-        var iframe = document.querySelector('#testIframe');
-        var iframeDocument = iframe.contentDocument || iframe.contentWindow.document;
-    </script>
     <script type="text/javascript">
-        $(document).ready(function() {
-            one_line_footer();
-        });
+    $(document).ready(function() {
+        one_line_footer();
+    });
     </script>
 </body>
 
