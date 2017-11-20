@@ -653,8 +653,18 @@ function insertCards() {
 
 
 function mobileDisplay() {
-    if (detectmob()) {
-        $('#mainImg').hide();
+    /*=========================================================
+    =            Regigeret ATO 20 / 11 2017 
+                 Formål at sikre fuldt display for tablet (og faplets + 800 i width) 
+                 tilføjet screen width under 800 i detect mobile                                        
+    =
+    =========================================================*/
+    
+    if (detectmob() && (screen.width<=768)) {
+    
+    /*=====  End of Regigeret ATO 20 / 11 2017 ======*/
+    
+           $('#mainImg').hide();
         $('.card').addClass('card_mobile').removeClass('card'); // IMPORTANT: This disables the auto-closing of FAQs and tjecklists!
         $('.objElement').css({ 'position': 'relative', 'top': '0px', 'left': '0px', 'display': 'table', 'width': 'inherit', 'max-width': '800px' }); // <---- Indsæt disse i klassen card_mobile?
         // $('.card').css({'margin-bottom': '3%'});
