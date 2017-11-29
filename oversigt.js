@@ -660,11 +660,13 @@ function mobileDisplay() {
     =
     =========================================================*/
     
-    if (detectmob() && (screen.width<=768)) {
+    //if (detectmob() && (screen.width < 769)) {
+    if (detectmob()) {
+        //alert ("Din skærm er: " + screen.width)
     
     /*=====  End of Regigeret ATO 20 / 11 2017 ======*/
     
-           $('#mainImg').hide();
+        $('#mainImg').hide();
         $('.card').addClass('card_mobile').removeClass('card'); // IMPORTANT: This disables the auto-closing of FAQs and tjecklists!
         $('.objElement').css({ 'position': 'relative', 'top': '0px', 'left': '0px', 'display': 'table', 'width': 'inherit', 'max-width': '800px' }); // <---- Indsæt disse i klassen card_mobile?
         // $('.card').css({'margin-bottom': '3%'});
